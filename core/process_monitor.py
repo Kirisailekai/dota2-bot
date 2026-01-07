@@ -109,7 +109,6 @@ class ProcessMonitor:
             pass
 
         # Перезапускаем через sandbox_manager
-        # Нужно добавить метод restart_box в sandbox_manager
         try:
             from core.game_launcher import DotaLauncher
             launcher = DotaLauncher()

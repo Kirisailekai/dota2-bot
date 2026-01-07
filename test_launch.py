@@ -1,147 +1,193 @@
 #!/usr/bin/env python3
 """
-Тестовый скрипт для проверки работы инфраструктуры
+Тестовый запуск системы
 """
 
-import asyncio
 import sys
-import os
+import time
+from pathlib import Path
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
-
-from core.sandbox_controller import SandboxManager
-from core.process_monitor import ProcessMonitor
-from config.accounts_manager import AccountsManager
+sys.path.insert(0, str(Path(__file__).parent))
 
 
-async def test_single_window():
+def test_single_instance_no_kill():
     """Тест запуска одного окна"""
-    print("\n" + "=" * 50)
-    print("ТЕСТ: Запуск одного окна Dota 2")
-    print("=" * 50)
+    print("Тест 1: Запуск одного экземпляра Dota 2...")
 
-    # Инициализация
-    sandbox_mgr = SandboxManager()
-    accounts_mgr = AccountsManager()
+    try:
+        from core.game_launcher import GameLauncher
+        launcher = GameLauncher()
 
-    # Проверяем аккаунты
-    accounts = accounts_mgr.load_accounts()
-    if not accounts:
-        print("❌ Аккаунты не настроены!")
-        print("Запустите accounts_mgr.create_accounts_template()")
+        success = launcher.launch_single(0)
+
+        if success:
+            print("✓ Тестовое окно запущено")
+
+            # Ждем 30 секунд для проверки
+            print("\n" + "=" * 60)
+            print("✅ Steam должен запуститься и остаться открытым!")
+            print("Проверьте:")
+            print("1. Открылось ли окно Steam?")
+            print("2. Вошел ли Steam в аккаунт автоматически?")
+            print("3. Запустилась ли Dota 2?")
+            print("\nОжидаю 30 секунд для проверки...")
+
+            for i in range(30, 0, -1):
+                print(f"Осталось: {i} секунд", end="\r")
+                time.sleep(1)
+            print()
+
+            # Не убиваем процессы автоматически
+            print("\n" + "=" * 60)
+            print("Тест завершен, процессы НЕ были остановлены!")
+            print("\nЧто делать дальше:")
+            print("1. Если все работает - отлично! Система готова.")
+            print("2. Если Steam не вошел - проверьте аккаунты в config/accounts.json")
+            print("3. Если нужно остановить процессы, запустите: python stop_all.py")
+            print("\nДля выхода из теста нажмите Ctrl+C")
+
+            # Ждем, пока пользователь сам не закроет
+            try:
+                while True:
+                    time.sleep(1)
+            except KeyboardInterrupt:
+                print("\n\nОстановка процессов по запросу пользователя...")
+                launcher.controller.kill_all()
+                print("Все процессы остановлены")
+
+            return True
+        else:
+            print("✗ Ошибка запуска")
+            return False
+
+    except Exception as e:
+        print(f"✗ Критическая ошибка: {e}")
+        import traceback
+        traceback.print_exc()
         return False
 
-    print(f"✅ Найдено {len(accounts)} аккаунтов")
 
-    # Запускаем одно окно
+def quick_sandboxie_test():
+    """Быстрая проверка Sandboxie без запуска Dota"""
+    print("\nТест 2: Быстрая проверка Sandboxie...")
+
     try:
-        process = await sandbox_mgr.launch_box(
-            box_name="TestBox1",
-            config_type="default",
-            account_id=1
-        )
+        from core.sandbox_controller import SandboxController
+        controller = SandboxController()
 
-        print("✅ Окно запущено")
-        print(f"   PID: {process.pid}")
-        print(f"   Аккаунт: {accounts[0].login}")
+        print(f"✓ Sandboxie найден: {controller.sandboxie_path}")
 
-        # Мониторинг
-        monitor = ProcessMonitor(sandbox_mgr)
-        await monitor.add_process("TestBox1", psutil.Process(process.pid))
+        # Проверяем песочницы
+        for i in range(1, 4):
+            sandbox_name = f"DOTA_BOT_{i}"
+            if controller.is_sandbox_exists(sandbox_name):
+                print(f"✓ {sandbox_name} найдена")
+            else:
+                print(f"⚠ {sandbox_name} не найдена")
 
-        # Проверяем 30 секунд
-        print("\n⏳ Мониторинг 30 секунд...")
-        for i in range(30):
-            status = await monitor.check_process("TestBox1")
-            print(f"   {i + 1}/30 - Статус: {status}")
-            await asyncio.sleep(1)
-
-        # Очистка
-        print("\n🧹 Очистка...")
-        await sandbox_mgr.cleanup()
-
-        print("\n✅ Тест завершен успешно!")
         return True
 
     except Exception as e:
-        print(f"❌ Ошибка: {e}")
+        print(f"✗ Ошибка: {e}")
         return False
 
 
-async def test_resources_allocation():
-    """Тест распределения ресурсов"""
-    print("\n" + "=" * 50)
-    print("ТЕСТ: Распределение ресурсов системы")
-    print("=" * 50)
+def check_accounts():
+    """Проверка аккаунтов"""
+    print("\nТест 3: Проверка аккаунтов...")
 
-    sandbox_mgr = SandboxManager()
+    try:
+        import json
+        with open("config/accounts.json", "r") as f:
+            accounts = json.load(f)
 
-    # Анализ системы
-    import psutil
-    cpu_count = psutil.cpu_count()
-    memory_gb = psutil.virtual_memory().total / (1024 ** 3)
+        if accounts and len(accounts) > 0:
+            print(f"✓ Найдено аккаунтов: {len(accounts)}")
+            for i, acc in enumerate(accounts[:3], 1):
+                print(f"  {i}. {acc.get('username', 'N/A')}")
+            if len(accounts) > 3:
+                print(f"  ... и еще {len(accounts) - 3}")
+            return True
+        else:
+            print("✗ Файл аккаунтов пуст")
+            return False
 
-    print(f"Система:")
-    print(f"  CPU ядер: {cpu_count}")
-    print(f"  RAM: {memory_gb:.1f} GB")
-
-    # Рекомендации
-    print("\nРекомендации для 5 окон:")
-    if memory_gb < 16:
-        print("  ⚠️  Мало RAM! Используйте low_memory профили")
-        print("  Рассмотрите запуск только 3 окон")
-    elif memory_gb < 32:
-        print("  ✅ Достаточно для 5 окон на средних настройках")
-    else:
-        print("  ✅ Отлично! Можно использовать высокие настройки")
-
-    return True
+    except Exception as e:
+        print(f"✗ Ошибка чтения аккаунтов: {e}")
+        return False
 
 
-async def main():
-    """Основная функция тестирования"""
-    print("Тестирование инфраструктуры Dota 5 Bot System")
-    print("Разработчик 1: Инфраструктура\n")
+def main():
+    print("=" * 60)
+    print("ТЕСТ ЗАПУСКА")
+    print("=" * 60)
+    print("\n⚠ Этот тест не будет автоматически закрывать Steam")
 
-    tests = [
-        ("Анализ системы", test_resources_allocation),
-        ("Запуск одного окна", test_single_window),
+    # Проверка наличия конфигов
+    print("\nПроверка конфигурационных файлов...")
+    required_files = [
+        ("config/accounts.json", True),
+        ("config/sandbox_configs/DOTA_BOT_1.ini", True),
+        ("core/game_launcher.py", True),
     ]
 
-    results = []
-    for test_name, test_func in tests:
-        try:
-            print(f"\n{'=' * 60}")
-            print(f"Запуск теста: {test_name}")
-            print(f"{'=' * 60}")
+    for file_path, required in required_files:
+        if Path(file_path).exists():
+            print(f"✓ {file_path}")
+        else:
+            if required:
+                print(f"✗ {file_path} - отсутствует!")
+                return 1
+            else:
+                print(f"⚠ {file_path} - отсутствует")
 
-            success = await test_func()
-            results.append((test_name, success))
+    # Проверяем аккаунты
+    accounts_ok = check_accounts()
 
-        except Exception as e:
-            print(f"❌ Тест упал с ошибкой: {e}")
-            results.append((test_name, False))
+    # Быстрая проверка Sandboxie
+    sandboxie_ok = quick_sandboxie_test()
 
-    # Вывод результатов
     print("\n" + "=" * 60)
-    print("РЕЗУЛЬТАТЫ ТЕСТИРОВАНИЯ:")
-    print("=" * 60)
+    print("Готов к запуску теста?")
+    print("-" * 60)
 
-    for test_name, success in results:
-        status = "✅ ПРОЙДЕН" if success else "❌ ПРОВАЛЕН"
-        print(f"{test_name:30} {status}")
+    response = input("Запустить тест? (y/n): ").strip().lower()
+    if response != 'y':
+        print("Тест отменен.")
+        return 0
 
-    # Итог
-    passed = sum(1 for _, success in results if success)
-    total = len(results)
+    # Запускаем основной тест
+    test_result = test_single_instance_no_kill()
 
-    print(f"\nИТОГО: {passed}/{total} тестов пройдено")
+    print("\n" + "=" * 60)
+    if test_result:
+        print("✅ ТЕСТ УСПЕШНО ЗАВЕРШЕН!")
+        print("\nСтатус системы:")
+        print(f"1. Аккаунты: {'✓' if accounts_ok else '✗'}")
+        print(f"2. Sandboxie: {'✓' if sandboxie_ok else '✗'}")
+        print(f"3. Запуск: {'✓' if test_result else '✗'}")
 
-    if passed == total:
-        print("\n🎉 Вся инфраструктура готова к работе!")
+        if accounts_ok and sandboxie_ok and test_result:
+            print("\n🎉 СИСТЕМА РАБОТАЕТ КОРРЕКТНО!")
+            return 0
+        else:
+            print("\n⚠ Есть проблемы, которые нужно исправить.")
+            return 1
     else:
-        print("\n⚠️  Требуется доработка инфраструктуры")
+        print("❌ ТЕСТ НЕ ПРОШЕЛ")
+        return 1
 
 
 if __name__ == "__main__":
-    asyncio.run(main())
+    try:
+        exit_code = main()
+        sys.exit(exit_code)
+    except KeyboardInterrupt:
+        print("\n\nТест прерван пользователем")
+        sys.exit(1)
+    except Exception as e:
+        print(f"\n❌ Критическая ошибка: {e}")
+        import traceback
+
+        traceback.print_exc()
+        sys.exit(1)

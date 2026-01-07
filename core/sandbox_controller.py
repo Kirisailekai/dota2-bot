@@ -1,240 +1,225 @@
 import subprocess
-import os
 import psutil
 import time
-import asyncio
-from pathlib import Path
 import json
-from typing import Dict, List
+import os
+from pathlib import Path
+from typing import List, Dict, Optional
+import logging
 
 
-class SandboxManager:
-    def __init__(self, sandboxie_path=None, config_dir="config/sandbox_configs"):
-        self.sandboxie_path = sandboxie_path or r"C:\Sandboxie\Start.exe"
-        self.config_dir = Path(config_dir)
-        self.boxes: List[str] = []
-        self.processes: Dict[str, subprocess.Popen] = {}
-        self.box_configs: Dict[str, Dict] = {}
+class SandboxController:
+    def __init__(self):
+        self.sandboxie_path = Path(r"C:\Program Files\Sandboxie-Plus")
+        self.processes = []
+        self.logger = self.setup_logger()
 
-        # Создаем директории если их нет
-        self.config_dir.mkdir(parents=True, exist_ok=True)
+        if not self.sandboxie_path.exists():
+            self.logger.error("Sandboxie-Plus не найден!")
 
-    def check_sandboxie_installed(self) -> bool:
-        """Проверка установлен ли Sandboxie"""
-        if not os.path.exists(self.sandboxie_path):
-            print(f"❌ Sandboxie не найден по пути: {self.sandboxie_path}")
-            print("\nУстановите Sandboxie одним из способов:")
-            print("1. Запустите scripts\\setup_sandboxie.py (от администратора)")
-            print("2. Запустите install_sandboxie.bat (от администратора)")
-            print("3. Установите вручную с https://sandboxie-plus.com/")
-            return False
-        return True
+    def setup_logger(self):
+        logger = logging.getLogger("SandboxController")
+        logger.setLevel(logging.INFO)
 
-    async def create_sandbox_config(self, box_name: str, config_type: str = "default") -> Path:
-        """Создание конфигурационного файла для Sandboxie"""
+        # Создаем папку для логов если ее нет
+        log_dir = Path("logs")
+        log_dir.mkdir(exist_ok=True)
 
-        # Базовые настройки
-        base_config = {
-            "box_name": box_name,
-            "config_type": config_type,
-            "settings": {
-                "Enabled": "y",
-                "ConfigLevel": "7",
-                "AutoRecover": "y",
-                "BlockNetworkFiles": "y",
-                "DropAdminRights": "y"
-            },
-            "process_group": [
-                "steam.exe",
-                "dota2.exe",
-                "gameoverlayui.exe"
-            ],
-            "file_paths": {
-                "isolate": [
-                    r"C:\Program Files (x86)\Steam\steamapps\common\dota 2 beta",
-                    r"C:\Program Files (x86)\Steam\config",
-                    r"C:\Program Files (x86)\Steam\userdata"
-                ],
-                "share": [
-                    r"%Personal%",
-                    r"%Desktop%"
-                ]
-            },
-            "network": {
-                "enabled": "y",
-                "block_ports": ["27015", "27016", "27017"]
-            }
-        }
+        handler = logging.FileHandler(log_dir / "sandbox_controller.log")
+        formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+        handler.setFormatter(formatter)
+        logger.addHandler(handler)
 
-        # Разные конфиги для разных окон
-        if config_type == "low_memory":
-            base_config["settings"]["MemoryQuota"] = "1024M"
-        elif config_type == "high_perf":
-            base_config["settings"]["MemoryQuota"] = "2048M"
-            base_config["settings"]["CpuPriority"] = "Idle"
+        # Также выводим в консоль
+        console_handler = logging.StreamHandler()
+        console_handler.setFormatter(formatter)
+        logger.addHandler(console_handler)
 
-        # Сохраняем JSON конфиг
-        json_config_path = self.config_dir / f"{box_name}.json"
-        json_config_path.write_text(json.dumps(base_config, indent=2, ensure_ascii=False), encoding='utf-8')
+        return logger
 
-        # Создаем INI файл для Sandboxie
-        ini_content = self._config_to_ini(base_config)
-        ini_path = Path(f"C:\\Sandboxie\\{box_name}.ini")
-        ini_path.write_text(ini_content, encoding='utf-8')
+    def start_process(self, sandbox_name: str, command: str) -> Optional[int]:
+        """Запуск процесса в песочнице"""
+        try:
+            start_exe = self.sandboxie_path / "Start.exe"
+            if not start_exe.exists():
+                self.logger.error("Start.exe не найден!")
+                return None
 
-        self.box_configs[box_name] = base_config
-        print(f"[Sandbox] Создан конфиг для {box_name} ({config_type})")
+            # Формируем команду
+            full_cmd = f'"{start_exe}" /box:{sandbox_name} {command}'
+            self.logger.info(f"Выполняю команду: {full_cmd}")
 
-        return ini_path
+            # Запускаем процесс
+            process = subprocess.Popen(
+                full_cmd,
+                shell=True,
+                stdout=subprocess.PIPE,
+                stderr=subprocess.PIPE,
+                text=True,
+                creationflags=subprocess.CREATE_NO_WINDOW
+            )
 
-    def _config_to_ini(self, config: Dict) -> str:
-        """Конвертация JSON конфига в INI формат"""
-        lines = []
+            # Ждем немного чтобы процесс запустился
+            time.sleep(3)
 
-        # Настройки
-        lines.append(f"[{config['box_name']}]")
-        for key, value in config['settings'].items():
-            lines.append(f"{key}={value}")
-        lines.append("")
+            # Получаем PID (не всегда точно, но работает для отслеживания)
+            pid = process.pid
 
-        # Process group
-        lines.append("[ProcessGroup]")
-        lines.append("Enabled=y")
-        for process in config['process_group']:
-            lines.append(f"ImageName={process}")
-        lines.append("")
+            self.processes.append({
+                'sandbox': sandbox_name,
+                'command': command,
+                'process': process,
+                'pid': pid,
+                'start_time': time.time()
+            })
 
-        # File paths
-        lines.append("[FilePaths]")
-        for path in config['file_paths']['isolate']:
-            lines.append(f"{path}=-")
-        for path in config['file_paths']['share']:
-            lines.append(f"{path}=%Shared%")
-        lines.append("")
+            self.logger.info(f"Процесс запущен в песочнице {sandbox_name} (PID: {pid})")
+            return pid
 
-        # Network
-        lines.append("[Network]")
-        for key, value in config['network'].items():
-            if isinstance(value, list):
-                for item in value:
-                    lines.append(f"{key}={item}")
-            else:
-                lines.append(f"{key}={value}")
+        except Exception as e:
+            self.logger.error(f"Ошибка запуска процесса: {e}")
+            return None
 
-        return "\n".join(lines)
+    def launch_steam(self, sandbox_name: str, username: str, password: str,
+                     window_position: tuple = None) -> Optional[int]:
+        """Запуск Steam в песочнице"""
+        steam_path = r"C:\Program Files (x86)\Steam\steam.exe"
 
-    async def launch_box(self, box_name: str, config_type: str = "default",
-                         account_id: int = 0) -> subprocess.Popen:
-        """Запуск изолированного окружения с указанным аккаунтом"""
+        if not Path(steam_path).exists():
+            self.logger.error("Steam не найден!")
+            return None
 
-        if not self.check_sandboxie_installed():
-            raise RuntimeError("Sandboxie не установлен")
-
-        # Создаем конфиг
-        await self.create_sandbox_config(box_name, config_type)
-
-        # Параметры запуска
-        launch_cmd = [
-            self.sandboxie_path,
-            f"/box:{box_name}",
-            "cmd.exe",
-            "/c",
-            "start",
-            "/B",
-            "steam.exe"
+        # Параметры запуска Dota 2
+        dota_args = [
+            f"-login {username} {password}",
+            "-applaunch 570",  # Dota 2
+            "-novid",
+            "-console",
+            "-windowed",
+            "-w 1024",
+            "-h 768",
+            "+map dota",
+            "-disablehangwatchdog"
         ]
 
-        # Добавляем параметры для Steam аккаунта
-        if account_id > 0:
-            from config.accounts_manager import AccountsManager
-            accounts_mgr = AccountsManager()
-            accounts_mgr.load_accounts()
+        if window_position:
+            x, y, width, height = window_position
+            dota_args.extend([
+                f"-x {x}",
+                f"-y {y}",
+                f"-w {width}",
+                f"-h {height}"
+            ])
 
-            account = accounts_mgr.get_account(account_id)
-            if account:
-                launch_cmd.extend(["-login", account.login, account.password])
-                print(f"[Sandbox] Использую аккаунт: {account.login}")
+        command = f'"{steam_path}" {" ".join(dota_args)}'
+        return self.start_process(sandbox_name, command)
 
-        # Запускаем Steam
-        print(f"[Sandbox] Запускаю {box_name}...")
-        process = subprocess.Popen(
-            launch_cmd,
-            stdout=subprocess.PIPE,
-            stderr=subprocess.PIPE,
-            shell=True
+    def launch_dota_direct(self, sandbox_name: str, username: str, password: str) -> Optional[int]:
+        """Прямой запуск Dota 2 (альтернативный метод)"""
+        # Если Steam уже запущен, можно использовать этот метод
+        command = (
+            f'cmd /c start /wait "" "{self.sandboxie_path}\\Start.exe" '
+            f'/box:{sandbox_name} '
+            '"C:\\Program Files (x86)\\Steam\\steam.exe" '
+            f'-login {username} {password} -applaunch 570 -windowed -novid'
         )
 
-        self.processes[box_name] = process
-        self.boxes.append(box_name)
+        return self.start_process(sandbox_name, command)
 
-        # Ждем запуска
-        await asyncio.sleep(5)
+    def kill_all_in_sandbox(self, sandbox_name: str):
+        """Завершение всех процессов в песочнице"""
+        try:
+            # Используем taskkill для завершения процессов
+            cmd = f'taskkill /FI "WINDOWTITLE eq *{sandbox_name}*" /F'
+            subprocess.run(cmd, shell=True, capture_output=True)
 
-        return process
+            # Также завершаем процессы через Sandboxie
+            start_exe = self.sandboxie_path / "Start.exe"
+            if start_exe.exists():
+                cmd = f'"{start_exe}" /box:{sandbox_name} /terminate'
+                subprocess.run(cmd, shell=True, capture_output=True)
 
-    async def launch_boxes_with_resources(self, count=5):
-        """Запуск окон с оптимизацией под ресурсы системы"""
-        import psutil
+            self.logger.info(f"Процессы в песочнице {sandbox_name} завершены")
 
-        # Анализируем систему
-        cpu_count = psutil.cpu_count()
-        total_memory = psutil.virtual_memory().total / (1024 ** 3)  # в GB
+        except Exception as e:
+            self.logger.error(f"Ошибка завершения процессов: {e}")
 
-        print(f"[System] CPU ядер: {cpu_count}, RAM: {total_memory:.1f}GB")
+    def kill_all(self):
+        """Остановка всех процессов"""
+        self.logger.info("Остановка всех процессов...")
 
-        # Распределяем ресурсы
-        config_types = []
-        for i in range(count):
-            if total_memory < 16:
-                config_types.append("low_memory")
-            elif i == 0:  # Первое окно - высокий приоритет
-                config_types.append("high_perf")
-            else:
-                config_types.append("default")
-
-        # Запускаем окна
-        tasks = []
-        for i in range(count):
-            box_name = f"DotaBox{i + 1}"
-            config_type = config_types[i]
-            account_id = i + 1
-
-            task = asyncio.create_task(
-                self.launch_box(box_name, config_type, account_id)
-            )
-            tasks.append(task)
-
-        await asyncio.gather(*tasks)
-        print(f"[Sandbox] Запущено {count} окон с оптимизацией ресурсов")
-
-    async def cleanup(self, force=False):
-        """Очистка всех песочниц"""
-        print("[Sandbox] Очищаю песочницы...")
-
-        for box in self.boxes:
+        for proc_info in self.processes:
             try:
-                if force:
-                    cmd = f'"{self.sandboxie_path}" /box:{box} /terminate'
-                else:
-                    cmd = f'"{self.sandboxie_path}" /box:{box} /close'
+                if 'process' in proc_info and proc_info['process']:
+                    proc_info['process'].terminate()
 
-                subprocess.run(cmd, shell=True, timeout=10)
-                print(f"[Sandbox] Очищена песочница: {box}")
+                # Также завершаем по PID
+                pid = proc_info.get('pid')
+                if pid:
+                    try:
+                        os.kill(pid, 9)
+                    except:
+                        pass
 
-            except subprocess.TimeoutExpired:
-                print(f"[Sandbox] Таймаут при очистке {box}")
+            except Exception as e:
+                self.logger.error(f"Ошибка остановки процесса: {e}")
 
-        # Убиваем процессы
-        for box_name, proc in self.processes.items():
-            if proc.poll() is None:
-                try:
-                    proc.terminate()
-                    await asyncio.sleep(2)
-                    if proc.poll() is None:
-                        proc.kill()
-                except:
-                    pass
+        # Завершаем все песочницы
+        for i in range(1, 6):
+            self.kill_all_in_sandbox(f"DOTA_BOT_{i}")
 
-        self.boxes.clear()
         self.processes.clear()
-        print("[Sandbox] Все песочницы очищены")
+        self.logger.info("Все процессы остановлены")
+
+    def monitor_processes(self, interval: int = 30):
+        """Мониторинг процессов (упрощенный)"""
+        self.logger.info(f"Запуск мониторинга с интервалом {interval} секунд...")
+
+        try:
+            while True:
+                # Проверяем статус каждого процесса
+                for proc_info in self.processes[:]:
+                    pid = proc_info.get('pid')
+                    sandbox = proc_info.get('sandbox', 'unknown')
+
+                    if pid:
+                        try:
+                            process = psutil.Process(pid)
+                            status = process.status()
+                            self.logger.debug(f"Процесс {pid} ({sandbox}): {status}")
+                        except (psutil.NoSuchProcess, psutil.AccessDenied):
+                            self.logger.warning(f"Процесс {pid} ({sandbox}) завершен")
+                            self.processes.remove(proc_info)
+
+                time.sleep(interval)
+
+        except KeyboardInterrupt:
+            self.logger.info("Мониторинг остановлен пользователем")
+        except Exception as e:
+            self.logger.error(f"Ошибка мониторинга: {e}")
+
+    def is_sandbox_exists(self, sandbox_name: str) -> bool:
+        """Проверка существования песочницы"""
+        config_paths = [
+            self.sandboxie_path / f"{sandbox_name}.ini",
+            Path.home() / "AppData" / "Roaming" / "Sandboxie-Plus" / f"{sandbox_name}.ini"
+        ]
+
+        for path in config_paths:
+            if path.exists():
+                return True
+
+        self.logger.warning(f"Песочница {sandbox_name} не найдена. Создайте ее через Sandboxie-Plus UI.")
+        return False
+
+    def create_sandbox_through_ui(self, sandbox_name: str):
+        """Создание песочницы через UI (инструкция)"""
+        print(f"\n📋 Создайте песочницу {sandbox_name} через Sandboxie-Plus UI:")
+        print("1. Откройте Sandboxie-Plus.exe")
+        print("2. Нажмите правой кнопкой в списке песочниц → 'Create New Sandbox'")
+        print("3. Введите имя: " + sandbox_name)
+        print("4. Нажмите OK")
+        print("5. Настройте по желанию (границы, изоляция и т.д.)")
+        print("\nПосле создания песочницы можно запускать ботов.\n")
+
+        input("Нажмите Enter после создания песочницы...")

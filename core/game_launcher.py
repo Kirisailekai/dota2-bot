@@ -1,93 +1,159 @@
-import subprocess
-import asyncio
 import time
-import win32gui
-import win32con
+from typing import Dict, List
+import logging
+from .sandbox_controller import SandboxController
+from config.accounts_manager import AccountsManager
 
 
-class DotaLauncher:
+class GameLauncher:
     def __init__(self):
-        self.steam_path = r"C:\Program Files (x86)\Steam\steam.exe"
-        self.dota_app_id = 570
-        self.window_titles = []
+        self.controller = SandboxController()
+        self.accounts_manager = AccountsManager()
+        self.logger = logging.getLogger(__name__)
 
-    async def launch_dota_in_sandbox(self, box_name, account_index=0):
-        """Запуск Dota 2 в указанной песочнице"""
-        # Параметры запуска для уменьшения нагрузки
-        launch_params = [
-            "-applaunch", str(self.dota_app_id),
-            "-console",
-            "-novid",  # Пропуск интро
-            "-nojoy",  # Отключить джойстик
-            "-windowed",
-            "-noborder",  # Без рамки
-            "-w", "1024",  # Ширина
-            "-h", "768",  # Высота
-            "+fps_max", "60",
-            "-high",  # Высокий приоритет
-        ]
+        # Проверяем наличие песочниц
+        self.check_sandboxes()
 
-        # Если есть отдельный аккаунт Steam
-        if account_index > 0:
-            launch_params.extend(["-login", f"account{account_index}"])
+    def check_sandboxes(self):
+        """Проверка существования песочниц"""
+        print("Проверка песочниц...")
 
-        cmd = [
-                  r"C:\Sandboxie\Start.exe",
-                  f"/box:{box_name}",
-                  self.steam_path
-              ] + launch_params
-
-        # Запускаем процесс
-        process = await asyncio.create_subprocess_exec(
-            *cmd,
-            stdout=asyncio.subprocess.PIPE,
-            stderr=asyncio.subprocess.PIPE
-        )
-
-        print(f"Запускаю Dota 2 в {box_name}")
-        return process
-
-    async def wait_for_window(self, box_name, timeout=60):
-        """Ожидание появления окна игры"""
-        start_time = time.time()
-        window_handle = None
-
-        while time.time() - start_time < timeout:
-            def enum_callback(hwnd, results):
-                if win32gui.IsWindowVisible(hwnd):
-                    title = win32gui.GetWindowText(hwnd)
-                    if "Dota 2" in title and box_name in title:
-                        results.append(hwnd)
-
-            results = []
-            win32gui.EnumWindows(enum_callback, results)
-
-            if results:
-                window_handle = results[0]
-                # Приводим окно к нужному размеру и позиции
-                win32gui.MoveWindow(window_handle, 0, 0, 1024, 768, True)
-                win32gui.ShowWindow(window_handle, win32con.SW_SHOWNORMAL)
+        sandboxes_exist = True
+        for i in range(1, 6):
+            sandbox_name = f"DOTA_BOT_{i}"
+            if not self.controller.is_sandbox_exists(sandbox_name):
+                sandboxes_exist = False
+                self.controller.create_sandbox_through_ui(sandbox_name)
                 break
 
-            await asyncio.sleep(1)
+        if sandboxes_exist:
+            print("✓ Все песочницы найдены")
 
-        return window_handle
+    def launch_single(self, account_index: int = 0, window_position: tuple = None) -> bool:
+        """Запуск одного экземпляра Dota 2"""
+        accounts = self.accounts_manager.get_accounts()
 
-    async def launch_dota_in_boxes(self, count=5):
-        """Запуск Dota 2 во всех песочницах"""
-        tasks = []
-        for i in range(1, count + 1):
-            box_name = f"DotaBox{i}"
-            # Запускаем игру
-            task1 = asyncio.create_task(
-                self.launch_dota_in_sandbox(box_name, i)
+        if account_index >= len(accounts):
+            self.logger.error(f"Аккаунт с индексом {account_index} не найден")
+            return False
+
+        account = accounts[account_index]
+        sandbox_name = account.get('sandbox', f'DOTA_BOT_{account_index + 1}')
+
+        print(f"Запуск Dota 2 для {account['username']} в {sandbox_name}...")
+
+        if window_position is None:
+            window_position = (0, 0, 1024, 768)
+
+        pid = self.controller.launch_steam(
+            sandbox_name,
+            account['username'],
+            account['password'],
+            window_position
+        )
+
+        return pid is not None
+
+    def launch_team(self, team_size: int = 5) -> Dict:
+        """Запуск команды ботов"""
+        print(f"Запуск команды из {team_size} ботов...")
+
+        accounts = self.accounts_manager.get_accounts()[:team_size]
+
+        if len(accounts) < team_size:
+            self.logger.error(f"Нужно {team_size} аккаунтов, но доступно {len(accounts)}")
+            return {"status": "error", "message": "Недостаточно аккаунтов"}
+
+        # Расположение окон
+        if team_size == 5:
+            positions = [
+                (0, 0, 960, 540),
+                (960, 0, 960, 540),
+                (0, 540, 960, 540),
+                (960, 540, 960, 540),
+                (1920, 0, 960, 1080)
+            ]
+        else:
+            positions = self.calculate_window_positions(team_size)
+
+        results = []
+        for i, (account, position) in enumerate(zip(accounts, positions)):
+            sandbox_name = f"DOTA_BOT_{i + 1}"
+
+            print(f"Запуск бота {i + 1}/{team_size}: {account['username']}")
+
+            pid = self.controller.launch_steam(
+                sandbox_name,
+                account['username'],
+                account['password'],
+                position
             )
-            # Ждем окно
-            task2 = asyncio.create_task(
-                self.wait_for_window(box_name)
-            )
-            tasks.extend([task1, task2])
 
-        results = await asyncio.gather(*tasks)
-        print("Все окна Dota 2 запущены")
-        return results
+            if pid:
+                results.append({
+                    "account": account['username'],
+                    "sandbox": sandbox_name,
+                    "pid": pid,
+                    "success": True
+                })
+                print(f"  ✓ Запущен (PID: {pid})")
+            else:
+                results.append({
+                    "account": account['username'],
+                    "sandbox": sandbox_name,
+                    "success": False
+                })
+                print(f"  ✗ Ошибка запуска")
+
+            # Задержка между запусками
+            if i < team_size - 1:
+                time.sleep(20)  # 20 секунд между запусками
+
+        success_count = sum(1 for r in results if r['success'])
+
+        return {
+            "status": "success" if success_count == team_size else "partial",
+            "total": team_size,
+            "successful": success_count,
+            "results": results
+        }
+
+    def calculate_window_positions(self, num_windows: int) -> List[tuple]:
+        """Расчет позиций окон"""
+        import math
+
+        screen_width = 1920
+        screen_height = 1080
+
+        # Определяем сетку
+        cols = math.ceil(math.sqrt(num_windows))
+        rows = math.ceil(num_windows / cols)
+
+        window_width = screen_width // cols
+        window_height = screen_height // rows
+
+        positions = []
+        for i in range(num_windows):
+            row = i // cols
+            col = i % cols
+
+            x = col * window_width
+            y = row * window_height
+
+            # Отступы
+            padding = 5
+            positions.append((
+                x + padding,
+                y + padding,
+                window_width - padding * 2,
+                window_height - padding * 2
+            ))
+
+        return positions
+
+    def get_status(self):
+        """Получение статуса"""
+        return {
+            "running_processes": len(self.controller.processes),
+            "sandboxie_path": str(self.controller.sandboxie_path)
+        }

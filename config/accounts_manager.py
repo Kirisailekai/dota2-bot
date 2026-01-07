@@ -1,167 +1,130 @@
 import json
-import os
 import hashlib
-from typing import List, Dict, Optional
-from dataclasses import dataclass, asdict
+from pathlib import Path
+from typing import List, Dict
+import logging
 from cryptography.fernet import Fernet
 import base64
 
 
-@dataclass
-class SteamAccount:
-    id: int
-    login: str
-    password: str
-    nickname: str
-    steam_id: Optional[str] = None
-    is_active: bool = True
-    last_used: Optional[str] = None
-
-
 class AccountsManager:
-    def __init__(self, config_path: str = "config/accounts.json"):
-        self.config_path = config_path
-        self.accounts: List[SteamAccount] = []
-        self.encryption_key = None
-        self._load_encryption_key()
+    def __init__(self, config_file: str = "config/accounts.json"):
+        self.config_file = Path(config_file)
+        self.accounts = []
+        self.logger = logging.getLogger(__name__)
+        self._load_accounts()
 
-    def _load_encryption_key(self):
-        """Загрузка или создание ключа шифрования"""
-        key_path = "config/encryption.key"
-
-        if os.path.exists(key_path):
-            with open(key_path, 'rb') as f:
-                self.encryption_key = f.read()
-        else:
-            # Создаем новый ключ
-            self.encryption_key = Fernet.generate_key()
-            os.makedirs("config", exist_ok=True)
-            with open(key_path, 'wb') as f:
-                f.write(self.encryption_key)
-
-    def _encrypt(self, text: str) -> str:
-        """Шифрование текста"""
-        if not self.encryption_key:
-            return text
-
-        fernet = Fernet(self.encryption_key)
-        encrypted = fernet.encrypt(text.encode())
-        return base64.b64encode(encrypted).decode()
-
-    def _decrypt(self, encrypted_text: str) -> str:
-        """Дешифрование текста"""
-        if not self.encryption_key:
-            return encrypted_text
-
-        fernet = Fernet(self.encryption_key)
-        decrypted = fernet.decrypt(base64.b64decode(encrypted_text))
-        return decrypted.decode()
-
-    def create_accounts_template(self):
-        """Создание шаблона для 5 аккаунтов"""
-        template_accounts = []
-
-        for i in range(1, 6):
-            account = SteamAccount(
-                id=i,
-                login=f"dota2bot{i}",
-                password=f"password{i}_CHANGE_ME",  # Нужно изменить!
-                nickname=f"Bot{i}_Player",
-                is_active=True
-            )
-            template_accounts.append(asdict(account))
-
-        # Сохраняем зашифрованные пароли
-        encrypted_accounts = []
-        for acc in template_accounts:
-            encrypted_acc = acc.copy()
-            encrypted_acc['password'] = self._encrypt(acc['password'])
-            encrypted_accounts.append(encrypted_acc)
-
-        os.makedirs("config", exist_ok=True)
-        with open(self.config_path, 'w', encoding='utf-8') as f:
-            json.dump(encrypted_accounts, f, indent=2, ensure_ascii=False)
-
-        print(f"[Accounts] Создан шаблон конфигурации в {self.config_path}")
-        print("ВАЖНО: Измените логины и пароли на реальные!")
-
-    def load_accounts(self) -> List[SteamAccount]:
+    def _load_accounts(self):
         """Загрузка аккаунтов из файла"""
-        if not os.path.exists(self.config_path):
-            print(f"[Accounts] Файл {self.config_path} не найден. Создаю шаблон...")
-            self.create_accounts_template()
-
         try:
-            with open(self.config_path, 'r', encoding='utf-8') as f:
-                encrypted_accounts = json.load(f)
-
-            accounts = []
-            for acc_data in encrypted_accounts:
-                # Дешифруем пароль
-                decrypted_data = acc_data.copy()
-                decrypted_data['password'] = self._decrypt(acc_data['password'])
-
-                account = SteamAccount(**decrypted_data)
-                accounts.append(account)
-
-            self.accounts = accounts
-            print(f"[Accounts] Загружено {len(accounts)} аккаунтов")
-            return accounts
-
+            if self.config_file.exists():
+                with open(self.config_file, 'r') as f:
+                    self.accounts = json.load(f)
+                self.logger.info(f"Загружено {len(self.accounts)} аккаунтов")
+            else:
+                self._create_default_config()
         except Exception as e:
-            print(f"[Accounts] Ошибка загрузки аккаунтов: {e}")
-            return []
+            self.logger.error(f"Ошибка загрузки аккаунтов: {e}")
+            self._create_default_config()
 
-    def get_account(self, account_id: int) -> Optional[SteamAccount]:
-        """Получение аккаунта по ID"""
+    def _create_default_config(self):
+        """Создание конфигурации по умолчанию"""
+        self.accounts = [
+            {
+                "username": "bot_account_1",
+                "password": "password1",
+                "steam_id": "76561198000000001",
+                "sandbox": "DOTA_BOT_1",
+                "enabled": True,
+                "last_used": None
+            },
+            {
+                "username": "bot_account_2",
+                "password": "password2",
+                "steam_id": "76561198000000002",
+                "sandbox": "DOTA_BOT_2",
+                "enabled": True,
+                "last_used": None
+            },
+            {
+                "username": "bot_account_3",
+                "password": "password3",
+                "steam_id": "76561198000000001",
+                "sandbox": "DOTA_BOT_3",
+                "enabled": True,
+                "last_used": None
+            },
+            {
+                "username": "bot_account_4",
+                "password": "password4",
+                "steam_id": "76561198000000001",
+                "sandbox": "DOTA_BOT_4",
+                "enabled": True,
+                "last_used": None
+            },
+            {
+                "username": "bot_account_5",
+                "password": "password5",
+                "steam_id": "76561198000000001",
+                "sandbox": "DOTA_BOT_5",
+                "enabled": True,
+                "last_used": None
+            },
+        ]
+        self.save_accounts()
+
+    def save_accounts(self):
+        """Сохранение аккаунтов в файл"""
+        try:
+            self.config_file.parent.mkdir(exist_ok=True)
+            with open(self.config_file, 'w') as f:
+                json.dump(self.accounts, f, indent=2)
+            self.logger.info("Аккаунты сохранены")
+        except Exception as e:
+            self.logger.error(f"Ошибка сохранения аккаунтов: {e}")
+
+    def get_accounts(self, enabled_only: bool = True) -> List[Dict]:
+        """Получение списка аккаунтов"""
+        if enabled_only:
+            return [acc for acc in self.accounts if acc.get('enabled', True)]
+        return self.accounts
+
+    def get_account_by_sandbox(self, sandbox_name: str) -> Dict:
+        """Получение аккаунта по имени песочницы"""
         for account in self.accounts:
-            if account.id == account_id and account.is_active:
+            if account.get('sandbox') == sandbox_name:
                 return account
         return None
 
-    def rotate_account(self, current_id: int) -> SteamAccount:
-        """Ротация аккаунтов (следующий активный)"""
-        active_accounts = [acc for acc in self.accounts if acc.is_active]
-        if not active_accounts:
-            raise ValueError("Нет активных аккаунтов")
+    def rotate_accounts(self):
+        """Ротация аккаунтов (например, для предотвращения блокировок)"""
+        if self.accounts:
+            # Перемещаем первый аккаунт в конец
+            first = self.accounts.pop(0)
+            self.accounts.append(first)
+            self.save_accounts()
+            self.logger.info("Аккаунты сротированы")
 
-        # Ищем следующий после current_id
-        for account in active_accounts:
-            if account.id > current_id:
-                return account
+    def add_account(self, username: str, password: str, steam_id: str = None):
+        """Добавление нового аккаунта"""
+        new_account = {
+            "username": username,
+            "password": password,
+            "steam_id": steam_id or f"76561198{hashlib.md5(username.encode()).hexdigest()[:8]}",
+            "sandbox": f"DOTA_BOT_{len(self.accounts) + 1}",
+            "enabled": True,
+            "last_used": None
+        }
+        self.accounts.append(new_account)
+        self.save_accounts()
+        self.logger.info(f"Добавлен аккаунт: {username}")
 
-        # Если не нашли, возвращаем первый
-        return active_accounts[0]
-
-    def update_last_used(self, account_id: int):
-        """Обновление времени последнего использования"""
-        from datetime import datetime
-
+    def disable_account(self, username: str):
+        """Отключение аккаунта"""
         for account in self.accounts:
-            if account.id == account_id:
-                account.last_used = datetime.now().isoformat()
-                self._save_accounts()
-                break
-
-    def _save_accounts(self):
-        """Сохранение аккаунтов в файл"""
-        encrypted_accounts = []
-        for account in self.accounts:
-            acc_dict = asdict(account)
-            # Шифруем пароль перед сохранением
-            acc_dict['password'] = self._encrypt(acc_dict['password'])
-            encrypted_accounts.append(acc_dict)
-
-        with open(self.config_path, 'w', encoding='utf-8') as f:
-            json.dump(encrypted_accounts, f, indent=2, ensure_ascii=False)
-
-    def get_launch_parameters(self, account_id: int) -> List[str]:
-        """Получение параметров запуска Steam для аккаунта"""
-        account = self.get_account(account_id)
-        if not account:
-            return []
-
-        return [
-            "-login", account.login, account.password,
-            "-applaunch", "570"
-        ]
+            if account['username'] == username:
+                account['enabled'] = False
+                self.save_accounts()
+                self.logger.info(f"Аккаунт {username} отключен")
+                return True
+        return False
