@@ -117,3 +117,19 @@ class BotController:
     async def shutdown(self):
         """Остановка бота"""
         self.is_running = False
+
+# from ai.decision_engine import DecisionEngine
+# from ai.tactics import Tactics
+
+
+# class BotAI:
+#     def __init__(self, bot_id, role):
+#         self.bot_id = bot_id
+#         self.role = role
+#         self.engine = DecisionEngine()
+#         self.tactics = Tactics()
+
+#     def tick(self, hero_state, game_state, input_simulator):
+#         action, target = self.engine.decide(hero_state, game_state)
+#         if action:
+#             self.tactics.execute(action, target, input_simulator)
