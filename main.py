@@ -1,118 +1,225 @@
+# main.py - главный управляющий скрипт
+"""
+Основной скрипт для запуска системы ботов
+"""
+
 import sys
-import os
-from pathlib import Path
-import threading
 import time
+import signal
+import json
+from pathlib import Path
+from typing import Dict, List
+from datetime import datetime
 import logging
 
-# Добавляем корневую директорию в путь
-sys.path.append(str(Path(__file__).parent))
+# Настройка логирования
+logging.basicConfig(
+    level=logging.INFO,
+    format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
+    handlers=[
+        logging.FileHandler('logs/system.log'),
+        logging.StreamHandler()
+    ]
+)
 
-from core.game_launcher import GameLauncher
-from ai.bot_ai import DotaBotAI
-from utils.input_simulator import InputSimulator
+logger = logging.getLogger(__name__)
 
 
-def setup_logging():
-    """Настройка системы логирования"""
-    log_dir = Path("logs")
-    log_dir.mkdir(exist_ok=True)
+class DotaBotSystem:
+    """Основной класс системы управления ботами"""
 
-    logging.basicConfig(
-        level=logging.INFO,
-        format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-        handlers=[
-            logging.FileHandler(log_dir / "dota_bot_system.log"),
-            logging.StreamHandler()
-        ]
-    )
-    return logging.getLogger(__name__)
+    def __init__(self):
+        self.game_launcher = None
+        self.process_monitor = None
+        self.ai_controllers = []
+        self.is_running = False
+
+    def initialize(self):
+        """Инициализация системы"""
+        logger.info("Инициализация системы...")
+
+        try:
+            # Импортируем модули
+            from core.game_launcher import GameLauncher
+            from core.process_monitor import ProcessMonitor
+            from ai.bot_ai import BotAI
+
+            # Инициализируем компоненты
+            self.game_launcher = GameLauncher()
+            self.process_monitor = ProcessMonitor()
+
+            logger.info("✓ Система инициализирована")
+            return True
+
+        except Exception as e:
+            logger.error(f"Ошибка инициализации: {e}")
+            return False
+
+    def start_system(self, bot_count: int = 5):
+        """Запуск всей системы"""
+        if not self.initialize():
+            logger.error("Не удалось инициализировать систему")
+            return False
+
+        logger.info(f"Запуск системы с {bot_count} ботами...")
+
+        # 1. Запускаем игровые клиенты
+        launch_result = self.game_launcher.launch_team(bot_count)
+
+        if launch_result["status"] == "error":
+            logger.error(f"Ошибка запуска: {launch_result.get('message', 'Unknown')}")
+            return False
+
+        logger.info(f"Запущено {launch_result['successful']}/{bot_count} клиентов")
+
+        # 2. Даем время на загрузку игр
+        logger.info("Ожидание загрузки игр...")
+        time.sleep(60)
+
+        # 3. Запускаем мониторинг процессов
+        self.process_monitor.start_monitoring()
+
+        # 4. Создаем контроллеры ИИ (без запуска игровой логики)
+        self.create_ai_controllers(bot_count)
+
+        self.is_running = True
+        logger.info("✅ Система запущена и готова к работе")
+
+        # Выводим статус
+        self.print_status()
+
+        return True
+
+    def create_ai_controllers(self, count: int):
+        """Создание контроллеров ИИ для каждого бота"""
+        logger.info(f"Создание {count} контроллеров ИИ...")
+
+        try:
+            from ai.bot_ai import BotAI
+
+            for i in range(count):
+                bot_ai = BotAI(bot_id=i)
+                self.ai_controllers.append(bot_ai)
+                logger.info(f"  Создан контроллер для бота {i + 1}")
+
+        except Exception as e:
+            logger.warning(f"Не удалось создать контроллеры ИИ: {e}")
+            logger.warning("Игровая логика будет недоступна")
+
+    def stop_system(self):
+        """Остановка всей системы"""
+        logger.info("Остановка системы...")
+
+        # 1. Останавливаем мониторинг
+        if self.process_monitor:
+            self.process_monitor.stop_monitoring()
+
+        # 2. Останавливаем все процессы
+        if self.game_launcher and hasattr(self.game_launcher, 'controller'):
+            self.game_launcher.controller.kill_all()
+
+        # 3. Очищаем контроллеры ИИ
+        self.ai_controllers.clear()
+
+        self.is_running = False
+        logger.info("✅ Система остановлена")
+
+    def print_status(self):
+        """Вывод текущего статуса системы"""
+        print("\n" + "=" * 60)
+        print("СТАТУС СИСТЕМЫ")
+        print("=" * 60)
+
+        if self.game_launcher:
+            status = self.game_launcher.get_status()
+            print(f"Аккаунты: {status.get('accounts_count', 0)}")
+            print(f"Запущено процессов: {status.get('running_processes', 0)}")
+
+        print(f"Контроллеры ИИ: {len(self.ai_controllers)}")
+        print(f"Система активна: {'Да' if self.is_running else 'Нет'}")
+        print("=" * 60)
+
+    def emergency_stop(self):
+        """Экстренная остановка"""
+        logger.warning("ЭКСТРЕННАЯ ОСТАНОВКА!")
+        self.stop_system()
+
+
+def signal_handler(signum, frame):
+    """Обработчик сигналов для graceful shutdown"""
+    print("\n\nПолучен сигнал завершения...")
+    if 'system' in globals():
+        system.stop_system()
+    sys.exit(0)
 
 
 def main():
-    logger = setup_logging()
-
+    """Основная функция"""
     print("=" * 60)
-    print("DOTA 2 BOT SYSTEM - Week 1")
+    print("СИСТЕМА УПРАВЛЕНИЯ БОТАМИ DOTA 2")
     print("=" * 60)
 
-    # Инициализация компонентов
-    try:
-        launcher = GameLauncher()
-        logger.info("Система инициализирована")
+    # Настройка обработчиков сигналов
+    signal.signal(signal.SIGINT, signal_handler)
+    signal.signal(signal.SIGTERM, signal_handler)
 
-        while True:
-            print("\nВыберите действие:")
-            print("1. Запустить тестовое окно")
-            print("2. Запустить полную команду (5 окон)")
-            print("3. Запустить бота AI")
-            print("4. Показать статус")
-            print("5. Остановить все процессы")
-            print("0. Выход")
+    # Создаем директории
+    Path("logs").mkdir(exist_ok=True)
+    Path("trained_models").mkdir(exist_ok=True)
 
-            choice = input("\nВаш выбор: ").strip()
+    # Создаем систему
+    global system
+    system = DotaBotSystem()
 
-            if choice == "1":
-                logger.info("Запуск тестового окна...")
-                if launcher.launch_single_instance(0, (0, 0, 1024, 768)):
-                    print("✓ Тестовое окно запущено")
-                else:
-                    print("✗ Ошибка запуска")
+    # Парсим аргументы командной строки
+    import argparse
+    parser = argparse.ArgumentParser(description='Система управления ботами Dota 2')
+    parser.add_argument('--bots', type=int, default=5, help='Количество ботов')
+    parser.add_argument('--test', action='store_true', help='Тестовый режим')
+    parser.add_argument('--stop', action='store_true', help='Остановить все процессы')
 
-            elif choice == "2":
-                logger.info("Запуск полной команды...")
-                result = launcher.launch_full_team(5)
-                print(f"Результат: {result['status']}")
+    args = parser.parse_args()
 
-            elif choice == "3":
-                # Запуск AI бота для первого окна
-                print("Запуск AI бота...")
-                bot = DotaBotAI(window_region=(0, 0, 1024, 768))
+    # Режим остановки
+    if args.stop:
+        print("Режим остановки...")
+        system.initialize()  # Для доступа к контроллеру
+        system.stop_system()
+        return
 
-                # Запуск в отдельном потоке
-                bot_thread = threading.Thread(
-                    target=bot.run,
-                    daemon=True
-                )
-                bot_thread.start()
-                print("Бот запущен. Нажмите Ctrl+C в этом окне для остановки.")
+    # Тестовый режим
+    if args.test:
+        print("ТЕСТОВЫЙ РЕЖИМ")
+        from test_launch import main as test_main
+        sys.exit(test_main())
 
-                try:
-                    while True:
-                        time.sleep(1)
-                except KeyboardInterrupt:
-                    print("\nОстановка бота...")
+    # Нормальный запуск
+    bot_count = min(args.bots, 5)  # Максимум 5 ботов
 
-            elif choice == "4":
-                status = launcher.get_status()
-                print(f"\nСтатус системы:")
-                print(f"Всего процессов: {status['total_processes']}")
-                print(f"Доступно аккаунтов: {status['accounts']}")
+    if system.start_system(bot_count):
+        print("\nСистема запущена. Для остановки нажмите Ctrl+C")
 
-                for proc in status['process_info']:
-                    print(f"  - {proc['account']}: PID={proc['pid']}, "
-                          f"Статус={proc['status']}, "
-                          f"Память={proc['memory']}MB")
+        # Основной цикл ожидания
+        try:
+            while system.is_running:
+                # Проверяем статус процессов
+                if system.process_monitor:
+                    if not system.process_monitor.check_all_processes():
+                        logger.warning("Обнаружены проблемы с процессами")
 
-            elif choice == "5":
-                print("Остановка всех процессов...")
-                launcher.sandbox_controller.kill_all()
+                time.sleep(10)
 
-            elif choice == "0":
-                print("Выход...")
-                launcher.sandbox_controller.kill_all()
-                break
+        except KeyboardInterrupt:
+            print("\n\nПолучен запрос на остановку...")
+            system.stop_system()
 
-            else:
-                print("Неверный выбор")
-
-    except Exception as e:
-        logger.error(f"Критическая ошибка: {e}")
-        print(f"Ошибка: {e}")
+    else:
+        logger.error("Не удалось запустить систему")
         return 1
 
     return 0
 
 
 if __name__ == "__main__":
-    sys.exit(main())
+    exit_code = main()
+    sys.exit(exit_code)

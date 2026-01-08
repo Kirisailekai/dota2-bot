@@ -1,18 +1,81 @@
 import time
-from typing import Dict, List
+import json
+from typing import Dict, List, Optional
 import logging
+from pathlib import Path
 from .sandbox_controller import SandboxController
-from config.accounts_manager import AccountsManager
 
 
 class GameLauncher:
     def __init__(self):
         self.controller = SandboxController()
-        self.accounts_manager = AccountsManager()
+        self.accounts = self.load_accounts()
         self.logger = logging.getLogger(__name__)
 
         # Проверяем наличие песочниц
         self.check_sandboxes()
+
+    def load_accounts(self) -> List[Dict]:
+        """Загрузка аккаунтов из файла"""
+        try:
+            accounts_path = Path("config/accounts.json")
+            if not accounts_path.exists():
+                self.logger.error("Файл accounts.json не найден")
+                return []
+
+            with open(accounts_path, 'r', encoding='utf-8') as f:
+                data = json.load(f)
+
+                # Обработка разных форматов данных
+                if isinstance(data, list):
+                    # Уже список - проверяем формат каждого элемента
+                    processed_accounts = []
+                    for item in data:
+                        if isinstance(item, dict):
+                            # Убедимся, что есть обязательные поля
+                            account = {
+                                'username': item.get('username', ''),
+                                'password': item.get('password', ''),
+                                'sandbox': item.get('sandbox', '')
+                            }
+                            processed_accounts.append(account)
+                        elif isinstance(item, str):
+                            # Если строка, создаем базовый словарь
+                            processed_accounts.append({
+                                'username': item,
+                                'password': '',
+                                'sandbox': ''
+                            })
+                    return processed_accounts
+                elif isinstance(data, dict):
+                    # Если словарь, преобразуем в список
+                    accounts_list = []
+                    for username, password in data.items():
+                        if isinstance(password, dict):
+                            # Если password - это словарь с дополнительными данными
+                            accounts_list.append({
+                                'username': username,
+                                'password': password.get('password', ''),
+                                'sandbox': password.get('sandbox', '')
+                            })
+                        else:
+                            # Если password - просто строка с паролем
+                            accounts_list.append({
+                                'username': username,
+                                'password': str(password),
+                                'sandbox': ''
+                            })
+                    return accounts_list
+                else:
+                    self.logger.error(f"Неизвестный формат данных в accounts.json: {type(data)}")
+                    return []
+
+        except json.JSONDecodeError as e:
+            self.logger.error(f"Ошибка чтения JSON: {e}")
+            return []
+        except Exception as e:
+            self.logger.error(f"Ошибка загрузки аккаунтов: {e}")
+            return []
 
     def check_sandboxes(self):
         """Проверка существования песочниц"""
@@ -23,45 +86,78 @@ class GameLauncher:
             sandbox_name = f"DOTA_BOT_{i}"
             if not self.controller.is_sandbox_exists(sandbox_name):
                 sandboxes_exist = False
-                self.controller.create_sandbox_through_ui(sandbox_name)
+                self.logger.warning(f"Песочница {sandbox_name} не найдена")
                 break
 
         if sandboxes_exist:
             print("✓ Все песочницы найдены")
+        else:
+            print("⚠ Некоторые песочницы не найдены")
 
     def launch_single(self, account_index: int = 0, window_position: tuple = None) -> bool:
         """Запуск одного экземпляра Dota 2"""
-        accounts = self.accounts_manager.get_accounts()
-
-        if account_index >= len(accounts):
-            self.logger.error(f"Аккаунт с индексом {account_index} не найден")
+        if not self.accounts:
+            self.logger.error("Нет доступных аккаунтов")
             return False
 
-        account = accounts[account_index]
-        sandbox_name = account.get('sandbox', f'DOTA_BOT_{account_index + 1}')
+        if account_index >= len(self.accounts):
+            self.logger.error(f"Аккаунт с индексом {account_index} не найден. Доступно: {len(self.accounts)}")
+            return False
 
-        print(f"Запуск Dota 2 для {account['username']} в {sandbox_name}...")
+        account = self.accounts[account_index]
+
+        # Проверяем, что account - словарь
+        if not isinstance(account, dict):
+            self.logger.error(f"Аккаунт должен быть словарем, получен: {type(account)}")
+            # Пытаемся преобразовать
+            account = {
+                'username': str(account),
+                'password': '',
+                'sandbox': f'DOTA_BOT_{account_index + 1}'
+            }
+
+        username = account.get('username', f'bot_{account_index + 1}')
+        password = account.get('password', '')
+
+        # Определяем песочницу
+        sandbox_name = account.get('sandbox')
+        if not sandbox_name:
+            sandbox_name = f'DOTA_BOT_{account_index + 1}'
+
+        print(f"Запуск Dota 2 для {username} в {sandbox_name}...")
 
         if window_position is None:
             window_position = (0, 0, 1024, 768)
 
-        pid = self.controller.launch_steam(
-            sandbox_name,
-            account['username'],
-            account['password'],
-            window_position
-        )
+        try:
+            pid = self.controller.launch_steam(
+                sandbox_name,
+                username,
+                password,
+                window_position
+            )
 
-        return pid is not None
+            if pid:
+                self.logger.info(f"Запущен процесс с PID: {pid}")
+                return True
+            else:
+                self.logger.error("Не удалось запустить Steam")
+                return False
+
+        except Exception as e:
+            self.logger.error(f"Ошибка запуска Steam: {e}")
+            return False
 
     def launch_team(self, team_size: int = 5) -> Dict:
         """Запуск команды ботов"""
         print(f"Запуск команды из {team_size} ботов...")
 
-        accounts = self.accounts_manager.get_accounts()[:team_size]
+        if not self.accounts:
+            self.logger.error("Нет доступных аккаунтов")
+            return {"status": "error", "message": "Нет доступных аккаунтов"}
 
-        if len(accounts) < team_size:
-            self.logger.error(f"Нужно {team_size} аккаунтов, но доступно {len(accounts)}")
+        if len(self.accounts) < team_size:
+            self.logger.error(f"Нужно {team_size} аккаунтов, но доступно {len(self.accounts)}")
             return {"status": "error", "message": "Недостаточно аккаунтов"}
 
         # Расположение окон
@@ -77,33 +173,60 @@ class GameLauncher:
             positions = self.calculate_window_positions(team_size)
 
         results = []
-        for i, (account, position) in enumerate(zip(accounts, positions)):
+        for i in range(team_size):
+            if i >= len(self.accounts):
+                self.logger.warning(f"Недостаточно аккаунтов для бота {i + 1}")
+                break
+
+            account = self.accounts[i]
+            position = positions[i] if i < len(positions) else (0, 0, 1024, 768)
             sandbox_name = f"DOTA_BOT_{i + 1}"
 
-            print(f"Запуск бота {i + 1}/{team_size}: {account['username']}")
-
-            pid = self.controller.launch_steam(
-                sandbox_name,
-                account['username'],
-                account['password'],
-                position
-            )
-
-            if pid:
-                results.append({
-                    "account": account['username'],
-                    "sandbox": sandbox_name,
-                    "pid": pid,
-                    "success": True
-                })
-                print(f"  ✓ Запущен (PID: {pid})")
+            # Получаем имя пользователя
+            if isinstance(account, dict):
+                username = account.get('username', f'bot_{i + 1}')
+                password = account.get('password', '')
             else:
+                username = str(account)
+                password = ''
+                account = {'username': username, 'password': password}
+
+            print(f"Запуск бота {i + 1}/{team_size}: {username}")
+
+            try:
+                pid = self.controller.launch_steam(
+                    sandbox_name,
+                    username,
+                    password,
+                    position
+                )
+
+                if pid:
+                    results.append({
+                        "account": username,
+                        "sandbox": sandbox_name,
+                        "pid": pid,
+                        "success": True
+                    })
+                    print(f"  ✓ Запущен (PID: {pid})")
+                else:
+                    results.append({
+                        "account": username,
+                        "sandbox": sandbox_name,
+                        "success": False,
+                        "error": "Не удалось запустить процесс"
+                    })
+                    print(f"  ✗ Ошибка запуска")
+
+            except Exception as e:
+                self.logger.error(f"Ошибка запуска бота {i + 1}: {e}")
                 results.append({
-                    "account": account['username'],
+                    "account": username,
                     "sandbox": sandbox_name,
-                    "success": False
+                    "success": False,
+                    "error": str(e)
                 })
-                print(f"  ✗ Ошибка запуска")
+                print(f"  ✗ Исключение: {e}")
 
             # Задержка между запусками
             if i < team_size - 1:
@@ -154,6 +277,7 @@ class GameLauncher:
     def get_status(self):
         """Получение статуса"""
         return {
+            "accounts_count": len(self.accounts),
             "running_processes": len(self.controller.processes),
             "sandboxie_path": str(self.controller.sandboxie_path)
         }

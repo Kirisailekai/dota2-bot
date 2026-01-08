@@ -1,194 +1,118 @@
+# core/process_monitor.py
+"""
+Мониторинг процессов ботов
+"""
+
 import psutil
-import asyncio
 import time
+import threading
+import logging
 from typing import Dict, List, Optional
-from dataclasses import dataclass
-import win32process
-import win32gui
-import win32con
-import win32api
-
-
-@dataclass
-class ProcessInfo:
-    box_name: str
-    pid: int
-    window_handle: Optional[int]
-    start_time: float
-    status: str  # 'running', 'stopped', 'hung'
-    restart_count: int = 0
+from datetime import datetime
 
 
 class ProcessMonitor:
-    def __init__(self, sandbox_manager):
-        self.sandbox_manager = sandbox_manager
-        self.processes: Dict[str, ProcessInfo] = {}
+    """Мониторинг состояния процессов ботов"""
+
+    def __init__(self):
         self.monitoring = False
-        self.max_restarts = 3
+        self.monitor_thread = None
+        self.bot_processes = {}
+        self.logger = logging.getLogger(__name__)
 
-    async def add_process(self, box_name: str, process: psutil.Process, window_handle: int = None):
-        """Добавление процесса для мониторинга"""
-        proc_info = ProcessInfo(
-            box_name=box_name,
-            pid=process.pid,
-            window_handle=window_handle,
-            start_time=time.time(),
-            status='running'
-        )
-        self.processes[box_name] = proc_info
-        print(f"[Monitor] Добавлен процесс для {box_name} (PID: {process.pid})")
+        # Настройки мониторинга
+        self.check_interval = 30  # секунды
+        self.max_restart_attempts = 3
 
-    async def is_process_alive(self, process_info: ProcessInfo) -> bool:
-        """Проверка жив ли процесс"""
-        try:
-            proc = psutil.Process(process_info.pid)
-            return proc.is_running() and proc.status() != psutil.STATUS_ZOMBIE
-        except (psutil.NoSuchProcess, psutil.AccessDenied):
-            return False
+    def start_monitoring(self):
+        """Запуск мониторинга"""
+        if self.monitoring:
+            self.logger.warning("Мониторинг уже запущен")
+            return
 
-    async def is_window_responding(self, hwnd: int) -> bool:
-        """Проверка отвечает ли окно"""
-        if not hwnd:
-            return False
-
-        try:
-            # Пробуем послать сообщение WM_NULL (0x0000)
-            result = win32gui.SendMessageTimeout(
-                hwnd,
-                win32con.WM_NULL,
-                0, 0,
-                win32con.SMTO_ABORTIFHUNG,
-                1000  # таймаут 1 секунда
-            )
-            return result is not None
-        except:
-            return False
-
-    async def check_process(self, box_name: str) -> str:
-        """Проверка состояния конкретного процесса"""
-        if box_name not in self.processes:
-            return "not_found"
-
-        proc_info = self.processes[box_name]
-
-        # Проверяем жив ли процесс
-        if not await self.is_process_alive(proc_info):
-            proc_info.status = 'stopped'
-            return 'stopped'
-
-        # Проверяем отвечает ли окно
-        if proc_info.window_handle:
-            if not await self.is_window_responding(proc_info.window_handle):
-                proc_info.status = 'hung'
-                return 'hung'
-
-        proc_info.status = 'running'
-        return 'running'
-
-    async def restart_process(self, box_name: str):
-        """Перезапуск процесса"""
-        if box_name not in self.processes:
-            return False
-
-        proc_info = self.processes[box_name]
-
-        if proc_info.restart_count >= self.max_restarts:
-            print(f"[Monitor] Достигнут лимит перезапусков для {box_name}")
-            return False
-
-        print(f"[Monitor] Перезапускаю {box_name}...")
-
-        # Убиваем старый процесс если он еще жив
-        try:
-            proc = psutil.Process(proc_info.pid)
-            proc.terminate()
-            await asyncio.sleep(2)
-            if proc.is_running():
-                proc.kill()
-        except:
-            pass
-
-        # Перезапускаем через sandbox_manager
-        try:
-            from core.game_launcher import DotaLauncher
-            launcher = DotaLauncher()
-
-            # Запускаем новое окно
-            new_process = await launcher.launch_dota_in_sandbox(
-                box_name,
-                account_index=int(box_name[-1])  # извлекаем номер из имени
-            )
-
-            # Ждем окно
-            await asyncio.sleep(10)
-            new_window = await launcher.wait_for_window(box_name, timeout=30)
-
-            # Обновляем информацию
-            proc_info.pid = new_process.pid
-            proc_info.window_handle = new_window
-            proc_info.start_time = time.time()
-            proc_info.status = 'running'
-            proc_info.restart_count += 1
-
-            print(f"[Monitor] {box_name} перезапущен (PID: {new_process.pid})")
-            return True
-
-        except Exception as e:
-            print(f"[Monitor] Ошибка при перезапуске {box_name}: {e}")
-            return False
-
-    async def monitor_loop(self, interval: float = 10.0):
-        """Основной цикл мониторинга"""
         self.monitoring = True
+        self.monitor_thread = threading.Thread(target=self._monitor_loop)
+        self.monitor_thread.daemon = True
+        self.monitor_thread.start()
 
-        while self.monitoring:
-            try:
-                for box_name in list(self.processes.keys()):
-                    status = await self.check_process(box_name)
+        self.logger.info("Мониторинг процессов запущен")
 
-                    if status in ['stopped', 'hung']:
-                        print(f"[Monitor] {box_name} в состоянии {status}")
-
-                        if status == 'hung':
-                            # Пытаемся восстановить окно
-                            try:
-                                if self.processes[box_name].window_handle:
-                                    win32gui.ShowWindow(
-                                        self.processes[box_name].window_handle,
-                                        win32con.SW_RESTORE
-                                    )
-                                    win32gui.SetForegroundWindow(
-                                        self.processes[box_name].window_handle
-                                    )
-                                    print(f"[Monitor] Попытка восстановить окно {box_name}")
-                            except:
-                                pass
-
-                        # Перезапускаем если нужно
-                        await self.restart_process(box_name)
-
-                await asyncio.sleep(interval)
-
-            except Exception as e:
-                print(f"[Monitor] Ошибка в цикле мониторинга: {e}")
-                await asyncio.sleep(interval)
-
-    async def stop_monitoring(self):
+    def stop_monitoring(self):
         """Остановка мониторинга"""
         self.monitoring = False
+        if self.monitor_thread:
+            self.monitor_thread.join(timeout=5)
 
-    async def get_stats(self) -> Dict:
-        """Статистика по процессам"""
-        stats = {
-            'total': len(self.processes),
-            'running': 0,
-            'stopped': 0,
-            'hung': 0,
-            'restarts': {}
-        }
+        self.logger.info("Мониторинг процессов остановлен")
 
-        for box_name, proc_info in self.processes.items():
-            stats[proc_info.status] += 1
-            stats['restarts'][box_name] = proc_info.restart_count
+    def _monitor_loop(self):
+        """Основной цикл мониторинга"""
+        while self.monitoring:
+            try:
+                self.check_all_processes()
+                time.sleep(self.check_interval)
+            except Exception as e:
+                self.logger.error(f"Ошибка в цикле мониторинга: {e}")
 
-        return stats
+    def check_all_processes(self) -> bool:
+        """Проверка всех процессов ботов"""
+        try:
+            # Ищем процессы Dota 2
+            dota_processes = []
+            for proc in psutil.process_iter(['pid', 'name', 'cmdline']):
+                try:
+                    if 'dota2.exe' in proc.info['name'].lower():
+                        dota_processes.append(proc)
+                except (psutil.NoSuchProcess, psutil.AccessDenied):
+                    continue
+
+            self.logger.info(f"Найдено процессов Dota 2: {len(dota_processes)}")
+
+            # Обновляем информацию о процессах
+            for i, proc in enumerate(dota_processes[:5]):  # Максимум 5 ботов
+                bot_id = i
+                self.bot_processes[bot_id] = {
+                    'pid': proc.pid,
+                    'name': proc.name(),
+                    'status': 'running',
+                    'cpu_percent': proc.cpu_percent(),
+                    'memory_mb': proc.memory_info().rss / 1024 / 1024,
+                    'last_check': datetime.now()
+                }
+
+            return len(dota_processes) > 0
+
+        except Exception as e:
+            self.logger.error(f"Ошибка проверки процессов: {e}")
+            return False
+
+    def get_process_info(self, bot_id: int) -> Optional[Dict]:
+        """Получение информации о процессе бота"""
+        return self.bot_processes.get(bot_id)
+
+    def get_all_processes_info(self) -> Dict[int, Dict]:
+        """Получение информации о всех процессах"""
+        return self.bot_processes.copy()
+
+    def log_system_stats(self):
+        """Логирование системной статистики"""
+        try:
+            cpu_percent = psutil.cpu_percent(interval=1)
+            memory = psutil.virtual_memory()
+            disk = psutil.disk_usage('/')
+
+            stats = {
+                'timestamp': datetime.now().isoformat(),
+                'cpu_percent': cpu_percent,
+                'memory_percent': memory.percent,
+                'memory_available_gb': memory.available / 1024 ** 3,
+                'disk_free_gb': disk.free / 1024 ** 3,
+                'active_bots': len(self.bot_processes)
+            }
+
+            self.logger.info(f"Системная статистика: {stats}")
+            return stats
+
+        except Exception as e:
+            self.logger.error(f"Ошибка сбора статистики: {e}")
+            return None

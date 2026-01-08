@@ -1,135 +1,144 @@
-import cv2
-import numpy as np
-import asyncio
-from PIL import ImageGrab
-import win32gui
-import win32con
+# ai/bot_ai.py
+"""
+Базовый класс ИИ бота
+"""
+
+import logging
+from abc import ABC, abstractmethod
+from typing import Optional, Dict, Any
+import json
+from datetime import datetime
+from pathlib import Path
 
 
-class BotController:
-    def __init__(self, bot_id, window_handle=None):
+class BotAI(ABC):
+    """Абстрактный класс ИИ бота"""
+
+    def __init__(self, bot_id: int):
         self.bot_id = bot_id
-        self.window_handle = window_handle
-        self.hero_state = {}
+        self.is_active = False
+        self.config = self.load_config()
+        self.logger = self.setup_logger()
+
+        # Состояние бота
         self.game_state = {}
-        self.is_running = False
+        self.last_action_time = None
+        self.performance_stats = {
+            'actions_count': 0,
+            'avg_response_time': 0,
+            'errors_count': 0
+        }
 
-    async def initialize(self):
-        """Инициализация бота"""
-        print(f"Инициализирую бота {self.bot_id}")
-        if self.window_handle:
-            # Активируем окно
-            win32gui.SetForegroundWindow(self.window_handle)
-            await asyncio.sleep(0.5)
+        self.logger.info(f"Инициализирован бот ID: {bot_id}")
 
-    async def capture_screen(self):
-        """Захват экрана окна игры"""
-        if not self.window_handle:
-            return None
+    def setup_logger(self):
+        """Настройка логгера для бота"""
+        logger = logging.getLogger(f'BotAI_{self.bot_id}')
 
-        # Получаем размеры окна
-        rect = win32gui.GetWindowRect(self.window_handle)
-        x, y, x2, y2 = rect
-        width = x2 - x
-        height = y2 - y
+        if not logger.handlers:
+            # Создаем директорию для логов бота
+            log_dir = Path(f"logs/bot_{self.bot_id}")
+            log_dir.mkdir(parents=True, exist_ok=True)
 
-        # Делаем скриншот
-        screenshot = ImageGrab.grab(bbox=(x, y, x2, y2))
-        return cv2.cvtColor(np.array(screenshot), cv2.COLOR_RGB2BGR)
+            # Файловый хендлер
+            file_handler = logging.FileHandler(
+                log_dir / f"bot_{self.bot_id}_{datetime.now().strftime('%Y%m%d')}.log"
+            )
+            file_handler.setLevel(logging.INFO)
 
-    async def analyze_game_state(self, image):
-        """Анализ состояния игры из изображения"""
-        if image is None:
-            return
+            # Форматтер
+            formatter = logging.Formatter(
+                '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+            )
+            file_handler.setFormatter(formatter)
 
-        # Здесь будет логика анализа изображения
-        # Например, поиск здоровья, маны, позиции героя и т.д.
+            logger.addHandler(file_handler)
+            logger.setLevel(logging.INFO)
 
-        # Пример: поиск красного цвета (здоровье)
-        hsv = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
+        return logger
 
-        # Маска для здоровья (красный)
-        lower_red = np.array([0, 100, 100])
-        upper_red = np.array([10, 255, 255])
-        mask_health = cv2.inRange(hsv, lower_red, upper_red)
+    def load_config(self) -> Dict[str, Any]:
+        """Загрузка конфигурации бота"""
+        config_path = Path(f"config/DOTA_BOT_{self.bot_id + 1}.ini")
 
-        # Анализ результатов
-        health_percentage = np.sum(mask_health > 0) / mask_health.size
-
-        self.hero_state['health_percent'] = health_percentage
-
-    async def make_decision(self):
-        """Принятие решения на основе состояния"""
-        health = self.hero_state.get('health_percent', 1.0)
-
-        if health < 0.3:
-            return 'retreat'
-        elif health < 0.6:
-            return 'farm_safe'
-        else:
-            return 'attack'
-
-    async def execute_action(self, action):
-        """Выполнение действия"""
-        from utils.input_simulator import InputSimulator
-
-        simulator = InputSimulator(self.window_handle)
-
-        if action == 'retreat':
-            # Отступление к фонтану
-            await simulator.click_position(100, 100)  # Клик на мини-карте
-            await simulator.press_key('q')  # Использование способности
-
-        elif action == 'farm_safe':
-            # Фарм крипов
-            await simulator.right_click(500, 300)  # Атака крипа
-
-        elif action == 'attack':
-            # Атака врага
-            await simulator.right_click(600, 300)  # Атака героя
-            await simulator.press_key('w')  # Использование способности
-
-    async def run(self):
-        """Основной цикл бота"""
-        self.is_running = True
-
-        while self.is_running:
+        if config_path.exists():
             try:
-                # 1. Захват экрана
-                image = await self.capture_screen()
-
-                # 2. Анализ состояния
-                await self.analyze_game_state(image)
-
-                # 3. Принятие решения
-                decision = await self.make_decision()
-
-                # 4. Выполнение действия
-                await self.execute_action(decision)
-
-                # 5. Пауза между итерациями
-                await asyncio.sleep(0.5)  # 2 FPS для бота
-
+                config = {}
+                with open(config_path, 'r') as f:
+                    for line in f:
+                        line = line.strip()
+                        if line and '=' in line:
+                            key, value = line.split('=', 1)
+                            config[key.strip()] = value.strip()
+                return config
             except Exception as e:
-                print(f"Ошибка в боте {self.bot_id}: {e}")
-                await asyncio.sleep(1)
+                print(f"Ошибка загрузки конфигурации бота {self.bot_id}: {e}")
 
-    async def shutdown(self):
+        # Конфигурация по умолчанию
+        return {
+            'hero_preference': 'random',
+            'game_mode': 'mid',
+            'aggression_level': 'medium',
+            'reaction_delay': '0.5',
+            'performance_mode': 'balanced'
+        }
+
+    def start(self):
+        """Запуск бота"""
+        self.is_active = True
+        self.logger.info("Бот запущен")
+
+    def stop(self):
         """Остановка бота"""
-        self.is_running = False
+        self.is_active = False
+        self.save_performance_stats()
+        self.logger.info("Бот остановлен")
 
-# from ai.decision_engine import DecisionEngine
-# from ai.tactics import Tactics
+    def update_game_state(self, state_data: Dict[str, Any]):
+        """Обновление состояния игры (для второго разработчика)"""
+        self.game_state = state_data
+        self.last_action_time = datetime.now()
 
+    @abstractmethod
+    def make_decision(self) -> Dict[str, Any]:
+        """
+        Принятие решения (абстрактный метод)
+        Второй разработчик реализует эту логику
+        """
+        pass
 
-# class BotAI:
-#     def __init__(self, bot_id, role):
-#         self.bot_id = bot_id
-#         self.role = role
-#         self.engine = DecisionEngine()
-#         self.tactics = Tactics()
+    @abstractmethod
+    def execute_action(self, action: Dict[str, Any]) -> bool:
+        """
+        Выполнение действия (абстрактный метод)
+        Второй разработчик реализует эту логику
+        """
+        pass
 
-#     def tick(self, hero_state, game_state, input_simulator):
-#         action, target = self.engine.decide(hero_state, game_state)
-#         if action:
-#             self.tactics.execute(action, target, input_simulator)
+    def save_performance_stats(self):
+        """Сохранение статистики производительности"""
+        stats_file = Path(f"logs/bot_{self.bot_id}/performance.json")
+
+        try:
+            stats_data = {
+                'bot_id': self.bot_id,
+                'timestamp': datetime.now().isoformat(),
+                'stats': self.performance_stats,
+                'config': self.config
+            }
+
+            with open(stats_file, 'w') as f:
+                json.dump(stats_data, f, indent=2)
+
+        except Exception as e:
+            self.logger.error(f"Ошибка сохранения статистики: {e}")
+
+    def get_status(self) -> Dict[str, Any]:
+        """Получение текущего статуса бота"""
+        return {
+            'bot_id': self.bot_id,
+            'is_active': self.is_active,
+            'config': self.config,
+            'performance': self.performance_stats,
+            'game_state_keys': list(self.game_state.keys()) if self.game_state else []
+        }
