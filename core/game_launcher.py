@@ -8,9 +8,9 @@ from .sandbox_controller import SandboxController
 
 class GameLauncher:
     def __init__(self):
+        self.logger = logging.getLogger(__name__)
         self.controller = SandboxController()
         self.accounts = self.load_accounts()
-        self.logger = logging.getLogger(__name__)
 
         # Проверяем наличие песочниц
         self.check_sandboxes()
@@ -26,49 +26,34 @@ class GameLauncher:
             with open(accounts_path, 'r', encoding='utf-8') as f:
                 data = json.load(f)
 
-                # Обработка разных форматов данных
-                if isinstance(data, list):
-                    # Уже список - проверяем формат каждого элемента
-                    processed_accounts = []
-                    for item in data:
-                        if isinstance(item, dict):
-                            # Убедимся, что есть обязательные поля
-                            account = {
-                                'username': item.get('username', ''),
-                                'password': item.get('password', ''),
-                                'sandbox': item.get('sandbox', '')
-                            }
-                            processed_accounts.append(account)
-                        elif isinstance(item, str):
-                            # Если строка, создаем базовый словарь
-                            processed_accounts.append({
-                                'username': item,
-                                'password': '',
-                                'sandbox': ''
-                            })
-                    return processed_accounts
-                elif isinstance(data, dict):
-                    # Если словарь, преобразуем в список
-                    accounts_list = []
-                    for username, password in data.items():
-                        if isinstance(password, dict):
-                            # Если password - это словарь с дополнительными данными
-                            accounts_list.append({
-                                'username': username,
-                                'password': password.get('password', ''),
-                                'sandbox': password.get('sandbox', '')
+            # Простая обработка - ищем ключ "accounts"
+            if "accounts" in data:
+                accounts = data["accounts"]
+                # Проверяем, что каждый аккаунт имеет username и password
+                valid_accounts = []
+                for i, account in enumerate(accounts):
+                    if isinstance(account, dict):
+                        username = account.get("username", "")
+                        password = account.get("password", "")
+                        if username and password:
+                            valid_accounts.append({
+                                "username": username,
+                                "password": password,
+                                "friend_id": account.get("friend_id", ""),
+                                "steam_id": account.get("steam_id", ""),
+                                "preferred_role": account.get("preferred_role", "carry"),
+                                "sandbox": f"DOTA_BOT_{i + 1}"
                             })
                         else:
-                            # Если password - просто строка с паролем
-                            accounts_list.append({
-                                'username': username,
-                                'password': str(password),
-                                'sandbox': ''
-                            })
-                    return accounts_list
-                else:
-                    self.logger.error(f"Неизвестный формат данных в accounts.json: {type(data)}")
-                    return []
+                            self.logger.warning(f"Аккаунт {i + 1} не имеет username/password")
+                    else:
+                        self.logger.warning(f"Аккаунт {i + 1} не является словарем")
+
+                self.logger.info(f"Загружено {len(valid_accounts)} валидных аккаунтов")
+                return valid_accounts
+            else:
+                self.logger.error("Ключ 'accounts' не найден в файле")
+                return []
 
         except json.JSONDecodeError as e:
             self.logger.error(f"Ошибка чтения JSON: {e}")

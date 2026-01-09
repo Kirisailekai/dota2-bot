@@ -1,0 +1,20 @@
+{
+    "layout": {
+        "grid": [2, 3],
+        "margins": {
+            "top": 40,
+            "right": 10,
+            "bottom": 10,
+            "left": 10
+        },
+        "spacing": 5,
+        "always_on_top": false,
+        "auto_arrange_on_start": true
+    },
+    "window_titles": ["Bot 1", "Bot 2", "Bot 3", "Bot 4", "Bot 5"],
+    "hotkeys": {
+        "arrange_windows": "Ctrl+Alt+A",
+        "minimize_all": "Ctrl+Alt+M",
+        "restore_all": "Ctrl+Alt+R"
+    }
+}
