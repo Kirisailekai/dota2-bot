@@ -4,22 +4,32 @@
 """
 
 import sys
+import os
 import time
 import signal
 import json
 import threading
 from pathlib import Path
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Tuple
 from datetime import datetime
 import logging
+
+# Исправление кодировки для Windows
+if sys.platform == "win32":
+    os.system("chcp 65001 > nul")
+    try:
+        sys.stdout.reconfigure(encoding='utf-8')
+        sys.stderr.reconfigure(encoding='utf-8')
+    except:
+        pass
 
 # Настройка логирования
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('logs/system.log'),
-        logging.StreamHandler()
+        logging.FileHandler('logs/system.log', encoding='utf-8'),
+        logging.StreamHandler(sys.stdout)
     ]
 )
 
@@ -42,6 +52,10 @@ class DotaBotSystem:
         self.is_running = False
         self.window_layout_config = "config/window_layout.json"
         self.lobby_config = "config/lobby_config.json"
+        self.window_config = {}
+        self.accounts_data = None
+        self.bot_states = {}  # Состояния каждого бота
+        self.leader_bot_index = 0  # Индекс бота-лидера
 
     def initialize(self):
         """Инициализация системы"""
@@ -52,9 +66,27 @@ class DotaBotSystem:
             from core.game_launcher import GameLauncher
             from core.process_monitor import ProcessMonitor
 
+            # Загружаем аккаунты
+            self.load_accounts()
+
             # Инициализируем компоненты
             self.game_launcher = GameLauncher()
             self.process_monitor = ProcessMonitor()
+
+            # Инициализируем состояния ботов
+            self.bot_states = {
+                i: {
+                    'status': 'not_started',
+                    'in_game': False,
+                    'in_main_menu': False,
+                    'tutorial_completed': False,
+                    'in_party': False,
+                    'ready': False,
+                    'hero_selected': False,
+                    'game_started': False
+                }
+                for i in range(5)
+            }
 
             logger.info("Система инициализирована")
             return True
@@ -62,6 +94,17 @@ class DotaBotSystem:
         except Exception as e:
             logger.error(f"Ошибка инициализации: {e}")
             return False
+
+    def load_accounts(self):
+        """Загрузка данных аккаунтов"""
+        accounts_path = Path("config/accounts.json")
+        if accounts_path.exists():
+            with open(accounts_path, 'r', encoding='utf-8') as f:
+                self.accounts_data = json.load(f)
+            logger.info(f"Загружено {len(self.accounts_data)} аккаунтов")
+        else:
+            logger.warning(f"Файл accounts.json не найден: {accounts_path}")
+            self.accounts_data = []
 
     def setup_window_manager(self):
         """Настройка менеджера окон"""
@@ -77,7 +120,6 @@ class DotaBotSystem:
 
         except ImportError as e:
             logger.warning(f"Модуль управления окнами не установлен: {e}")
-            logger.info("Для управления окнами установите: pip install pywin32")
             return False
         except Exception as e:
             logger.error(f"Ошибка настройки менеджера окон: {e}")
@@ -92,23 +134,32 @@ class DotaBotSystem:
             return True
         except ImportError as e:
             logger.warning(f"Модуль горячих клавиш не установлен: {e}")
-            logger.info("Для горячих клавиш установите: pip install keyboard")
             return False
         except Exception as e:
             logger.error(f"Ошибка настройки менеджера горячих клавиш: {e}")
             return False
 
     def setup_game_system(self):
-        """Настройка игровой системы (лобби, пати, матчмейкинг)"""
+        """Настройка игровой системы"""
         try:
             from core.lobby_manager import LobbyManager
             from core.game_controller import GameController
 
+            # Инициализируем менеджер лобби
             self.lobby_manager = LobbyManager(self.lobby_config)
+
+            # Передаем данные аккаунтов
+            if self.accounts_data:
+                self.lobby_manager.accounts = self.accounts_data
+
+            # Инициализируем игровой контроллер
             self.game_controller = GameController(self.window_manager)
 
+            # Настраиваем связи
             if self.lobby_manager:
                 self.game_controller.set_lobby_manager(self.lobby_manager)
+                self.game_controller.accounts = self.accounts_data
+                self.game_controller.bot_states = self.bot_states
 
             logger.info("Игровая система инициализирована")
             return True
@@ -124,7 +175,7 @@ class DotaBotSystem:
         """Загрузка конфигурации окон"""
         config_path = Path(self.window_layout_config)
         if config_path.exists():
-            with open(config_path, 'r') as f:
+            with open(config_path, 'r', encoding='utf-8') as f:
                 self.window_config = json.load(f)
             logger.info(f"Загружена конфигурация окон из {config_path}")
         else:
@@ -143,12 +194,15 @@ class DotaBotSystem:
                     "arrange_windows": "ctrl+alt+a",
                     "minimize_all": "ctrl+alt+m",
                     "restore_all": "ctrl+alt+r",
-                    "toggle_auto_arrange": "ctrl+alt+t"
+                    "skip_tutorial": "ctrl+alt+t",
+                    "start_party": "ctrl+alt+p",
+                    "start_match": "ctrl+alt+s",
+                    "emergency_stop": "ctrl+alt+q"
                 }
             }
             # Сохраняем конфигурацию по умолчанию
             config_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(config_path, 'w') as f:
+            with open(config_path, 'w', encoding='utf-8') as f:
                 json.dump(self.window_config, f, indent=2)
             logger.info(f"Создана конфигурация окон по умолчанию: {config_path}")
 
@@ -168,8 +222,15 @@ class DotaBotSystem:
                 logger.info(f"Успешно расположено {len(windows)} окон")
 
                 # Устанавливаем заголовки окон
-                titles = self.window_config.get("window_titles",
-                                                ["Bot 1", "Bot 2", "Bot 3", "Bot 4", "Bot 5"])
+                titles = []
+                if self.accounts_data and len(self.accounts_data) >= len(windows):
+                    for i in range(len(windows)):
+                        acc = self.accounts_data[i]
+                        titles.append(f"Bot {i + 1} - {acc.get('name', 'Unknown')}")
+                else:
+                    titles = self.window_config.get("window_titles",
+                                                    ["Bot 1", "Bot 2", "Bot 3", "Bot 4", "Bot 5"])
+
                 self.window_manager.set_window_titles(titles[:len(windows)])
 
                 # Выводим на передний план
@@ -191,7 +252,6 @@ class DotaBotSystem:
             return
 
         def monitor_windows():
-            """Функция мониторинга окон"""
             interval = self.window_config["layout"]["auto_arrange_interval"]
             logger.info(f"Запущен мониторинг окон (интервал: {interval}с)")
 
@@ -200,7 +260,6 @@ class DotaBotSystem:
                     if self.window_manager:
                         windows = self.window_manager.find_dota_windows()
                         if len(windows) >= 5:
-                            # Проверяем, не свернуты ли окна
                             for hwnd in windows[:5]:
                                 try:
                                     if hasattr(self.window_manager, 'is_window_minimized'):
@@ -226,6 +285,13 @@ class DotaBotSystem:
             return False
 
         try:
+            # Добавляем дополнительные горячие клавиши
+            if hasattr(self.hotkey_manager, 'add_callback'):
+                self.hotkey_manager.add_callback("ctrl+alt+t", self.skip_tutorials)
+                self.hotkey_manager.add_callback("ctrl+alt+p", self.start_party_sequence)
+                self.hotkey_manager.add_callback("ctrl+alt+s", self.start_match_search)
+                self.hotkey_manager.add_callback("ctrl+alt+q", self.emergency_stop)
+
             # Запускаем в отдельном потоке
             hotkey_thread = threading.Thread(target=self.hotkey_manager.start, daemon=True)
             hotkey_thread.start()
@@ -235,36 +301,319 @@ class DotaBotSystem:
             logger.warning(f"Не удалось запустить мониторинг горячих клавиш: {e}")
             return False
 
+    def skip_tutorials(self):
+        """Пропуск обучающего матча для всех ботов"""
+        logger.info("Пропуск обучающего матча для всех ботов...")
+
+        def skip_for_bot(bot_index):
+            try:
+                if self.game_controller:
+                    success = self.game_controller.skip_tutorial(bot_index)
+                    if success:
+                        self.bot_states[bot_index]['tutorial_completed'] = True
+                        logger.info(f"Бот {bot_index + 1}: обучение пропущено")
+                    return success
+                return False
+            except Exception as e:
+                logger.error(f"Ошибка пропуска обучения для бота {bot_index + 1}: {e}")
+                return False
+
+        # Запускаем в отдельных потоках для каждого бота
+        threads = []
+        for i in range(5):
+            thread = threading.Thread(target=skip_for_bot, args=(i,), daemon=True)
+            thread.start()
+            threads.append(thread)
+            time.sleep(1)  # Небольшая задержка между ботами
+
+        # Ждем завершения всех потоков
+        for thread in threads:
+            thread.join(timeout=30)
+
+        logger.info("Пропуск обучения завершен")
+
+    def wait_for_main_menu(self, timeout: int = 300):
+        """Ожидание загрузки главного меню для всех ботов"""
+        logger.info("Ожидание загрузки главного меню...")
+
+        start_time = time.time()
+        all_ready = False
+
+        while time.time() - start_time < timeout and not all_ready:
+            all_ready = True
+
+            for i in range(5):
+                if not self.bot_states[i]['in_main_menu']:
+                    if self.game_controller:
+                        in_menu = self.game_controller.check_main_menu(i)
+                        if in_menu:
+                            self.bot_states[i]['in_main_menu'] = True
+                            self.bot_states[i]['status'] = 'in_main_menu'
+                            logger.info(f"Бот {i + 1}: в главном меню")
+                        else:
+                            all_ready = False
+                    else:
+                        all_ready = False
+
+            if not all_ready:
+                time.sleep(5)
+                logger.info("Ждем загрузку главного меню...")
+
+        if all_ready:
+            logger.info("Все боты в главном меню!")
+            return True
+        else:
+            logger.warning("Не все боты загрузились в главное меню")
+            return False
+
+    def start_party_sequence(self):
+        """Запуск последовательности создания пати"""
+        if not self.game_controller:
+            logger.error("Игровой контроллер не инициализирован")
+            return False
+
+        logger.info("=== ЗАПУСК СОЗДАНИЯ ПАТИ ===")
+
+        def party_thread():
+            try:
+                # 1. Проверяем, все ли боты в главном меню
+                if not self.wait_for_main_menu(timeout=60):
+                    logger.error("Не все боты в главном меню")
+                    return
+
+                # 2. Создаем лобби через бота-лидера
+                logger.info("1. Создание лобби...")
+                lobby_created = False
+                for attempt in range(3):
+                    if self.game_controller.create_lobby(self.leader_bot_index):
+                        lobby_created = True
+                        logger.info("Лобби создано")
+                        break
+                    logger.warning(f"Попытка {attempt + 1} создания лобби не удалась")
+                    time.sleep(10)
+
+                if not lobby_created:
+                    logger.error("Не удалось создать лобби")
+                    return
+
+                time.sleep(5)
+
+                # 3. Приглашаем ботов в пати (если они друзья)
+                logger.info("2. Приглашение ботов в пати...")
+                invited_count = 0
+
+                # Вариант 1: Через поиск по нику (для новых аккаунтов без друзей)
+                for i in range(5):
+                    if i != self.leader_bot_index:
+                        # Получаем ник бота
+                        bot_name = f"Bot_{i + 1}"
+                        if self.accounts_data and i < len(self.accounts_data):
+                            bot_name = self.accounts_data[i].get('name', f"Bot_{i + 1}")
+
+                        logger.info(f"Приглашаем бота {i + 1} ({bot_name})...")
+
+                        # Приглашаем через поиск
+                        if self.game_controller.invite_by_search(self.leader_bot_index, i, bot_name):
+                            invited_count += 1
+                            time.sleep(3)
+                        else:
+                            logger.warning(f"Не удалось пригласить бота {i + 1}")
+
+                logger.info(f"Отправлено {invited_count} приглашений")
+
+                # 4. Ждем принятия приглашений
+                logger.info("3. Ожидание принятия приглашений...")
+                time.sleep(20)
+
+                # 5. Проверяем состав пати
+                party_size = self.game_controller.check_party_size(self.leader_bot_index)
+                logger.info(f"В пати {party_size} ботов")
+
+                if party_size >= 3:  # Хотя бы 3 бота вместе
+                    logger.info("Пати успешно собрана!")
+
+                    # Обновляем состояния ботов
+                    for i in range(5):
+                        if i == self.leader_bot_index or party_size > 1:
+                            self.bot_states[i]['in_party'] = True
+                            self.bot_states[i]['status'] = 'in_party'
+                else:
+                    logger.warning("В пати недостаточно ботов. Пробуем альтернативный метод...")
+
+                    # Альтернатива: Публичное лобби или игра с ботами
+                    self.start_bot_match_alternative()
+
+            except Exception as e:
+                logger.error(f"Ошибка при создании пати: {e}")
+
+        threading.Thread(target=party_thread, daemon=True).start()
+        return True
+
+    def start_bot_match_alternative(self):
+        """Альтернативный метод: игра против ботов (не требует пати)"""
+        logger.info("Запуск альтернативного сценария: игра с ботами...")
+
+        try:
+            # Каждый бот отдельно заходит в режим игры с ботами
+            for i in range(5):
+                if self.game_controller:
+                    self.game_controller.play_with_bots(i)
+                    time.sleep(2)
+
+            logger.info("Все боты ищут игру с ботами...")
+
+        except Exception as e:
+            logger.error(f"Ошибка в альтернативном сценарии: {e}")
+
+    def start_match_search(self):
+        """Запуск поиска матча"""
+        if not self.game_controller:
+            logger.error("Игровой контроллер не инициализирован")
+            return False
+
+        logger.info("=== ЗАПУСК ПОИСКА МАТЧА ===")
+
+        def match_search_thread():
+            try:
+                # 1. Выбираем режим игры (All Pick - самый популярный)
+                logger.info("1. Выбор режима игры...")
+                if self.game_controller.select_game_mode(self.leader_bot_index, mode="all_pick"):
+                    logger.info("Режим игры выбран: All Pick")
+                else:
+                    logger.warning("Не удалось выбрать режим игры, используем по умолчанию")
+
+                time.sleep(3)
+
+                # 2. Запускаем поиск матча
+                logger.info("2. Запуск поиска матча...")
+                if self.game_controller.start_match_search(self.leader_bot_index):
+                    logger.info("Поиск матча запущен")
+
+                    # Обновляем состояние лидера
+                    self.bot_states[self.leader_bot_index]['status'] = 'searching_match'
+                else:
+                    logger.error("Не удалось запустить поиск")
+                    return
+
+                # 3. Мониторим статус поиска (только для лидера)
+                logger.info("3. Мониторинг статуса поиска...")
+                match_found = False
+
+                for minute in range(1, 11):  # Ждем до 10 минут
+                    if not self.is_running:
+                        break
+
+                    # Проверяем, найден ли матч
+                    status = self.game_controller.get_matchmaking_status(self.leader_bot_index)
+                    if status.get('match_found', False):
+                        logger.info("Матч найден!")
+                        match_found = True
+
+                        # 4. Принимаем матч для всех ботов
+                        logger.info("4. Принятие матча...")
+                        accept_count = 0
+                        for i in range(5):
+                            if self.game_controller.accept_match(i):
+                                accept_count += 1
+                                self.bot_states[i]['status'] = 'match_accepted'
+                                time.sleep(1)
+
+                        logger.info(f"Матч приняли {accept_count}/5 ботов")
+                        break
+
+                    logger.info(f"Поиск... ({minute}/10 минут)")
+                    time.sleep(60)  # Проверяем каждую минуту
+
+                if not match_found:
+                    logger.warning("Матч не найден за отведенное время")
+                    # Отменяем поиск
+                    self.game_controller.cancel_search(self.leader_bot_index)
+
+            except Exception as e:
+                logger.error(f"Ошибка при поиске матча: {e}")
+
+        threading.Thread(target=match_search_thread, daemon=True).start()
+        return True
+
     def start_game_automation(self):
-        """Запуск автоматизации игрового процесса в отдельном потоке"""
+        """Запуск полной автоматизации игрового процесса"""
         if not self.game_controller:
             logger.error("Игровой контроллер не инициализирован")
             return False
 
         def game_sequence():
-            logger.info("Запуск автоматизации игрового процесса...")
+            logger.info("=== ПОЛНАЯ АВТОМАТИЗАЦИЯ ИГРОВОГО ПРОЦЕССА ===")
 
-            # Даем время на загрузку всех клиентов
-            logger.info("Ожидание загрузки всех клиентов...")
-            time.sleep(60)
+            # 1. Даем время на загрузку всех клиентов
+            logger.info("1. Ожидание загрузки клиентов...")
+            time.sleep(90)  # Больше времени для загрузки + возможного обучения
 
-            # Запускаем игровую последовательность
-            try:
-                success = self.game_controller.start_game_sequence()
+            # 2. Пропускаем обучающий матч (если есть)
+            logger.info("2. Пропуск обучающего матча...")
+            self.skip_tutorials()
+            time.sleep(30)
 
-                if success:
-                    logger.info("Игровая последовательность успешно завершена")
-                    # Запускаем мониторинг игры
-                    self.game_controller.monitor_game_state()
-                else:
-                    logger.error("Ошибка в игровой последовательности")
-            except Exception as e:
-                logger.error(f"Ошибка при запуске игровой последовательности: {e}")
+            # 3. Ждем главное меню
+            logger.info("3. Ожидание главного меню...")
+            if not self.wait_for_main_menu(timeout=120):
+                logger.warning("Не все боты загрузились в главное меню, продолжаем...")
+
+            # 4. Создаем пати
+            logger.info("4. Создание пати...")
+            self.start_party_sequence()
+            time.sleep(40)  # Ждем сбор пати
+
+            # 5. Запускаем поиск матча
+            logger.info("5. Запуск поиска матча...")
+            self.start_match_search()
+
+            # 6. Мониторим состояние игры
+            logger.info("6. Мониторинг игры...")
+            self.monitor_game_progress()
 
         self.game_thread = threading.Thread(target=game_sequence, daemon=True)
         self.game_thread.start()
-        logger.info("Автоматизация игры запущена в отдельном потоке")
+        logger.info("Автоматизация игры запущена")
         return True
+
+    def monitor_game_progress(self):
+        """Мониторинг прогресса игры"""
+
+        def monitor():
+            while self.is_running:
+                try:
+                    # Проверяем состояние каждого бота
+                    active_bots = 0
+                    in_game_bots = 0
+
+                    for i in range(5):
+                        if self.game_controller:
+                            state = self.game_controller.get_bot_state(i)
+                            if state:
+                                self.bot_states[i].update(state)
+
+                                if state.get('in_game', False):
+                                    in_game_bots += 1
+                                    active_bots += 1
+                                elif state.get('status') not in ['not_started', 'error']:
+                                    active_bots += 1
+
+                    # Логируем статус
+                    logger.info(f"Активных ботов: {active_bots}/5, в игре: {in_game_bots}")
+
+                    # Если все боты вышли из игры, можно перезапустить
+                    if in_game_bots == 0 and active_bots < 2:
+                        logger.info("Игра завершена, готовимся к следующей...")
+                        time.sleep(60)
+                        break
+
+                    time.sleep(30)  # Проверяем каждые 30 секунд
+
+                except Exception as e:
+                    logger.error(f"Ошибка мониторинга: {e}")
+                    time.sleep(10)
+
+        threading.Thread(target=monitor, daemon=True).start()
 
     def create_ai_controllers(self, count: int):
         """Создание контроллеров ИИ для каждого бота"""
@@ -273,7 +622,11 @@ class DotaBotSystem:
         try:
             from ai.bot_ai import BotAI
             for i in range(count):
-                bot_ai = BotAI(bot_id=i)
+                account_data = None
+                if self.accounts_data and i < len(self.accounts_data):
+                    account_data = self.accounts_data[i]
+
+                bot_ai = BotAI(bot_id=i, account_data=account_data)
                 self.ai_controllers.append(bot_ai)
                 logger.info(f"Создан контроллер для бота {i + 1}")
         except ImportError:
@@ -290,6 +643,7 @@ class DotaBotSystem:
         logger.info(f"Запуск системы с {bot_count} ботами...")
 
         # 1. Запускаем игровые клиенты
+        logger.info("1. Запуск игровых клиентов...")
         launch_result = self.game_launcher.launch_team(bot_count)
 
         if launch_result["status"] == "error":
@@ -299,55 +653,101 @@ class DotaBotSystem:
         logger.info(f"Запущено {launch_result['successful']}/{bot_count} клиентов")
 
         # 2. Настраиваем менеджер окон
+        logger.info("2. Настройка менеджера окон...")
         window_manager_ready = self.setup_window_manager()
 
         if window_manager_ready:
             # Ждем появления окон
             logger.info("Ожидание появления окон...")
-            time.sleep(15)
+            time.sleep(30)
 
             # Автоматически располагаем окна
             auto_arrange = self.window_config.get("layout", {}).get("auto_arrange_on_start", True)
             if auto_arrange:
                 for attempt in range(3):
                     if self.arrange_windows("2x3"):
+                        logger.info("Окна успешно расположены в сетке")
                         break
                     logger.info(f"Повторная попытка расположения окон ({attempt + 1}/3)...")
-                    time.sleep(5)
+                    time.sleep(10)
 
             # Запускаем мониторинг окон
             self.start_window_monitor()
+        else:
+            logger.warning("Управление окнами отключено")
 
         # 3. Настраиваем менеджер горячих клавиш
+        logger.info("3. Настройка менеджера горячих клавиш...")
         self.setup_hotkey_manager()
         if self.hotkey_manager:
             self.start_hotkey_monitor()
+            logger.info("Горячие клавиши настроены")
+        else:
+            logger.warning("Горячие клавиши отключены")
 
         # 4. Настраиваем игровую систему
+        logger.info("4. Настройка игровой системы...")
         game_system_ready = self.setup_game_system()
 
-        # 5. Запускаем автоматизацию игры (если система готова)
         if game_system_ready:
-            logger.info("Запуск автоматизации игрового процесса...")
-            self.start_game_automation()
+            # Запускаем автоматизацию игры
+            logger.info("5. Запуск автоматизации игрового процесса...")
+            automation_started = self.start_game_automation()
+
+            if automation_started:
+                logger.info("Автоматизация игры запущена")
+                logger.info("Последовательность:")
+                logger.info("  1. Пропуск обучающего матча (если есть)")
+                logger.info("  2. Загрузка в главное меню")
+                logger.info("  3. Создание пати (если возможно)")
+                logger.info("  4. Поиск матча")
+                logger.info("  5. Принятие матча")
+                logger.info("  6. Игра")
+            else:
+                logger.warning("Не удалось запустить автоматизацию игры")
         else:
             logger.warning("Игровая система не готова, автоматизация отключена")
 
-        # 6. Даем время на загрузку игр
-        logger.info("Ожидание загрузки игр...")
-        time.sleep(60)
-
-        # 7. Запускаем мониторинг процессов
+        # 5. Запускаем мониторинг процессов
+        logger.info("6. Запуск мониторинга процессов...")
         self.process_monitor.start_monitoring()
+        logger.info("Мониторинг процессов запущен")
 
-        # 8. Создаем контроллеры ИИ
+        # 6. Создаем контроллеры ИИ
+        logger.info("7. Создание контроллеров ИИ...")
         self.create_ai_controllers(bot_count)
 
-        self.is_running = True
-        logger.info("✅ Система запущена и готова к работе")
+        # 7. Устанавливаем связи
+        if self.game_controller and self.window_manager:
+            self.game_controller.window_manager = self.window_manager
+            logger.info("Менеджер окон установлен в игровой контроллер")
 
+        self.is_running = True
+        logger.info("Система запущена и готова к работе")
+
+        # Выводим статус
         self.print_status()
+
+        # Запускаем цикл обновления статуса
+        self.start_status_updater()
+
         return True
+
+    def start_status_updater(self):
+        """Запуск периодического обновления статуса"""
+
+        def update_status():
+            while self.is_running:
+                time.sleep(30)
+                try:
+                    if self.is_running:
+                        self.print_status()
+                except Exception as e:
+                    logger.error(f"Ошибка обновления статуса: {e}")
+
+        status_thread = threading.Thread(target=update_status, daemon=True)
+        status_thread.start()
+        logger.info("Мониторинг статуса запущен")
 
     def stop_system(self):
         """Остановка всей системы"""
@@ -373,10 +773,12 @@ class DotaBotSystem:
         # Останавливаем мониторинг процессов
         if self.process_monitor:
             self.process_monitor.stop_monitoring()
+            logger.info("Мониторинг процессов остановлен")
 
         # Останавливаем все процессы
         if self.game_launcher and hasattr(self.game_launcher, 'controller'):
             self.game_launcher.controller.kill_all()
+            logger.info("Игровые процессы остановлены")
 
         # Очищаем контроллеры ИИ
         self.ai_controllers.clear()
@@ -395,25 +797,35 @@ class DotaBotSystem:
 
         print(f"Контроллеры ИИ: {len(self.ai_controllers)}")
 
+        # Статусы ботов
+        print("\nСОСТОЯНИЕ БОТОВ:")
+        for i in range(5):
+            state = self.bot_states.get(i, {})
+            status_text = state.get('status', 'unknown')
+            in_party = "В пати" if state.get('in_party', False) else "Не в пати"
+            print(f"  Бот {i + 1}: {status_text} | {in_party}")
+
         if self.window_manager:
             try:
                 windows = self.window_manager.find_dota_windows()
-                print(f"Найдено окон Dota 2: {len(windows)}")
+                print(f"\nНайдено окон Dota 2: {len(windows)}")
             except:
-                print("Найдено окон Dota 2: N/A")
+                print("\nНайдено окон Dota 2: N/A")
 
-        if self.game_controller:
-            try:
-                game_status = self.game_controller.get_game_status()
-                print(f"Состояние игры: {game_status.get('game_state', 'UNKNOWN')}")
-            except:
-                print("Состояние игры: N/A")
-
-        print(f"Менеджер окон: {'✓' if self.window_manager else '✗'}")
-        print(f"Горячие клавиши: {'✓' if self.hotkey_manager else '✗'}")
-        print(f"Игровая система: {'✓' if self.game_controller else '✗'}")
-        print(f"Система активна: {'Да' if self.is_running else 'Нет'}")
+        print(f"\nМенеджер окон: {'ДА' if self.window_manager else 'НЕТ'}")
+        print(f"Горячие клавиши: {'ДА' if self.hotkey_manager else 'НЕТ'}")
+        print(f"Игровая система: {'ДА' if self.game_controller else 'НЕТ'}")
+        print(f"Система активна: {'ДА' if self.is_running else 'НЕТ'}")
         print("=" * 60)
+
+        # Выводим подсказки по горячим клавишам
+        if self.hotkey_manager and self.window_config:
+            hotkeys = self.window_config.get("hotkeys", {})
+            if hotkeys:
+                print("\nГОРЯЧИЕ КЛАВИШИ:")
+                for action, key in hotkeys.items():
+                    action_name = action.replace('_', ' ').title()
+                    print(f"  {key:20} - {action_name}")
 
     def emergency_stop(self):
         """Экстренная остановка"""
@@ -432,15 +844,18 @@ def signal_handler(signum, frame):
 def main():
     """Основная функция"""
     print("=" * 60)
-    print("🎮 СИСТЕМА УПРАВЛЕНИЯ БОТАМИ DOTA 2")
+    print("СИСТЕМА УПРАВЛЕНИЯ БОТАМИ DOTA 2")
+    print("=" * 60)
+    print("ВНИМАНИЕ: Новые аккаунты проходят обучающий матч!")
+    print("Система автоматически пропустит его при запуске.")
     print("=" * 60)
     print("Функции:")
     print("  1. Запуск 5 окон Dota 2 в песочницах")
-    print("  2. Автоматическое расположение окон в сетке")
-    print("  3. Управление горячими клавишами")
-    print("  4. Создание лобби и пати")
-    print("  5. Автоматический поиск матча")
-    print("  6. Автовыбор героев и начало игры")
+    print("  2. Автоматический пропуск обучающего матча")
+    print("  3. Автоматическое расположение окон в сетке")
+    print("  4. Создание пати (если аккаунты друзья)")
+    print("  5. Поиск матча или игра с ботами")
+    print("  6. Автоматизация игрового процесса")
     print("=" * 60)
 
     # Настройка обработчиков сигналов
@@ -467,7 +882,9 @@ def main():
     parser.add_argument('--no-game', action='store_true', help='Отключить игровую автоматизацию')
     parser.add_argument('--no-ai', action='store_true', help='Отключить ИИ контроллеры')
     parser.add_argument('--arrange-windows', action='store_true', help='Расположить окна и выйти')
-    parser.add_argument('--start-game', action='store_true', help='Запустить только игровую автоматизацию')
+    parser.add_argument('--skip-tutorial', action='store_true', help='Пропустить обучающий матч')
+    parser.add_argument('--start-party', action='store_true', help='Запустить только сбор пати')
+    parser.add_argument('--start-match', action='store_true', help='Запустить только поиск матча')
     parser.add_argument('--layout', type=str, default='2x3', choices=['2x3', 'custom', 'single'],
                         help='Схема расположения окон')
 
@@ -480,6 +897,13 @@ def main():
         system.stop_system()
         return
 
+    # Режим только пропуска обучения
+    if args.skip_tutorial:
+        print("Режим пропуска обучающего матча...")
+        if system.initialize():
+            system.skip_tutorials()
+        return
+
     # Режим только расположения окон
     if args.arrange_windows:
         print("Режим расположения окон...")
@@ -487,17 +911,28 @@ def main():
             system.arrange_windows(args.layout)
         return
 
-    # Режим только запуска игры
-    if args.start_game:
-        print("Режим запуска игры...")
+    # Режим только сбора пати
+    if args.start_party:
+        print("Режим сбора пати...")
         if system.setup_game_system():
-            system.start_game_automation()
+            system.start_party_sequence()
             try:
                 while True:
                     time.sleep(1)
             except KeyboardInterrupt:
                 print("\nЗавершение...")
-                system.stop_system()
+        return
+
+    # Режим только поиска матча
+    if args.start_match:
+        print("Режим поиска матча...")
+        if system.setup_game_system():
+            system.start_match_search()
+            try:
+                while True:
+                    time.sleep(1)
+            except KeyboardInterrupt:
+                print("\nЗавершение...")
         return
 
     # Тестовый режим
@@ -527,16 +962,13 @@ def main():
         system.create_ai_controllers = lambda x: None
 
     if system.start_system(bot_count):
-        print("\n✅ Система запущена успешно!")
-        print("\n📊 Статус будет обновляться автоматически.")
+        print("\nСистема запущена успешно!")
+        print("\nВАЖНО:")
+        print("1. Новые аккаунты пройдут обучающий матч (автоматически пропускается)")
+        print("2. Для создания пати аккаунты должны быть друзьями в Steam")
+        print("3. Если друзей нет, система запустит игру с ботами")
+        print("\nСтатус будет обновляться автоматически.")
         print("Для остановки нажмите Ctrl+C")
-
-        if system.hotkey_manager and system.window_config:
-            print("\n🎯 Горячие клавиши для управления окнами:")
-            hotkeys = system.window_config.get("hotkeys", {})
-            for action, key in hotkeys.items():
-                action_name = action.replace('_', ' ').title()
-                print(f"  {key}: {action_name}")
 
         # Основной цикл ожидания
         try:
@@ -556,7 +988,7 @@ def main():
                 time.sleep(10)
 
         except KeyboardInterrupt:
-            print("\n\n🛑 Получен запрос на остановку...")
+            print("\n\nПолучен запрос на остановку...")
             system.stop_system()
 
     else:

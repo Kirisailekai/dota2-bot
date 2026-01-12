@@ -2,7 +2,7 @@
     "lobby_settings": {
         "game_mode": "ALL_PICK",
         "server_region": "EUROPE",
-        "lobby_password": "",
+        "lobby_password": "bot12345",
         "lobby_name": "BOT_FARM_5v5",
         "series_type": "BO1",
         "allow_spectators": false,

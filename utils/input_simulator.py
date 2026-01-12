@@ -1,158 +1,143 @@
-# utils/input_simulator.py (расширенная версия)
-"""
-Симуляция ввода для ботов
-"""
-
-import win32api
-import win32con
+import pyautogui
 import win32gui
+import win32con
+import win32api
 import time
-import random
-from typing import Tuple, Optional
 import logging
+
+logger = logging.getLogger(__name__)
 
 
 class InputSimulator:
-    """Симулятор ввода для окон в Sandboxie"""
+    """Эмулятор ввода для управления окнами Dota 2"""
 
     def __init__(self):
-        self.logger = logging.getLogger(__name__)
-        self.key_delay = 0.05  # Задержка между нажатиями
-        self.mouse_delay = 0.1  # Задержка между движениями мыши
+        # Настройки безопасности
+        pyautogui.FAILSAFE = True
+        pyautogui.PAUSE = 0.1
 
-    def find_window_by_title(self, title_substring: str) -> Optional[int]:
-        """Поиск окна по части заголовка"""
-
-        def callback(hwnd, windows):
-            if win32gui.IsWindowVisible(hwnd):
-                window_title = win32gui.GetWindowText(hwnd)
-                if title_substring.lower() in window_title.lower():
-                    windows.append(hwnd)
-            return True
-
-        windows = []
-        win32gui.EnumWindows(callback, windows)
-
-        return windows[0] if windows else None
-
-    def activate_window(self, hwnd: int) -> bool:
-        """Активация окна"""
+    def activate_window(self, hwnd):
+        """Активация окна по handle"""
         try:
-            win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+            # Восстанавливаем окно если свернуто
+            if win32gui.IsIconic(hwnd):
+                win32gui.ShowWindow(hwnd, win32con.SW_RESTORE)
+
+            # Активируем окно
             win32gui.SetForegroundWindow(hwnd)
+            time.sleep(0.5)
+
+            # Фокусируем окно
+            win32gui.BringWindowToTop(hwnd)
+            win32gui.SetActiveWindow(hwnd)
+
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка активации окна: {e}")
+            return False
+
+    def click_at(self, x: int, y: int, button='left', clicks=1):
+        """Клик в указанных координатах"""
+        try:
+            # Получаем текущую позицию мыши
+            current_x, current_y = pyautogui.position()
+
+            # Перемещаем мышь и кликаем
+            pyautogui.moveTo(x, y, duration=0.1)
+            time.sleep(0.1)
+            pyautogui.click(button=button, clicks=clicks)
+            time.sleep(0.1)
+
+            # Возвращаем мышь на место (опционально)
+            # pyautogui.moveTo(current_x, current_y, duration=0.1)
+
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка клика: {e}")
+            return False
+
+    def double_click_at(self, x: int, y: int, button='left'):
+        """Двойной клик"""
+        return self.click_at(x, y, button, clicks=2)
+
+    def right_click_at(self, x: int, y: int):
+        """Правый клик"""
+        return self.click_at(x, y, button='right')
+
+    def press_key(self, key: str, presses=1, interval=0.1):
+        """Нажатие клавиши"""
+        try:
+            pyautogui.press(key, presses=presses, interval=interval)
             time.sleep(0.1)
             return True
         except Exception as e:
-            self.logger.error(f"Ошибка активации окна: {e}")
+            logger.error(f"Ошибка нажатия клавиши {key}: {e}")
             return False
 
-    def send_key(self, hwnd: int, key_code: int, key_down: bool = True,
-                 modifiers: list = None) -> bool:
-        """Отправка нажатия клавиши"""
+    def hotkey(self, *keys):
+        """Комбинация клавиш"""
         try:
-            if modifiers:
-                for mod_key in modifiers:
-                    win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, mod_key, 0)
-                    time.sleep(self.key_delay)
-
-            if key_down:
-                win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, key_code, 0)
-                time.sleep(self.key_delay)
-                win32api.PostMessage(hwnd, win32con.WM_KEYUP, key_code, 0)
-            else:
-                win32api.PostMessage(hwnd, win32con.WM_KEYUP, key_code, 0)
-
-            if modifiers:
-                for mod_key in reversed(modifiers):
-                    win32api.PostMessage(hwnd, win32con.WM_KEYUP, mod_key, 0)
-                    time.sleep(self.key_delay)
-
-            return True
-
-        except Exception as e:
-            self.logger.error(f"Ошибка отправки клавиши: {e}")
-            return False
-
-    def mouse_click(self, hwnd: int, x: int, y: int,
-                    button: str = 'left', double_click: bool = False) -> bool:
-        """Клик мыши"""
-        try:
-            # Конвертируем координаты в lParam
-            lparam = win32api.MAKELONG(x, y)
-
-            if button == 'left':
-                down_msg = win32con.WM_LBUTTONDOWN
-                up_msg = win32con.WM_LBUTTONUP
-            elif button == 'right':
-                down_msg = win32con.WM_RBUTTONDOWN
-                up_msg = win32con.WM_RBUTTONUP
-            else:
-                down_msg = win32con.WM_MBUTTONDOWN
-                up_msg = win32con.WM_MBUTTONUP
-
-            # Отправляем сообщения
-            win32api.PostMessage(hwnd, down_msg, 0, lparam)
-            time.sleep(0.05)
-            win32api.PostMessage(hwnd, up_msg, 0, lparam)
-
-            if double_click:
-                time.sleep(0.1)
-                win32api.PostMessage(hwnd, down_msg, 0, lparam)
-                time.sleep(0.05)
-                win32api.PostMessage(hwnd, up_msg, 0, lparam)
-
-            return True
-
-        except Exception as e:
-            self.logger.error(f"Ошибка клика мыши: {e}")
-            return False
-
-    def mouse_move(self, hwnd: int, x: int, y: int) -> bool:
-        """Перемещение мыши"""
-        try:
-            lparam = win32api.MAKELONG(x, y)
-            win32api.PostMessage(hwnd, win32con.WM_MOUSEMOVE, 0, lparam)
+            pyautogui.hotkey(*keys)
+            time.sleep(0.1)
             return True
         except Exception as e:
-            self.logger.error(f"Ошибка перемещения мыши: {e}")
+            logger.error(f"Ошибка комбинации клавиш {keys}: {e}")
             return False
 
-    def send_hotkey(self, hwnd: int, main_key: int,
-                    modifier_keys: list = None) -> bool:
-        """Отправка хоткея"""
-        if not modifier_keys:
-            modifier_keys = []
-
-        # Нажимаем модификаторы
-        for mod_key in modifier_keys:
-            win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, mod_key, 0)
-            time.sleep(self.key_delay)
-
-        # Нажимаем основную клавишу
-        win32api.PostMessage(hwnd, win32con.WM_KEYDOWN, main_key, 0)
-        time.sleep(self.key_delay)
-        win32api.PostMessage(hwnd, win32con.WM_KEYUP, main_key, 0)
-
-        # Отпускаем модификаторы
-        for mod_key in reversed(modifier_keys):
-            win32api.PostMessage(hwnd, win32con.WM_KEYUP, mod_key, 0)
-            time.sleep(self.key_delay)
-
-        return True
-
-    def type_text(self, hwnd: int, text: str) -> bool:
+    def type_text(self, text: str, interval=0.01):
         """Ввод текста"""
         try:
-            for char in text:
-                # Конвертируем символ в виртуальный код
-                vk_code = win32api.VkKeyScan(char)
-
-                if vk_code != -1:
-                    win32api.PostMessage(hwnd, win32con.WM_CHAR, ord(char), 0)
-                    time.sleep(0.01)
-
+            pyautogui.write(text, interval=interval)
+            time.sleep(0.1)
             return True
-
         except Exception as e:
-            self.logger.error(f"Ошибка ввода текста: {e}")
+            logger.error(f"Ошибка ввода текста: {e}")
             return False
+
+    def drag_to(self, start_x: int, start_y: int, end_x: int, end_y: int, duration=0.5):
+        """Перетаскивание мышью"""
+        try:
+            pyautogui.moveTo(start_x, start_y, duration=0.1)
+            time.sleep(0.1)
+            pyautogui.dragTo(end_x, end_y, duration=duration, button='left')
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка перетаскивания: {e}")
+            return False
+
+    def scroll(self, clicks: int):
+        """Прокрутка колесика мыши"""
+        try:
+            pyautogui.scroll(clicks)
+            time.sleep(0.1)
+            return True
+        except Exception as e:
+            logger.error(f"Ошибка прокрутки: {e}")
+            return False
+
+    def get_screen_size(self):
+        """Получение размера экрана"""
+        return pyautogui.size()
+
+    def get_cursor_position(self):
+        """Получение текущей позиции курсора"""
+        return pyautogui.position()
+
+    def screenshot(self, region=None):
+        """Скриншот области экрана"""
+        try:
+            if region:
+                return pyautogui.screenshot(region=region)
+            else:
+                return pyautogui.screenshot()
+        except Exception as e:
+            logger.error(f"Ошибка скриншота: {e}")
+            return None
+
+    def locate_on_screen(self, image_path, confidence=0.8):
+        """Поиск изображения на экране"""
+        try:
+            return pyautogui.locateOnScreen(image_path, confidence=confidence)
+        except Exception as e:
+            logger.error(f"Ошибка поиска изображения: {e}")
+            return None
