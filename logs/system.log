@@ -1,0 +1,758 @@
+2026-01-08 13:01:32,576 - __main__ - INFO - Инициализация системы...
+2026-01-08 13:01:32,974 - __main__ - ERROR - Ошибка инициализации: cannot import name 'BotAI' from 'ai.bot_ai' (C:\Users\kiris\PycharmProjects\dota2-bot\ai\bot_ai.py)
+2026-01-08 13:01:32,974 - __main__ - ERROR - Не удалось инициализировать систему
+2026-01-08 13:01:32,974 - __main__ - ERROR - Не удалось запустить систему
+2026-01-08 13:07:21,505 - __main__ - INFO - Инициализация системы...
+2026-01-08 13:07:21,573 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-08 13:07:21,574 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-08 13:07:24,589 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6164)
+2026-01-08 13:07:44,602 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-08 13:07:47,622 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 22548)
+2026-01-08 13:08:07,626 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-08 13:08:10,653 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 35520)
+2026-01-08 13:08:30,658 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-08 13:08:33,674 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 9400)
+2026-01-08 13:08:53,686 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-08 13:08:56,709 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 14404)
+2026-01-08 13:08:56,710 - __main__ - INFO - Запущено 5/5 клиентов
+2026-01-08 13:08:56,710 - __main__ - INFO - Ожидание загрузки игр...
+2026-01-08 13:09:56,731 - core.process_monitor - INFO - Мониторинг процессов запущен
+2026-01-08 13:09:56,759 - __main__ - INFO - Создание 5 контроллеров ИИ...
+2026-01-08 13:09:56,798 - __main__ - WARNING - Не удалось создать контроллеры ИИ: Can't instantiate abstract class BotAI with abstract methods execute_action, make_decision
+2026-01-08 13:09:56,824 - __main__ - WARNING - Игровая логика будет недоступна
+2026-01-08 13:09:58,854 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:09:59,350 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:09:59,350 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:10:10,635 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:10,635 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:10:21,792 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:21,792 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:10:30,073 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:32,975 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:32,976 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:10:44,095 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:44,095 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:10:55,146 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:10:55,146 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:11:01,265 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:11:06,256 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-08 13:11:06,256 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-08 13:11:15,574 - __main__ - INFO - Остановка системы...
+2026-01-08 13:11:20,577 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-08 13:11:20,577 - SandboxController - INFO - Остановка всех процессов...
+2026-01-08 13:11:21,002 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-08 13:11:21,439 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-08 13:11:21,736 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-08 13:11:22,033 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-08 13:11:22,338 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-08 13:11:22,339 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 11:21:30,689 - __main__ - INFO - Инициализация системы...
+2026-01-09 11:21:30,749 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 11:21:30,750 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 11:21:33,762 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 15680)
+2026-01-09 11:21:53,768 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 11:21:56,787 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 18272)
+2026-01-09 11:22:16,790 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 11:22:19,802 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 27760)
+2026-01-09 11:22:39,811 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 11:22:42,822 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 25604)
+2026-01-09 11:23:02,825 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 11:23:05,840 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 31376)
+2026-01-09 11:23:05,840 - __main__ - INFO - Запущено 5/5 клиентов
+2026-01-09 11:23:05,840 - __main__ - INFO - Ожидание загрузки игр...
+2026-01-09 11:24:05,865 - core.process_monitor - INFO - Мониторинг процессов запущен
+2026-01-09 11:24:05,894 - __main__ - INFO - Создание 5 контроллеров ИИ...
+2026-01-09 11:24:05,932 - __main__ - WARNING - Не удалось создать контроллеры ИИ: Can't instantiate abstract class BotAI with abstract methods execute_action, make_decision
+2026-01-09 11:24:05,946 - __main__ - WARNING - Игровая логика будет недоступна
+2026-01-09 11:24:07,661 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:08,368 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:08,368 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:24:19,438 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:19,438 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:24:30,452 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:30,452 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:24:38,710 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:41,448 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:41,448 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:24:52,437 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:24:52,437 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:03,399 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:03,399 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:09,779 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:14,317 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:14,317 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:25,228 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:25,228 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:36,131 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:36,131 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:40,675 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:47,069 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:47,069 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:25:58,196 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:25:58,197 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:26:09,086 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:09,086 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:26:11,559 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:19,969 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:19,969 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:26:30,834 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:30,834 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:26:41,899 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:41,939 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:26:42,607 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:52,842 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:26:52,842 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:03,692 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:03,693 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:13,474 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:14,557 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:14,557 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:25,419 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:25,419 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:36,283 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:36,283 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:44,339 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:47,154 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:47,155 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:27:58,022 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:27:58,022 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:28:08,910 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:08,910 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:28:15,279 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:19,832 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:19,833 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:28:30,825 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:30,825 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:28:41,764 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:41,764 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:28:46,180 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:52,710 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:28:52,710 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:03,639 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:03,639 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:14,537 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:14,537 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:17,080 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:25,449 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:25,450 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:36,352 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:36,352 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:47,442 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:47,469 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:29:48,158 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:58,392 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:29:58,392 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:30:09,298 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:09,298 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:30:19,055 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:20,188 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:20,188 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:30:31,068 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:31,068 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:30:41,967 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:41,968 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:30:49,929 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:52,867 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:30:52,867 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:31:03,801 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:31:03,801 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:31:14,680 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 11:31:14,680 - __main__ - WARNING - Обнаружены проблемы с процессами
+2026-01-09 11:31:19,272 - __main__ - INFO - Остановка системы...
+2026-01-09 11:31:19,932 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 11:31:19,932 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 11:31:20,232 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 11:31:20,527 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 11:31:20,824 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 11:31:21,119 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 11:31:21,416 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 11:31:21,418 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 12:21:00,853 - __main__ - INFO - Инициализация системы...
+2026-01-09 12:21:00,887 - __main__ - ERROR - Ошибка инициализации: invalid syntax (bot_ai.py, line 12)
+2026-01-09 12:21:00,887 - __main__ - ERROR - Не удалось инициализировать систему
+2026-01-09 12:21:00,887 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 12:28:10,324 - __main__ - INFO - Инициализация системы...
+2026-01-09 12:28:10,352 - core.game_launcher - INFO - Инициализирован с разрешением экрана: (2560, 1440)
+2026-01-09 12:28:10,380 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 12:28:10,380 - core.game_launcher - INFO - Используется расположение QuadHD (2560x1440)
+2026-01-09 12:28:10,380 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 853 -h 720
+2026-01-09 12:28:13,390 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 31176)
+2026-01-09 12:28:28,394 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 853 -y 0 -w 853 -h 720
+2026-01-09 12:28:31,413 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 13436)
+2026-01-09 12:28:46,422 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 0 -w 854 -h 720
+2026-01-09 12:28:49,435 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 12044)
+2026-01-09 12:29:04,437 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 720 -w 853 -h 720
+2026-01-09 12:29:07,456 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 7400)
+2026-01-09 12:29:22,463 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 720 -w 854 -h 720
+2026-01-09 12:29:25,492 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 21104)
+2026-01-09 12:29:25,492 - __main__ - INFO - Запущено 5/5 клиентов
+2026-01-09 12:29:25,492 - __main__ - INFO - Ожидание загрузки игр...
+2026-01-09 12:29:26,960 - __main__ - INFO - Остановка системы...
+2026-01-09 12:29:26,960 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 12:29:26,960 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 12:29:27,388 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 12:29:27,741 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 12:29:28,072 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 12:29:28,371 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 12:29:28,706 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 12:29:28,706 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 12:38:40,119 - __main__ - INFO - Инициализация системы...
+2026-01-09 12:38:40,148 - core.game_launcher - INFO - Инициализирован с разрешением экрана: (2560, 1440)
+2026-01-09 12:38:40,149 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 12:38:40,149 - core.game_launcher - INFO - Используется расположение QuadHD (2560x1440)
+2026-01-09 12:38:40,149 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 853 -h 720
+2026-01-09 12:38:43,166 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6484)
+2026-01-09 12:38:58,176 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 853 -y 0 -w 853 -h 720
+2026-01-09 12:39:01,195 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 26552)
+2026-01-09 12:39:16,203 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 0 -w 854 -h 720
+2026-01-09 12:39:19,219 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 32476)
+2026-01-09 12:39:34,232 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 720 -w 853 -h 720
+2026-01-09 12:39:37,245 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 24540)
+2026-01-09 12:39:49,603 - __main__ - INFO - Остановка системы...
+2026-01-09 12:39:49,603 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 12:39:49,603 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 12:39:49,935 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 12:39:50,258 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 12:39:50,571 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 12:39:50,865 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 12:39:50,934 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 12:39:50,934 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 14:37:35,608 - __main__ - INFO - Инициализация системы...
+2026-01-09 14:37:35,676 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 14:37:35,676 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 14:37:38,693 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 32376)
+2026-01-09 14:37:58,696 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 14:38:01,717 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 16920)
+2026-01-09 14:38:21,729 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 14:38:24,747 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 3916)
+2026-01-09 14:38:44,749 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 14:38:47,770 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 33180)
+2026-01-09 14:39:07,778 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 14:39:10,798 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 31716)
+2026-01-09 14:39:10,798 - __main__ - INFO - Запущено 5/5 клиентов
+2026-01-09 14:39:10,882 - __main__ - WARNING - Модули управления окнами не установлены: No module named 'window_manager'
+2026-01-09 14:39:10,882 - __main__ - INFO - Для управления окнами установите: pip install pywin32 keyboard
+2026-01-09 14:39:10,882 - __main__ - WARNING - Управление окнами отключено
+2026-01-09 14:39:10,882 - __main__ - INFO - Ожидание загрузки игр...
+2026-01-09 14:39:22,702 - __main__ - INFO - Остановка системы...
+2026-01-09 14:39:22,702 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 14:39:22,703 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 14:39:23,125 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 14:39:23,424 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 14:39:23,738 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 14:39:24,057 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 14:39:24,353 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 14:39:24,354 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:24:41,177 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:24:41,233 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:24:41,233 - core.game_launcher - ERROR - Нужно 5 аккаунтов, но доступно 1
+2026-01-09 15:24:41,233 - __main__ - ERROR - Ошибка запуска: Недостаточно аккаунтов
+2026-01-09 15:24:41,233 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 15:26:05,263 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:26:05,288 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:26:05,288 - core.game_launcher - ERROR - Нужно 5 аккаунтов, но доступно 1
+2026-01-09 15:26:05,288 - __main__ - ERROR - Ошибка запуска: Недостаточно аккаунтов
+2026-01-09 15:26:05,288 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 15:32:38,100 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:32:38,125 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:32:38,126 - core.game_launcher - ERROR - Нужно 5 аккаунтов, но доступно 1
+2026-01-09 15:32:38,126 - __main__ - ERROR - Ошибка запуска: Недостаточно аккаунтов
+2026-01-09 15:32:38,126 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 15:33:09,002 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:33:09,029 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:33:09,029 - core.game_launcher - ERROR - Нужно 5 аккаунтов, но доступно 1
+2026-01-09 15:33:09,029 - __main__ - ERROR - Ошибка запуска: Недостаточно аккаунтов
+2026-01-09 15:33:09,029 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 15:35:48,390 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:35:48,414 - __main__ - INFO - Система инициализирована
+2026-01-09 15:35:48,414 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:35:48,414 - core.game_launcher - ERROR - Нужно 5 аккаунтов, но доступно 1
+2026-01-09 15:35:48,414 - __main__ - ERROR - Ошибка запуска: Недостаточно аккаунтов
+2026-01-09 15:35:48,414 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 15:37:57,930 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:37:57,955 - __main__ - INFO - Система инициализирована
+2026-01-09 15:37:57,955 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:37:57,955 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:38:00,973 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 8468)
+2026-01-09 15:38:20,978 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login team_name AI_BOT_SQUAD -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 15:38:24,002 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 32928)
+2026-01-09 15:38:42,800 - __main__ - INFO - Остановка системы...
+2026-01-09 15:38:42,800 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 15:38:42,800 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:38:43,089 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:38:43,383 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:38:43,461 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:38:43,535 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:38:43,609 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:38:43,609 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:38:43,609 - __main__ - INFO - Система остановлена
+2026-01-09 15:42:10,458 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:42:10,482 - __main__ - INFO - Система инициализирована
+2026-01-09 15:42:10,483 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:42:10,483 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:42:13,491 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 16700)
+2026-01-09 15:42:30,214 - __main__ - INFO - Остановка системы...
+2026-01-09 15:42:30,215 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 15:42:30,215 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:42:30,497 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:42:30,568 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:42:30,644 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:42:30,717 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:42:30,795 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:42:30,795 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:42:30,795 - __main__ - INFO - Система остановлена
+2026-01-09 15:50:24,003 - __main__ - INFO - Инициализация системы...
+2026-01-09 15:50:24,027 - __main__ - INFO - Система инициализирована
+2026-01-09 15:50:24,028 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 15:50:24,028 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:50:27,041 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 17148)
+2026-01-09 15:50:47,048 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login team_name AI_BOT_SQUAD -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 15:50:50,072 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 26248)
+2026-01-09 15:51:07,731 - __main__ - INFO - Остановка системы...
+2026-01-09 15:51:07,732 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 15:51:07,732 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:51:08,025 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:51:08,324 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:51:08,391 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:51:08,459 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:51:08,526 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:51:08,526 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:51:08,527 - __main__ - INFO - Система остановлена
+2026-01-09 16:08:30,079 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:08:30,106 - __main__ - ERROR - Ошибка инициализации: 'GameLauncher' object has no attribute 'logger'
+2026-01-09 16:08:30,107 - __main__ - ERROR - Не удалось инициализировать систему
+2026-01-09 16:08:30,107 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 16:11:58,648 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:11:58,675 - __main__ - ERROR - Ошибка инициализации: 'GameLauncher' object has no attribute '_load_accounts_simple'
+2026-01-09 16:11:58,675 - __main__ - ERROR - Не удалось инициализировать систему
+2026-01-09 16:11:58,675 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 16:12:27,639 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:12:27,665 - __main__ - ERROR - Ошибка инициализации: 'GameLauncher' object has no attribute '_load_accounts'
+2026-01-09 16:12:27,665 - __main__ - ERROR - Не удалось инициализировать систему
+2026-01-09 16:12:27,665 - __main__ - ERROR - Не удалось запустить систему
+2026-01-09 16:13:54,174 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:13:54,200 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 16:13:54,201 - __main__ - INFO - Система инициализирована
+2026-01-09 16:13:54,201 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 16:13:54,201 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:13:57,225 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 28896)
+2026-01-09 16:14:17,227 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:14:20,244 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 30648)
+2026-01-09 16:14:40,254 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 16:14:43,268 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 10336)
+2026-01-09 16:15:03,281 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 16:15:06,293 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 17396)
+2026-01-09 16:15:10,759 - __main__ - INFO - Остановка системы...
+2026-01-09 16:15:10,759 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 16:15:10,759 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:15:11,056 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:15:11,366 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:15:11,662 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:15:11,944 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:15:12,012 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:15:12,013 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:15:12,013 - __main__ - INFO - Система остановлена
+2026-01-09 16:23:43,202 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:23:43,226 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 16:23:43,226 - __main__ - INFO - Система инициализирована
+2026-01-09 16:23:43,226 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 16:23:43,226 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:23:46,239 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 24820)
+2026-01-09 16:24:06,245 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:24:09,265 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 23924)
+2026-01-09 16:24:12,226 - __main__ - INFO - Остановка системы...
+2026-01-09 16:24:12,227 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 16:24:12,227 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:24:12,528 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:24:12,824 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:24:12,904 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:24:12,978 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:24:13,056 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:24:13,056 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:24:13,056 - __main__ - INFO - Система остановлена
+2026-01-09 16:30:37,636 - __main__ - INFO - Инициализация системы...
+2026-01-09 16:30:37,657 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 16:30:37,658 - __main__ - INFO - Система инициализирована
+2026-01-09 16:30:37,658 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 16:30:37,658 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:30:40,670 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 31976)
+2026-01-09 16:31:00,670 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:31:03,316 - __main__ - INFO - Остановка системы...
+2026-01-09 16:31:03,317 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 16:31:03,317 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:31:03,622 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:31:03,919 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:31:04,012 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:31:04,097 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:31:04,174 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:31:04,174 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:31:04,174 - __main__ - INFO - Система остановлена
+2026-01-09 17:04:56,954 - __main__ - INFO - Инициализация системы...
+2026-01-09 17:04:56,993 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 17:04:56,994 - __main__ - INFO - Система инициализирована
+2026-01-09 17:04:56,994 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 17:04:56,996 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 17:05:00,019 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 20824)
+2026-01-09 17:05:10,093 - __main__ - INFO - Остановка системы...
+2026-01-09 17:05:10,093 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 17:05:10,093 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 17:05:10,387 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 17:05:10,460 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 17:05:10,534 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 17:05:10,604 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 17:05:10,674 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 17:05:10,674 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 17:05:10,675 - __main__ - INFO - Система остановлена
+2026-01-09 19:01:26,767 - __main__ - INFO - Инициализация системы...
+2026-01-09 19:01:26,790 - __main__ - INFO - Загружено 8 аккаунтов
+2026-01-09 19:01:26,791 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 19:01:26,792 - __main__ - INFO - Система инициализирована
+2026-01-09 19:01:26,824 - __main__ - INFO - 1. Запуск игровых клиентов...
+2026-01-09 19:01:26,824 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:01:29,836 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 32636)
+2026-01-09 19:01:45,669 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 19:01:45,669 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:01:45,976 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:01:46,061 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:01:46,145 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:01:46,223 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:01:46,291 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:01:46,291 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:03:19,778 - __main__ - INFO - Инициализация системы...
+2026-01-09 19:03:19,802 - __main__ - INFO - Загружено 8 аккаунтов
+2026-01-09 19:03:19,804 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 19:03:19,804 - __main__ - INFO - Система инициализирована
+2026-01-09 19:03:19,805 - __main__ - INFO - 1. Запуск игровых клиентов...
+2026-01-09 19:03:19,806 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:03:22,819 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 29660)
+2026-01-09 19:03:42,835 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 19:03:45,845 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 5292)
+2026-01-09 19:04:05,853 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 19:04:08,863 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 32892)
+2026-01-09 19:04:28,871 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 19:04:31,887 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 35780)
+2026-01-09 19:04:51,897 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 19:04:54,911 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 8368)
+2026-01-09 19:04:54,911 - __main__ - INFO - 2. Настройка менеджера окон...
+2026-01-09 19:04:54,946 - __main__ - INFO - Загружена конфигурация окон из config\window_layout.json
+2026-01-09 19:04:54,946 - __main__ - INFO - Менеджер окон инициализирован
+2026-01-09 19:05:24,950 - __main__ - INFO - Располагаю окна в сетке 2x3...
+2026-01-09 19:05:27,223 - __main__ - INFO - Успешно расположено 2 окон
+2026-01-09 19:05:27,224 - __main__ - ERROR - Ошибка при расположении окон: 0
+2026-01-09 19:05:37,228 - __main__ - INFO - Располагаю окна в сетке 2x3...
+2026-01-09 19:05:39,391 - __main__ - INFO - Успешно расположено 2 окон
+2026-01-09 19:05:39,391 - __main__ - ERROR - Ошибка при расположении окон: 0
+2026-01-09 19:05:49,407 - __main__ - INFO - Располагаю окна в сетке 2x3...
+2026-01-09 19:05:51,550 - __main__ - INFO - Успешно расположено 2 окон
+2026-01-09 19:05:51,550 - __main__ - ERROR - Ошибка при расположении окон: 0
+2026-01-09 19:06:01,556 - __main__ - INFO - 3. Настройка менеджера горячих клавиш...
+2026-01-09 19:06:01,615 - __main__ - WARNING - Модуль горячих клавиш не установлен: No module named 'window_manager'
+2026-01-09 19:06:01,615 - __main__ - INFO - Для горячих клавиш установите: pip install keyboard
+2026-01-09 19:06:01,616 - __main__ - INFO - 4. Ожидание полной загрузки Dota 2 во всех окнах...
+2026-01-09 19:07:01,623 - __main__ - INFO - 5. Настройка игровой системы...
+2026-01-09 19:07:01,631 - __main__ - INFO - Игровая система инициализирована
+2026-01-09 19:07:01,631 - core.lobby_manager - INFO - Загружено 5 аккаунтов
+2026-01-09 19:07:01,654 - __main__ - INFO -   1. Создание лобби
+2026-01-09 19:07:01,654 - __main__ - INFO -   2. Приглашение в пати
+2026-01-09 19:07:01,654 - __main__ - INFO -   3. Поиск матча
+2026-01-09 19:07:01,654 - __main__ - INFO -   4. Принятие матча
+2026-01-09 19:07:01,654 - __main__ - INFO -   5. Выбор героев
+2026-01-09 19:07:01,654 - __main__ - INFO - 6. Запуск мониторинга процессов...
+2026-01-09 19:07:01,671 - core.process_monitor - INFO - Мониторинг процессов запущен
+2026-01-09 19:07:01,925 - __main__ - INFO - 7. Создание контроллеров ИИ...
+2026-01-09 19:07:02,738 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:03,791 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:14,783 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:25,775 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:33,950 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:36,740 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:47,696 - core.process_monitor - INFO - Найдено процессов Dota 2: 0
+2026-01-09 19:07:50,631 - core.game_controller - INFO - Игровой контроллер остановлен
+2026-01-09 19:07:59,514 - __main__ - INFO - Инициализация системы...
+2026-01-09 19:07:59,541 - __main__ - INFO - Загружено 8 аккаунтов
+2026-01-09 19:07:59,542 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 19:07:59,543 - __main__ - INFO - Система инициализирована
+2026-01-09 19:07:59,545 - __main__ - INFO - 1. Запуск игровых клиентов...
+2026-01-09 19:07:59,546 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:08:02,559 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 5276)
+2026-01-09 19:08:22,567 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 19:08:25,590 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 31248)
+2026-01-09 19:08:26,943 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 19:08:26,944 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:08:27,252 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:08:27,552 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:08:27,833 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:08:28,128 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:08:28,423 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:08:28,424 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:16:21,642 - __main__ - INFO - Инициализация системы...
+2026-01-09 19:16:21,664 - __main__ - INFO - Загружено 8 аккаунтов
+2026-01-09 19:16:21,665 - core.game_launcher - INFO - Загружено 5 валидных аккаунтов
+2026-01-09 19:16:21,666 - __main__ - INFO - Система инициализирована
+2026-01-09 19:16:21,666 - __main__ - INFO - Запуск системы с 5 ботами...
+2026-01-09 19:16:21,666 - __main__ - INFO - 1. Запуск игровых клиентов...
+2026-01-09 19:16:21,666 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:16:24,679 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 34332)
+2026-01-09 19:16:31,766 - __main__ - INFO - Остановка системы...
+2026-01-09 19:16:31,767 - core.process_monitor - INFO - Мониторинг процессов остановлен
+2026-01-09 19:16:31,767 - __main__ - INFO - Мониторинг процессов остановлен
+2026-01-09 19:16:31,767 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:16:32,064 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:16:32,132 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:16:32,204 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:16:32,275 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:16:32,344 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:16:32,344 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:16:32,344 - __main__ - INFO - Игровые процессы остановлены
+2026-01-09 19:16:32,344 - __main__ - INFO - Система остановлена
+2026-01-10 13:09:02,260 - __main__ - INFO - РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРёСЃС‚РµРјС‹...
+2026-01-10 13:09:02,292 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 8 Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-10 13:09:02,293 - core.game_launcher - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 РІР°Р»РёРґРЅС‹С… Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-10 13:09:02,294 - __main__ - INFO - РЎРёСЃС‚РµРјР° РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅР°
+2026-01-10 13:09:02,294 - __main__ - INFO - Р—Р°РїСѓСЃРє СЃРёСЃС‚РµРјС‹ СЃ 5 Р±РѕС‚Р°РјРё...
+2026-01-10 13:09:02,294 - __main__ - INFO - 1. Р—Р°РїСѓСЃРє РёРіСЂРѕРІС‹С… РєР»РёРµРЅС‚РѕРІ...
+2026-01-10 13:09:02,295 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-10 13:09:05,306 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 (PID: 21520)
+2026-01-10 13:09:24,946 - __main__ - INFO - РћСЃС‚Р°РЅРѕРІРєР° СЃРёСЃС‚РµРјС‹...
+2026-01-10 13:09:24,947 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-10 13:09:24,947 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-10 13:09:24,947 - SandboxController - INFO - РћСЃС‚Р°РЅРѕРІРєР° РІСЃРµС… РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-10 13:09:25,250 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-10 13:09:25,348 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-10 13:09:25,427 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-10 13:09:25,505 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-10 13:09:25,583 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-10 13:09:25,583 - SandboxController - INFO - Р’СЃРµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-10 13:09:25,585 - __main__ - INFO - РРіСЂРѕРІС‹Рµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-10 13:09:25,585 - __main__ - INFO - РЎРёСЃС‚РµРјР° РѕСЃС‚Р°РЅРѕРІР»РµРЅР°
+2026-01-22 19:38:35,540 - __main__ - INFO - РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРёСЃС‚РµРјС‹...
+2026-01-22 19:38:35,573 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 8 Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-22 19:38:35,574 - core.game_launcher - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 РІР°Р»РёРґРЅС‹С… Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-22 19:38:35,575 - __main__ - INFO - РЎРёСЃС‚РµРјР° РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅР°
+2026-01-22 19:38:35,575 - __main__ - INFO - Р—Р°РїСѓСЃРє СЃРёСЃС‚РµРјС‹ СЃ 5 Р±РѕС‚Р°РјРё...
+2026-01-22 19:38:35,575 - __main__ - INFO - 1. Р—Р°РїСѓСЃРє РёРіСЂРѕРІС‹С… РєР»РёРµРЅС‚РѕРІ...
+2026-01-22 19:38:35,576 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:38:38,596 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 (PID: 39380)
+2026-01-22 19:38:58,604 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:39:01,620 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 (PID: 20624)
+2026-01-22 19:39:21,622 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:39:24,634 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 (PID: 10044)
+2026-01-22 19:39:44,641 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:39:47,652 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 (PID: 38240)
+2026-01-22 19:40:07,657 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:40:10,677 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 (PID: 20484)
+2026-01-22 19:40:10,677 - __main__ - INFO - Р—Р°РїСѓС‰РµРЅРѕ 5/5 РєР»РёРµРЅС‚РѕРІ
+2026-01-22 19:40:10,677 - __main__ - INFO - 2. РќР°СЃС‚СЂРѕР№РєР° РјРµРЅРµРґР¶РµСЂР° РѕРєРѕРЅ...
+2026-01-22 19:40:10,707 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅР° РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РѕРєРѕРЅ РёР· config\window_layout.json
+2026-01-22 19:40:10,707 - __main__ - INFO - РњРµРЅРµРґР¶РµСЂ РѕРєРѕРЅ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ
+2026-01-22 19:40:10,707 - __main__ - INFO - РћР¶РёРґР°РЅРёРµ РїРѕСЏРІР»РµРЅРёСЏ РѕРєРѕРЅ...
+2026-01-22 19:40:40,716 - __main__ - INFO - Р Р°СЃРїРѕР»Р°РіР°СЋ РѕРєРЅР° РІ СЃРµС‚РєРµ 2x3...
+2026-01-22 19:40:42,989 - __main__ - INFO - РЈСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРѕ 2 РѕРєРѕРЅ
+2026-01-22 19:40:42,989 - __main__ - ERROR - РћС€РёР±РєР° РїСЂРё СЂР°СЃРїРѕР»РѕР¶РµРЅРёРё РѕРєРѕРЅ: 0
+2026-01-22 19:40:42,989 - __main__ - INFO - РџРѕРІС‚РѕСЂРЅР°СЏ РїРѕРїС‹С‚РєР° СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕРєРѕРЅ (1/3)...
+2026-01-22 19:40:52,992 - __main__ - INFO - Р Р°СЃРїРѕР»Р°РіР°СЋ РѕРєРЅР° РІ СЃРµС‚РєРµ 2x3...
+2026-01-22 19:40:55,074 - __main__ - INFO - РЈСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРѕ 2 РѕРєРѕРЅ
+2026-01-22 19:40:55,074 - __main__ - ERROR - РћС€РёР±РєР° РїСЂРё СЂР°СЃРїРѕР»РѕР¶РµРЅРёРё РѕРєРѕРЅ: 0
+2026-01-22 19:40:55,074 - __main__ - INFO - РџРѕРІС‚РѕСЂРЅР°СЏ РїРѕРїС‹С‚РєР° СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕРєРѕРЅ (2/3)...
+2026-01-22 19:41:05,089 - __main__ - INFO - Р Р°СЃРїРѕР»Р°РіР°СЋ РѕРєРЅР° РІ СЃРµС‚РєРµ 2x3...
+2026-01-22 19:41:07,097 - __main__ - INFO - РЈСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРѕ 2 РѕРєРѕРЅ
+2026-01-22 19:41:07,099 - __main__ - ERROR - РћС€РёР±РєР° РїСЂРё СЂР°СЃРїРѕР»РѕР¶РµРЅРёРё РѕРєРѕРЅ: 0
+2026-01-22 19:41:07,099 - __main__ - INFO - РџРѕРІС‚РѕСЂРЅР°СЏ РїРѕРїС‹С‚РєР° СЂР°СЃРїРѕР»РѕР¶РµРЅРёСЏ РѕРєРѕРЅ (3/3)...
+2026-01-22 19:41:17,113 - __main__ - INFO - 3. РќР°СЃС‚СЂРѕР№РєР° РјРµРЅРµРґР¶РµСЂР° РіРѕСЂСЏС‡РёС… РєР»Р°РІРёС€...
+2026-01-22 19:41:17,193 - __main__ - WARNING - РњРѕРґСѓР»СЊ РіРѕСЂСЏС‡РёС… РєР»Р°РІРёС€ РЅРµ СѓСЃС‚Р°РЅРѕРІР»РµРЅ: No module named 'window_manager'
+2026-01-22 19:41:17,193 - __main__ - WARNING - Р“РѕСЂСЏС‡РёРµ РєР»Р°РІРёС€Рё РѕС‚РєР»СЋС‡РµРЅС‹
+2026-01-22 19:41:17,194 - __main__ - INFO - 4. РќР°СЃС‚СЂРѕР№РєР° РёРіСЂРѕРІРѕР№ СЃРёСЃС‚РµРјС‹...
+2026-01-22 19:41:17,736 - __main__ - WARNING - РњРѕРґСѓР»Рё РёРіСЂРѕРІРѕР№ СЃРёСЃС‚РµРјС‹ РЅРµ РЅР°Р№РґРµРЅС‹: numpy.core.multiarray failed to import
+2026-01-22 19:41:17,737 - __main__ - WARNING - РРіСЂРѕРІР°СЏ СЃРёСЃС‚РµРјР° РЅРµ РіРѕС‚РѕРІР°, Р°РІС‚РѕРјР°С‚РёР·Р°С†РёСЏ РѕС‚РєР»СЋС‡РµРЅР°
+2026-01-22 19:41:17,737 - __main__ - INFO - 6. Р—Р°РїСѓСЃРє РјРѕРЅРёС‚РѕСЂРёРЅРіР° РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 19:41:17,749 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 19:41:17,778 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 19:41:17,818 - __main__ - INFO - 7. РЎРѕР·РґР°РЅРёРµ РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 19:41:17,845 - __main__ - INFO - РЎРѕР·РґР°РЅРёРµ 5 РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 19:41:18,341 - __main__ - WARNING - РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РР: 0
+2026-01-22 19:41:18,381 - __main__ - INFO - РЎРёСЃС‚РµРјР° Р·Р°РїСѓС‰РµРЅР° Рё РіРѕС‚РѕРІР° Рє СЂР°Р±РѕС‚Рµ
+2026-01-22 19:41:19,450 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 0
+2026-01-22 19:41:19,451 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі СЃС‚Р°С‚СѓСЃР° Р·Р°РїСѓС‰РµРЅ
+2026-01-22 19:41:20,950 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 1
+2026-01-22 19:41:32,693 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 1
+2026-01-22 19:41:46,169 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 2
+2026-01-22 19:41:52,463 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:41:58,356 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:42:14,973 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 19:42:31,793 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 19:42:33,254 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 19:42:46,459 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 19:42:59,025 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 19:43:03,965 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 19:43:12,954 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 19:43:20,668 - __main__ - INFO - РћСЃС‚Р°РЅРѕРІРєР° СЃРёСЃС‚РµРјС‹...
+2026-01-22 19:43:25,704 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 19:43:25,705 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 19:43:25,707 - SandboxController - INFO - РћСЃС‚Р°РЅРѕРІРєР° РІСЃРµС… РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 19:43:28,686 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 19:43:29,681 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 19:43:30,176 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 19:43:31,198 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 19:43:31,957 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 19:43:31,968 - SandboxController - INFO - Р’СЃРµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 19:43:31,968 - __main__ - INFO - РРіСЂРѕРІС‹Рµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 19:43:31,968 - __main__ - INFO - РЎРёСЃС‚РµРјР° РѕСЃС‚Р°РЅРѕРІР»РµРЅР°
+2026-01-22 19:53:16,907 - __main__ - INFO - РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРёСЃС‚РµРјС‹...
+2026-01-22 19:53:16,938 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 Р°РєРєР°СѓРЅС‚РѕРІ РёР· РєР»СЋС‡Р° 'accounts'
+2026-01-22 19:53:16,938 - core.game_launcher - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 РІР°Р»РёРґРЅС‹С… Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-22 19:53:16,940 - __main__ - INFO - РЎРёСЃС‚РµРјР° РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅР°
+2026-01-22 19:53:16,940 - __main__ - INFO - Р—Р°РїСѓСЃРє СЃРёСЃС‚РµРјС‹ СЃ 5 Р±РѕС‚Р°РјРё...
+2026-01-22 19:53:16,941 - __main__ - INFO - 1. Р—Р°РїСѓСЃРє РёРіСЂРѕРІС‹С… РєР»РёРµРЅС‚РѕРІ...
+2026-01-22 19:53:16,941 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:53:19,958 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 (PID: 19224)
+2026-01-22 19:53:39,960 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:53:42,976 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 (PID: 3364)
+2026-01-22 19:54:02,988 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:54:06,003 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 (PID: 15204)
+2026-01-22 19:54:26,017 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:54:29,033 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 (PID: 32860)
+2026-01-22 19:54:49,037 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:54:52,062 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 (PID: 5116)
+2026-01-22 19:54:52,062 - __main__ - INFO - Р—Р°РїСѓС‰РµРЅРѕ 5/5 РєР»РёРµРЅС‚РѕРІ
+2026-01-22 19:54:52,062 - __main__ - INFO - 2. РќР°СЃС‚СЂРѕР№РєР° РјРµРЅРµРґР¶РµСЂР° РѕРєРѕРЅ...
+2026-01-22 19:54:52,086 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅР° РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РѕРєРѕРЅ РёР· config\window_layout.json
+2026-01-22 19:54:52,086 - __main__ - INFO - РњРµРЅРµРґР¶РµСЂ РѕРєРѕРЅ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ
+2026-01-22 19:54:52,086 - __main__ - INFO - РћР¶РёРґР°РЅРёРµ РїРѕСЏРІР»РµРЅРёСЏ РѕРєРѕРЅ...
+2026-01-22 19:55:22,100 - __main__ - INFO - Р Р°СЃРїРѕР»Р°РіР°СЋ РѕРєРЅР° РІ СЃРµС‚РєРµ 2x3...
+2026-01-22 19:55:24,205 - __main__ - INFO - РЈСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРѕ 2 РѕРєРѕРЅ
+2026-01-22 19:55:24,209 - __main__ - INFO - РћРєРЅР° СѓСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅС‹ РІ СЃРµС‚РєРµ
+2026-01-22 19:55:24,209 - __main__ - INFO - 3. РћР¶РёРґР°РЅРёРµ РїРѕР»РЅРѕР№ Р·Р°РіСЂСѓР·РєРё Dota 2 РІРѕ РІСЃРµС… РѕРєРЅР°С…...
+2026-01-22 19:56:24,222 - __main__ - INFO - 4. Р—Р°РїСѓСЃРє РјРѕРЅРёС‚РѕСЂРёРЅРіР° РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 19:56:24,242 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 19:56:24,278 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 19:56:24,306 - __main__ - INFO - 5. РЎРѕР·РґР°РЅРёРµ РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 19:56:24,334 - __main__ - INFO - РЎРѕР·РґР°РЅРёРµ 5 РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 19:56:24,810 - __main__ - WARNING - РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РР: Can't instantiate abstract class BotAI with abstract methods execute_action, make_decision
+2026-01-22 19:56:24,834 - __main__ - INFO - РЎРёСЃС‚РµРјР° Р·Р°РїСѓС‰РµРЅР° Рё РіРѕС‚РѕРІР° Рє СЂР°Р±РѕС‚Рµ
+2026-01-22 19:56:25,675 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 1
+2026-01-22 19:56:28,160 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 1
+2026-01-22 19:56:39,623 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 1
+2026-01-22 19:56:51,426 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 2
+2026-01-22 19:56:57,761 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 2
+2026-01-22 19:57:04,283 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 2
+2026-01-22 19:57:16,185 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:57:29,684 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:57:30,575 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:57:41,953 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:57:53,888 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:02,508 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:08,349 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:21,783 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:35,212 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:35,702 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:46,949 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:58:58,644 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:07,299 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:10,396 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:22,049 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:33,719 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:39,449 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:45,569 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 19:59:57,191 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:08,899 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:11,202 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:20,696 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:32,401 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:42,904 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:44,666 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:00:56,280 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:01:08,045 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:01:14,633 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:01:20,128 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:01:31,711 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:01:35,227 - __main__ - INFO - РћСЃС‚Р°РЅРѕРІРєР° СЃРёСЃС‚РµРјС‹...
+2026-01-22 20:01:40,232 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:01:40,232 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:01:40,233 - SandboxController - INFO - РћСЃС‚Р°РЅРѕРІРєР° РІСЃРµС… РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 20:01:40,830 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:01:41,858 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:01:42,856 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:01:43,181 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:01:44,183 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:01:44,188 - SandboxController - INFO - Р’СЃРµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:01:44,189 - __main__ - INFO - РРіСЂРѕРІС‹Рµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:01:44,189 - __main__ - INFO - РЎРёСЃС‚РµРјР° РѕСЃС‚Р°РЅРѕРІР»РµРЅР°
+2026-01-22 20:08:38,407 - __main__ - INFO - РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРёСЃС‚РµРјС‹...
+2026-01-22 20:08:38,441 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 Р°РєРєР°СѓРЅС‚РѕРІ РёР· РєР»СЋС‡Р° 'accounts'
+2026-01-22 20:08:38,442 - core.game_launcher - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 РІР°Р»РёРґРЅС‹С… Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-22 20:08:38,444 - __main__ - INFO - РЎРёСЃС‚РµРјР° РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅР°
+2026-01-22 20:08:38,444 - __main__ - INFO - Р—Р°РїСѓСЃРє СЃРёСЃС‚РµРјС‹ СЃ 5 Р±РѕС‚Р°РјРё...
+2026-01-22 20:08:38,444 - __main__ - INFO - 1. Р—Р°РїСѓСЃРє РёРіСЂРѕРІС‹С… РєР»РёРµРЅС‚РѕРІ...
+2026-01-22 20:08:38,444 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 20:08:41,456 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 (PID: 23240)
+2026-01-22 20:09:01,461 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 20:09:04,471 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 (PID: 38820)
+2026-01-22 20:09:24,476 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 20:09:27,486 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 (PID: 22032)
+2026-01-22 20:09:47,498 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 20:09:50,534 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 (PID: 27244)
+2026-01-22 20:10:10,538 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 20:10:13,553 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 (PID: 16060)
+2026-01-22 20:10:13,553 - __main__ - INFO - Р—Р°РїСѓС‰РµРЅРѕ 5/5 РєР»РёРµРЅС‚РѕРІ
+2026-01-22 20:10:13,553 - __main__ - INFO - 2. РќР°СЃС‚СЂРѕР№РєР° РјРµРЅРµРґР¶РµСЂР° РѕРєРѕРЅ...
+2026-01-22 20:10:13,576 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅР° РєРѕРЅС„РёРіСѓСЂР°С†РёСЏ РѕРєРѕРЅ РёР· config\window_layout.json
+2026-01-22 20:10:13,576 - __main__ - INFO - РњРµРЅРµРґР¶РµСЂ РѕРєРѕРЅ РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅ
+2026-01-22 20:10:13,576 - __main__ - INFO - РћР¶РёРґР°РЅРёРµ РїРѕСЏРІР»РµРЅРёСЏ РѕРєРѕРЅ...
+2026-01-22 20:10:43,584 - __main__ - INFO - Р Р°СЃРїРѕР»Р°РіР°СЋ РѕРєРЅР° РІ СЃРµС‚РєРµ 2x3...
+2026-01-22 20:10:45,736 - __main__ - INFO - РЈСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅРѕ 2 РѕРєРѕРЅ
+2026-01-22 20:10:45,738 - __main__ - INFO - РћРєРЅР° СѓСЃРїРµС€РЅРѕ СЂР°СЃРїРѕР»РѕР¶РµРЅС‹ РІ СЃРµС‚РєРµ
+2026-01-22 20:10:45,738 - __main__ - INFO - 3. РћР¶РёРґР°РЅРёРµ РїРѕР»РЅРѕР№ Р·Р°РіСЂСѓР·РєРё Dota 2 РІРѕ РІСЃРµС… РѕРєРЅР°С…...
+2026-01-22 20:11:45,742 - __main__ - INFO - 4. Р—Р°РїСѓСЃРє РјРѕРЅРёС‚РѕСЂРёРЅРіР° РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 20:11:45,779 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 20:11:45,779 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ Р·Р°РїСѓС‰РµРЅ
+2026-01-22 20:11:45,779 - __main__ - INFO - 5. РЎРѕР·РґР°РЅРёРµ РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 20:11:45,801 - __main__ - INFO - РЎРѕР·РґР°РЅРёРµ 5 РєРѕРЅС‚СЂРѕР»Р»РµСЂРѕРІ РР...
+2026-01-22 20:11:46,326 - __main__ - WARNING - РќРµ СѓРґР°Р»РѕСЃСЊ СЃРѕР·РґР°С‚СЊ РєРѕРЅС‚СЂРѕР»Р»РµСЂС‹ РР: Can't instantiate abstract class BotAI with abstract methods execute_action, make_decision
+2026-01-22 20:11:46,395 - __main__ - INFO - РЎРёСЃС‚РµРјР° Р·Р°РїСѓС‰РµРЅР° Рё РіРѕС‚РѕРІР° Рє СЂР°Р±РѕС‚Рµ
+2026-01-22 20:11:49,311 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 2
+2026-01-22 20:11:51,633 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 3
+2026-01-22 20:12:03,686 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 20:12:16,400 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 20:12:21,937 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 20:12:28,393 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 4
+2026-01-22 20:12:40,183 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:12:54,219 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:12:55,634 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:13:07,117 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:13:20,455 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:13:27,465 - __main__ - INFO - РћСЃС‚Р°РЅРѕРІРєР° СЃРёСЃС‚РµРјС‹...
+2026-01-22 20:13:28,047 - core.process_monitor - INFO - РќР°Р№РґРµРЅРѕ РїСЂРѕС†РµСЃСЃРѕРІ Dota 2: 5
+2026-01-22 20:13:32,506 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:13:32,507 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:13:32,507 - SandboxController - INFO - РћСЃС‚Р°РЅРѕРІРєР° РІСЃРµС… РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 20:13:34,613 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:13:35,722 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:13:36,766 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:13:37,763 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:13:38,789 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:13:38,795 - SandboxController - INFO - Р’СЃРµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:13:38,795 - __main__ - INFO - РРіСЂРѕРІС‹Рµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:13:38,795 - __main__ - INFO - РЎРёСЃС‚РµРјР° РѕСЃС‚Р°РЅРѕРІР»РµРЅР°
+2026-01-22 20:17:31,905 - __main__ - INFO - РРЅРёС†РёР°Р»РёР·Р°С†РёСЏ СЃРёСЃС‚РµРјС‹...
+2026-01-22 20:17:31,928 - __main__ - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 Р°РєРєР°СѓРЅС‚РѕРІ РёР· РєР»СЋС‡Р° 'accounts'
+2026-01-22 20:17:31,928 - core.game_launcher - INFO - Р—Р°РіСЂСѓР¶РµРЅРѕ 5 РІР°Р»РёРґРЅС‹С… Р°РєРєР°СѓРЅС‚РѕРІ
+2026-01-22 20:17:31,930 - __main__ - INFO - РЎРёСЃС‚РµРјР° РёРЅРёС†РёР°Р»РёР·РёСЂРѕРІР°РЅР°
+2026-01-22 20:17:31,930 - __main__ - INFO - Р—Р°РїСѓСЃРє СЃРёСЃС‚РµРјС‹ СЃ 5 Р±РѕС‚Р°РјРё...
+2026-01-22 20:17:31,930 - __main__ - INFO - 1. Р—Р°РїСѓСЃРє РёРіСЂРѕРІС‹С… РєР»РёРµРЅС‚РѕРІ...
+2026-01-22 20:17:31,930 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 20:17:34,945 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 (PID: 8508)
+2026-01-22 20:17:54,948 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 20:17:57,972 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃ Р·Р°РїСѓС‰РµРЅ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 (PID: 37656)
+2026-01-22 20:18:17,979 - SandboxController - INFO - Р’С‹РїРѕР»РЅСЏСЋ РєРѕРјР°РЅРґСѓ: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 20:18:18,797 - __main__ - INFO - РћСЃС‚Р°РЅРѕРІРєР° СЃРёСЃС‚РµРјС‹...
+2026-01-22 20:18:18,797 - core.process_monitor - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:18:18,797 - __main__ - INFO - РњРѕРЅРёС‚РѕСЂРёРЅРі РїСЂРѕС†РµСЃСЃРѕРІ РѕСЃС‚Р°РЅРѕРІР»РµРЅ
+2026-01-22 20:18:18,797 - SandboxController - INFO - РћСЃС‚Р°РЅРѕРІРєР° РІСЃРµС… РїСЂРѕС†РµСЃСЃРѕРІ...
+2026-01-22 20:18:19,095 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_1 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:18:19,398 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_2 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:18:19,703 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_3 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:18:19,770 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_4 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:18:19,837 - SandboxController - INFO - РџСЂРѕС†РµСЃСЃС‹ РІ РїРµСЃРѕС‡РЅРёС†Рµ DOTA_BOT_5 Р·Р°РІРµСЂС€РµРЅС‹
+2026-01-22 20:18:19,837 - SandboxController - INFO - Р’СЃРµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:18:19,838 - __main__ - INFO - РРіСЂРѕРІС‹Рµ РїСЂРѕС†РµСЃСЃС‹ РѕСЃС‚Р°РЅРѕРІР»РµРЅС‹
+2026-01-22 20:18:19,838 - __main__ - INFO - РЎРёСЃС‚РµРјР° РѕСЃС‚Р°РЅРѕРІР»РµРЅР°

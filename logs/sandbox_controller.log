@@ -1,0 +1,561 @@
+2026-01-06 23:44:51,255 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login РІР°С€_steam_Р»РѕРіРёРЅ_1 РІР°С€_РїР°СЂРѕР»СЊ_1 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 100 -y 100 -w 1024 -h 768
+2026-01-06 23:44:54,271 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 34900)
+2026-01-06 23:45:24,279 - SandboxController - INFO - Остановка всех процессов...
+2026-01-06 23:45:24,579 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-06 23:45:24,655 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-06 23:45:24,732 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-06 23:45:24,806 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-06 23:45:24,880 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-06 23:45:24,880 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:15:30,423 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login РІР°С€_steam_Р»РѕРіРёРЅ_1 РІР°С€_РїР°СЂРѕР»СЊ_1 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:15:33,432 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 26480)
+2026-01-07 00:15:43,445 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:15:43,762 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:15:43,845 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:16:02,168 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:16:02,238 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:16:02,305 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:16:02,305 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:16:04,315 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login РІР°С€_steam_Р»РѕРіРёРЅ_1 РІР°С€_РїР°СЂРѕР»СЊ_1 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:16:04,315 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login РІР°С€_steam_Р»РѕРіРёРЅ_1 РІР°С€_РїР°СЂРѕР»СЊ_1 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:16:07,328 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 34112)
+2026-01-07 00:16:07,328 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 34112)
+2026-01-07 00:16:17,342 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:16:17,342 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:16:17,627 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:16:17,627 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:16:17,694 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:16:17,694 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:16:17,761 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:16:17,761 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:16:17,827 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:16:17,827 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:16:17,891 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:16:17,891 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:16:17,891 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:16:17,891 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:19:11,801 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:19:14,825 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 2396)
+2026-01-07 00:19:24,835 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:19:25,153 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:19:25,238 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:19:25,328 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:19:25,410 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:19:25,495 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:19:25,495 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:19:27,503 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:19:27,503 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:19:30,519 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 23672)
+2026-01-07 00:19:30,519 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 23672)
+2026-01-07 00:19:40,532 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:19:40,532 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:19:40,829 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:19:40,829 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:19:40,898 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:19:40,898 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:19:40,965 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:19:40,965 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:19:41,032 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:19:41,032 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:19:41,105 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:19:41,105 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:19:41,105 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:19:41,105 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:20:34,927 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:20:37,937 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 36064)
+2026-01-07 00:20:47,952 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:20:48,267 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:20:48,349 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:20:48,423 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:20:48,498 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:20:48,575 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:20:48,575 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:20:50,579 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:20:50,579 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:20:53,590 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 40380)
+2026-01-07 00:20:53,590 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 40380)
+2026-01-07 00:21:03,612 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:21:03,612 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:21:03,896 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:21:03,896 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:21:03,977 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:21:03,977 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:21:04,051 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:21:04,051 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:21:04,116 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:21:04,116 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:21:04,182 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:21:04,182 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:21:04,183 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:21:04,183 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:21:19,559 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:21:22,573 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 11792)
+2026-01-07 00:21:32,587 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:21:32,889 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:21:32,966 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:21:33,057 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:21:33,134 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:21:33,210 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:21:33,210 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:21:35,223 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:21:35,223 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:21:38,240 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 17056)
+2026-01-07 00:21:38,240 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 17056)
+2026-01-07 00:21:48,262 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:21:48,262 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:21:48,563 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:21:48,563 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:21:48,640 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:21:48,640 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:21:48,711 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:21:48,711 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:21:48,777 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:21:48,777 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:21:48,845 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:21:48,845 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:21:48,847 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:21:48,847 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:29:38,417 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:29:38,417 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 00:29:41,434 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 20096)
+2026-01-07 00:29:41,434 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 20096)
+2026-01-07 00:30:49,979 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:30:49,979 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 00:30:50,272 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:30:50,272 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 00:30:50,345 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:30:50,345 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 00:30:50,417 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:30:50,417 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 00:30:50,489 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:30:50,489 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 00:30:50,565 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:30:50,565 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 00:30:50,565 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 00:30:50,565 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 18:47:52,295 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 18:47:52,295 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 18:47:52,398 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 18:47:52,398 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 18:47:52,467 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 18:47:52,467 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 18:47:52,536 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 18:47:52,536 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 18:47:52,604 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 18:47:52,604 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 18:47:52,672 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 18:47:52,672 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 18:47:52,672 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 18:47:52,672 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:08:05,269 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:05,269 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:07,281 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:07,281 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:08,282 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 9764)
+2026-01-07 19:08:08,282 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 9764)
+2026-01-07 19:08:09,282 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:09,282 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:10,298 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 15380)
+2026-01-07 19:08:10,298 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 15380)
+2026-01-07 19:08:11,282 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:11,282 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:12,296 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 27220)
+2026-01-07 19:08:12,296 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 27220)
+2026-01-07 19:08:13,289 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:13,289 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:08:14,295 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 16508)
+2026-01-07 19:08:14,295 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 16508)
+2026-01-07 19:08:16,310 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 12104)
+2026-01-07 19:08:16,310 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 12104)
+2026-01-07 19:09:15,189 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:09:15,189 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:09:15,594 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:09:15,594 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:09:15,907 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:09:15,907 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:09:16,217 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:09:16,217 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:09:16,530 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:09:16,530 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:09:16,832 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:09:16,832 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:09:16,833 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:09:16,833 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:09:33,550 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:33,550 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:35,554 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:35,554 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:36,564 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 27276)
+2026-01-07 19:09:36,564 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 27276)
+2026-01-07 19:09:37,564 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:37,564 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:38,575 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 38436)
+2026-01-07 19:09:38,575 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 38436)
+2026-01-07 19:09:39,575 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:39,575 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:40,573 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 24324)
+2026-01-07 19:09:40,573 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 24324)
+2026-01-07 19:09:41,585 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:41,585 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:09:42,601 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 34960)
+2026-01-07 19:09:42,601 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 34960)
+2026-01-07 19:09:44,612 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 23312)
+2026-01-07 19:09:44,612 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 23312)
+2026-01-07 19:10:10,442 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:10:10,442 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:10:10,775 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:10:10,775 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:10:11,090 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:10:11,090 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:10:11,400 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:10:11,400 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:10:11,698 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:10:11,698 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:10:11,995 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:10:11,995 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:10:11,996 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:10:11,996 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:10:51,445 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:51,445 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:53,452 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:53,452 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:54,464 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 9684)
+2026-01-07 19:10:54,464 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 9684)
+2026-01-07 19:10:55,458 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:55,458 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:56,476 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 12812)
+2026-01-07 19:10:56,476 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 12812)
+2026-01-07 19:10:57,474 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:57,474 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:58,477 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 28956)
+2026-01-07 19:10:58,477 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 28956)
+2026-01-07 19:10:59,487 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:10:59,487 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 1024 -h 768
+2026-01-07 19:11:00,498 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 10256)
+2026-01-07 19:11:00,498 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 10256)
+2026-01-07 19:11:02,504 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 17192)
+2026-01-07 19:11:02,504 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 17192)
+2026-01-07 19:13:01,687 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:13:01,687 - SandboxController - INFO - Остановка всех процессов...
+2026-01-07 19:13:02,102 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:13:02,102 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-07 19:13:02,396 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:13:02,396 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-07 19:13:02,801 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:13:02,801 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-07 19:13:03,095 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:13:03,095 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-07 19:13:03,507 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:13:03,507 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-07 19:13:03,508 - SandboxController - INFO - Все процессы остановлены
+2026-01-07 19:13:03,508 - SandboxController - INFO - Все процессы остановлены
+2026-01-08 13:07:21,574 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-08 13:07:24,589 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6164)
+2026-01-08 13:07:44,602 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-08 13:07:47,622 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 22548)
+2026-01-08 13:08:07,626 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-08 13:08:10,653 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 35520)
+2026-01-08 13:08:30,658 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-08 13:08:33,674 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 9400)
+2026-01-08 13:08:53,686 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-08 13:08:56,709 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 14404)
+2026-01-08 13:11:20,577 - SandboxController - INFO - Остановка всех процессов...
+2026-01-08 13:11:21,002 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-08 13:11:21,439 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-08 13:11:21,736 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-08 13:11:22,033 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-08 13:11:22,338 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-08 13:11:22,339 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 11:21:30,750 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 11:21:33,762 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 15680)
+2026-01-09 11:21:53,768 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 11:21:56,787 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 18272)
+2026-01-09 11:22:16,790 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 11:22:19,802 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 27760)
+2026-01-09 11:22:39,811 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 11:22:42,822 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 25604)
+2026-01-09 11:23:02,825 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 11:23:05,840 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 31376)
+2026-01-09 11:31:19,932 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 11:31:20,232 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 11:31:20,527 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 11:31:20,824 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 11:31:21,119 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 11:31:21,416 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 11:31:21,418 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 12:28:10,380 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 853 -h 720
+2026-01-09 12:28:13,390 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 31176)
+2026-01-09 12:28:28,394 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 853 -y 0 -w 853 -h 720
+2026-01-09 12:28:31,413 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 13436)
+2026-01-09 12:28:46,422 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 0 -w 854 -h 720
+2026-01-09 12:28:49,435 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 12044)
+2026-01-09 12:29:04,437 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 720 -w 853 -h 720
+2026-01-09 12:29:07,456 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 7400)
+2026-01-09 12:29:22,463 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 720 -w 854 -h 720
+2026-01-09 12:29:25,492 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 21104)
+2026-01-09 12:29:26,960 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 12:29:27,388 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 12:29:27,741 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 12:29:28,072 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 12:29:28,371 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 12:29:28,706 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 12:29:28,706 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 12:38:40,149 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 853 -h 720
+2026-01-09 12:38:43,166 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6484)
+2026-01-09 12:38:58,176 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 853 -y 0 -w 853 -h 720
+2026-01-09 12:39:01,195 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 26552)
+2026-01-09 12:39:16,203 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1706 -y 0 -w 854 -h 720
+2026-01-09 12:39:19,219 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 32476)
+2026-01-09 12:39:34,232 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 720 -w 853 -h 720
+2026-01-09 12:39:37,245 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 24540)
+2026-01-09 12:39:49,603 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 12:39:49,935 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 12:39:50,258 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 12:39:50,571 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 12:39:50,865 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 12:39:50,934 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 12:39:50,934 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 14:37:35,676 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 14:37:38,693 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 32376)
+2026-01-09 14:37:58,696 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 14:38:01,717 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 16920)
+2026-01-09 14:38:21,729 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 14:38:24,747 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 3916)
+2026-01-09 14:38:44,749 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 14:38:47,770 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 33180)
+2026-01-09 14:39:07,778 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 14:39:10,798 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 31716)
+2026-01-09 14:39:22,703 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 14:39:23,125 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 14:39:23,424 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 14:39:23,738 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 14:39:24,057 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 14:39:24,353 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 14:39:24,354 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:37:57,955 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:38:00,973 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 8468)
+2026-01-09 15:38:20,978 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login team_name AI_BOT_SQUAD -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 15:38:24,002 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 32928)
+2026-01-09 15:38:42,800 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:38:43,089 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:38:43,383 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:38:43,461 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:38:43,535 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:38:43,609 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:38:43,609 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:42:10,483 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:42:13,491 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 16700)
+2026-01-09 15:42:30,215 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:42:30,497 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:42:30,568 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:42:30,644 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:42:30,717 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:42:30,795 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:42:30,795 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 15:50:24,028 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login accounts [{'username': 'dqfce93227', 'password': 'tfysk67359', 'friend_id': '76561198000000001', 'steam_id': 'STEAM_0:1:1111111', 'preferred_role': 'carry', 'email': '', 'rank': 'Herald', 'preferred_heroes': ['sven', 'juggernaut', 'phantom_assassin']}, {'username': 'kxuao33679', 'password': 'jvnrn16085', 'friend_id': '76561198000000002', 'steam_id': 'STEAM_0:1:2222222', 'preferred_role': 'mid', 'email': '', 'rank': 'Guardian', 'preferred_heroes': ['lina', 'shadow_fiend', 'queen_of_pain']}, {'username': 'mrfkn26761', 'password': 'ghyht62730', 'friend_id': '76561198000000003', 'steam_id': 'STEAM_0:1:3333333', 'preferred_role': 'offlane', 'email': '', 'rank': 'Crusader', 'preferred_heroes': ['axe', 'centaur', 'timbersaw']}, {'username': 'zqocg82352', 'password': 'hspqd22963', 'friend_id': '76561198000000004', 'steam_id': 'STEAM_0:1:4444444', 'preferred_role': 'support', 'email': '', 'rank': 'Archon', 'preferred_heroes': ['lion', 'crystal_maiden', 'witch_doctor']}, {'username': 'mtfag82951', 'password': 'mgwot36721', 'friend_id': '76561198000000005', 'steam_id': 'STEAM_0:1:5555555', 'preferred_role': 'hard_support', 'email': '', 'rank': 'Legend', 'preferred_heroes': ['vengefulspirit', 'disruptor', 'omniknight']}] -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 15:50:27,041 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 17148)
+2026-01-09 15:50:47,048 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login team_name AI_BOT_SQUAD -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 15:50:50,072 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 26248)
+2026-01-09 15:51:07,732 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 15:51:08,025 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 15:51:08,324 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 15:51:08,391 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 15:51:08,459 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 15:51:08,526 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 15:51:08,526 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:13:54,201 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:13:57,225 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 28896)
+2026-01-09 16:14:17,227 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:14:20,244 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 30648)
+2026-01-09 16:14:40,254 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 16:14:43,268 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 10336)
+2026-01-09 16:15:03,281 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 16:15:06,293 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 17396)
+2026-01-09 16:15:10,759 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:15:11,056 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:15:11,366 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:15:11,662 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:15:11,944 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:15:12,012 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:15:12,013 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:23:43,226 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:23:46,239 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 24820)
+2026-01-09 16:24:06,245 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:24:09,265 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 23924)
+2026-01-09 16:24:12,227 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:24:12,528 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:24:12,824 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:24:12,904 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:24:12,978 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:24:13,056 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:24:13,056 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 16:30:37,658 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 16:30:40,670 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 31976)
+2026-01-09 16:31:00,670 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 16:31:03,317 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 16:31:03,622 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 16:31:03,919 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 16:31:04,012 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 16:31:04,097 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 16:31:04,174 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 16:31:04,174 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 17:04:56,996 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 17:05:00,019 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 20824)
+2026-01-09 17:05:10,093 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 17:05:10,387 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 17:05:10,460 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 17:05:10,534 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 17:05:10,604 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 17:05:10,674 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 17:05:10,674 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:01:26,824 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:01:29,836 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 32636)
+2026-01-09 19:01:45,669 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:01:45,976 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:01:46,061 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:01:46,145 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:01:46,223 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:01:46,291 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:01:46,291 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:03:19,806 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:03:22,819 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 29660)
+2026-01-09 19:03:42,835 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 19:03:45,845 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 5292)
+2026-01-09 19:04:05,853 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-09 19:04:08,863 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 32892)
+2026-01-09 19:04:28,871 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-09 19:04:31,887 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 35780)
+2026-01-09 19:04:51,897 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-09 19:04:54,911 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 8368)
+2026-01-09 19:07:59,546 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:08:02,559 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 5276)
+2026-01-09 19:08:22,567 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-09 19:08:25,590 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 31248)
+2026-01-09 19:08:26,944 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:08:27,252 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:08:27,552 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:08:27,833 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:08:28,128 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:08:28,423 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:08:28,424 - SandboxController - INFO - Все процессы остановлены
+2026-01-09 19:16:21,666 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-09 19:16:24,679 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 34332)
+2026-01-09 19:16:31,767 - SandboxController - INFO - Остановка всех процессов...
+2026-01-09 19:16:32,064 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-09 19:16:32,132 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-09 19:16:32,204 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-09 19:16:32,275 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-09 19:16:32,344 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-09 19:16:32,344 - SandboxController - INFO - Все процессы остановлены
+2026-01-10 13:09:02,295 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-10 13:09:05,306 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 21520)
+2026-01-10 13:09:24,947 - SandboxController - INFO - Остановка всех процессов...
+2026-01-10 13:09:25,250 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-10 13:09:25,348 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-10 13:09:25,427 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-10 13:09:25,505 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-10 13:09:25,583 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-10 13:09:25,583 - SandboxController - INFO - Все процессы остановлены
+2026-01-22 19:23:35,233 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:23:35,233 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:23:38,251 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6676)
+2026-01-22 19:23:38,251 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 6676)
+2026-01-22 19:23:58,266 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:23:58,266 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:24:01,278 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 3488)
+2026-01-22 19:24:01,278 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 3488)
+2026-01-22 19:24:21,284 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:24:21,284 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:24:24,301 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 28168)
+2026-01-22 19:24:24,301 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 28168)
+2026-01-22 19:24:44,310 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:24:44,310 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:24:47,323 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 37060)
+2026-01-22 19:24:47,323 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 37060)
+2026-01-22 19:25:07,333 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:25:07,333 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:25:10,354 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 16188)
+2026-01-22 19:25:10,354 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 16188)
+2026-01-22 19:27:25,325 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:27:25,325 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:27:28,346 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 39196)
+2026-01-22 19:27:28,346 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 39196)
+2026-01-22 19:27:48,360 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:27:48,360 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:27:51,379 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 38160)
+2026-01-22 19:27:51,379 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 38160)
+2026-01-22 19:28:11,386 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:28:11,386 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:28:14,406 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 19548)
+2026-01-22 19:28:14,406 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 19548)
+2026-01-22 19:28:34,423 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:28:34,423 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:28:37,454 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 37264)
+2026-01-22 19:28:37,454 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 37264)
+2026-01-22 19:28:57,468 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:28:57,468 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:29:00,528 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 40996)
+2026-01-22 19:29:00,528 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 40996)
+2026-01-22 19:38:35,576 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:38:38,596 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 39380)
+2026-01-22 19:38:58,604 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:39:01,620 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 20624)
+2026-01-22 19:39:21,622 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:39:24,634 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 10044)
+2026-01-22 19:39:44,641 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:39:47,652 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 38240)
+2026-01-22 19:40:07,657 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:40:10,677 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 20484)
+2026-01-22 19:43:25,707 - SandboxController - INFO - Остановка всех процессов...
+2026-01-22 19:43:28,686 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-22 19:43:29,681 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-22 19:43:30,176 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-22 19:43:31,198 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-22 19:43:31,957 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-22 19:43:31,968 - SandboxController - INFO - Все процессы остановлены
+2026-01-22 19:53:16,941 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 19:53:19,958 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 19224)
+2026-01-22 19:53:39,960 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 19:53:42,976 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 3364)
+2026-01-22 19:54:02,988 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 19:54:06,003 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 15204)
+2026-01-22 19:54:26,017 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 19:54:29,033 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 32860)
+2026-01-22 19:54:49,037 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 19:54:52,062 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 5116)
+2026-01-22 20:01:40,233 - SandboxController - INFO - Остановка всех процессов...
+2026-01-22 20:01:40,830 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-22 20:01:41,858 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-22 20:01:42,856 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-22 20:01:43,181 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-22 20:01:44,183 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-22 20:01:44,188 - SandboxController - INFO - Все процессы остановлены
+2026-01-22 20:08:38,444 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 20:08:41,456 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 23240)
+2026-01-22 20:09:01,461 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 20:09:04,471 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 38820)
+2026-01-22 20:09:24,476 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 20:09:27,486 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_3 (PID: 22032)
+2026-01-22 20:09:47,498 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_4 "C:\Program Files (x86)\Steam\steam.exe" -login zqocg82352 hspqd22963 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 540 -w 960 -h 540
+2026-01-22 20:09:50,534 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_4 (PID: 27244)
+2026-01-22 20:10:10,538 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_5 "C:\Program Files (x86)\Steam\steam.exe" -login mtfag82951 mgwot36721 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 1920 -y 0 -w 960 -h 1080
+2026-01-22 20:10:13,553 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_5 (PID: 16060)
+2026-01-22 20:13:32,507 - SandboxController - INFO - Остановка всех процессов...
+2026-01-22 20:13:34,613 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-22 20:13:35,722 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-22 20:13:36,766 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-22 20:13:37,763 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-22 20:13:38,789 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-22 20:13:38,795 - SandboxController - INFO - Все процессы остановлены
+2026-01-22 20:17:31,930 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_1 "C:\Program Files (x86)\Steam\steam.exe" -login dqfce93227 tfysk67359 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 0 -w 960 -h 540
+2026-01-22 20:17:34,945 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_1 (PID: 8508)
+2026-01-22 20:17:54,948 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_2 "C:\Program Files (x86)\Steam\steam.exe" -login kxuao33679 jvnrn16085 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 960 -y 0 -w 960 -h 540
+2026-01-22 20:17:57,972 - SandboxController - INFO - Процесс запущен в песочнице DOTA_BOT_2 (PID: 37656)
+2026-01-22 20:18:17,979 - SandboxController - INFO - Выполняю команду: "C:\Program Files\Sandboxie-Plus\Start.exe" /box:DOTA_BOT_3 "C:\Program Files (x86)\Steam\steam.exe" -login mrfkn26761 ghyht62730 -applaunch 570 -novid -console -windowed -w 1024 -h 768 +map dota -disablehangwatchdog -x 0 -y 540 -w 960 -h 540
+2026-01-22 20:18:18,797 - SandboxController - INFO - Остановка всех процессов...
+2026-01-22 20:18:19,095 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_1 завершены
+2026-01-22 20:18:19,398 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_2 завершены
+2026-01-22 20:18:19,703 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_3 завершены
+2026-01-22 20:18:19,770 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_4 завершены
+2026-01-22 20:18:19,837 - SandboxController - INFO - Процессы в песочнице DOTA_BOT_5 завершены
+2026-01-22 20:18:19,837 - SandboxController - INFO - Все процессы остановлены
