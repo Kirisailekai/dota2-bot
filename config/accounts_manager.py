@@ -1,11 +1,8 @@
-import json
 import hashlib
+import json
+import logging
 from pathlib import Path
 from typing import List, Dict
-import logging
-from cryptography.fernet import Fernet
-import base64
-
 
 class AccountsManager:
     def __init__(self, config_file: str = "config/accounts.json"):

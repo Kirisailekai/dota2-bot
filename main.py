@@ -1,7 +1,6 @@
 # main.py - главный управляющий скрипт
 """
 Основной скрипт для запуска системы ботов Dota 2
-Только базовый запуск окон без игровой автоматизации
 """
 
 import sys
@@ -36,7 +35,6 @@ logging.basicConfig(
 
 logger = logging.getLogger(__name__)
 
-
 class DotaBotSystem:
     """Основной класс системы управления ботами (упрощенная версия)"""
 
@@ -47,8 +45,6 @@ class DotaBotSystem:
         self.window_manager = None
         self.window_thread = None
         self.is_running = False
-        self.window_layout_config = "config/window_layout.json"
-        self.window_config = {}
         self.accounts_data = None
         self.bot_states = {}  # Состояния каждого бота
 
@@ -132,93 +128,6 @@ class DotaBotSystem:
             logger.warning(f"Файл accounts.json не найден: {accounts_path}")
             self.accounts_data = []
 
-    def setup_window_manager(self):
-        """Настройка менеджера окон"""
-        try:
-            from utils.window_manager import WindowManager
-            self.window_manager = WindowManager(self.window_layout_config)
-
-            # Загружаем конфигурацию
-            self.load_window_config()
-
-            logger.info("Менеджер окон инициализирован")
-            return True
-
-        except ImportError as e:
-            logger.warning(f"Модуль управления окнами не установлен: {e}")
-            logger.info("Для управления окнами установите: pip install pywin32")
-            return False
-        except Exception as e:
-            logger.error(f"Ошибка настройки менеджера окон: {e}")
-            return False
-
-    def load_window_config(self):
-        """Загрузка конфигурации окон"""
-        config_path = Path(self.window_layout_config)
-        if config_path.exists():
-            with open(config_path, 'r', encoding='utf-8') as f:
-                self.window_config = json.load(f)
-            logger.info(f"Загружена конфигурация окон из {config_path}")
-        else:
-            # Конфигурация по умолчанию (упрощенная)
-            self.window_config = {
-                "layout": {
-                    "grid": [2, 3],
-                    "margins": {"top": 40, "right": 10, "bottom": 10, "left": 10},
-                    "spacing": 5,
-                    "always_on_top": False,
-                    "auto_arrange_on_start": True,
-                    "auto_arrange_interval": 30
-                },
-                "window_titles": ["Bot 1", "Bot 2", "Bot 3", "Bot 4", "Bot 5"],
-                # Убраны горячие клавиши
-            }
-            # Сохраняем конфигурацию по умолчанию
-            config_path.parent.mkdir(parents=True, exist_ok=True)
-            with open(config_path, 'w', encoding='utf-8') as f:
-                json.dump(self.window_config, f, indent=2)
-            logger.info(f"Создана конфигурация окон по умолчанию: {config_path}")
-
-    def arrange_windows(self, layout: str = "2x3"):
-        """Расположить окна в сетке"""
-        if not self.window_manager:
-            logger.warning("Менеджер окон не инициализирован")
-            return False
-
-        try:
-            logger.info(f"Располагаю окна в сетке {layout}...")
-            time.sleep(2)
-
-            windows = self.window_manager.arrange_windows_grid(layout)
-
-            if windows:
-                logger.info(f"Успешно расположено {len(windows)} окон")
-
-                # Устанавливаем заголовки окон
-                titles = []
-                if self.accounts_data and len(self.accounts_data) >= len(windows):
-                    for i in range(len(windows)):
-                        acc = self.accounts_data[i]
-                        titles.append(f"Bot {i + 1} - {acc.get('name', 'Unknown')}")
-                else:
-                    titles = self.window_config.get("window_titles",
-                                                    ["Bot 1", "Bot 2", "Bot 3", "Bot 4", "Bot 5"])
-
-                self.window_manager.set_window_titles(titles[:len(windows)])
-
-                # Выводим на передний план
-                if self.window_config.get("layout", {}).get("always_on_top", False):
-                    self.window_manager.bring_to_front()
-
-                return True
-            else:
-                logger.warning("Не найдены окна Dota 2 для расположения")
-                return False
-
-        except Exception as e:
-            logger.error(f"Ошибка при расположении окон: {e}")
-            return False
-
     def start_window_monitor(self):
         """Запуск мониторинга окон в отдельном потоке"""
         if not self.window_config.get("layout", {}).get("auto_arrange_interval"):
@@ -288,30 +197,6 @@ class DotaBotSystem:
 
         logger.info(f"Запущено {launch_result['successful']}/{bot_count} клиентов")
 
-        # 2. Настраиваем менеджер окон (если нужно)
-        logger.info("2. Настройка менеджера окон...")
-        window_manager_ready = self.setup_window_manager()
-
-        if window_manager_ready:
-            # Ждем появления окон
-            logger.info("Ожидание появления окон...")
-            time.sleep(30)
-
-            # Автоматически располагаем окна (если включено)
-            auto_arrange = self.window_config.get("layout", {}).get("auto_arrange_on_start", True)
-            if auto_arrange:
-                for attempt in range(3):
-                    if self.arrange_windows("2x3"):
-                        logger.info("Окна успешно расположены в сетке")
-                        break
-                    logger.info(f"Повторная попытка расположения окон ({attempt + 1}/3)...")
-                    time.sleep(10)
-
-            # Запускаем мониторинг окон (если включено)
-            self.start_window_monitor()
-        else:
-            logger.warning("Управление окнами отключено")
-
         # 3. Даем дополнительное время на полную загрузку Dota 2
         logger.info("3. Ожидание полной загрузки Dota 2 во всех окнах...")
         time.sleep(60)
@@ -320,10 +205,6 @@ class DotaBotSystem:
         logger.info("4. Запуск мониторинга процессов...")
         self.process_monitor.start_monitoring()
         logger.info("Мониторинг процессов запущен")
-
-        # 5. Создаем контроллеры ИИ (если нужно)
-        logger.info("5. Создание контроллеров ИИ...")
-        self.create_ai_controllers(bot_count)
 
         self.is_running = True
         logger.info("Система запущена и готова к работе")
@@ -353,7 +234,6 @@ class DotaBotSystem:
             except:
                 print("Найдено окон Dota 2: N/A")
 
-        print(f"Менеджер окон: {'ДА' if self.window_manager else 'НЕТ'}")
         print(f"Система активна: {'ДА' if self.is_running else 'НЕТ'}")
         print("=" * 60)
 
@@ -419,20 +299,6 @@ class DotaBotSystem:
                 import time
                 time.sleep(60)
 
-                # Пробуем настроить окно
-                if self.setup_window_manager():
-                    windows = self.window_manager.find_dota_windows()
-                    if windows:
-                        logger.info(f"Найдено окон: {len(windows)}")
-                        # Настраиваем первое окно
-                        self.window_manager.set_window_title(windows[0], f"Бот 1 - {username}")
-                        self.window_manager.resize_window(windows[0], 800, 600)
-                        self.window_manager.move_window(windows[0], 100, 100)
-                        logger.info("Окно настроено")
-
-                logger.info("✅ Запуск завершен")
-                logger.info("Для остановки закройте окно Dota 2")
-                return True
             else:
                 logger.error(f"Ошибка запуска: {result.get('error', 'Unknown')}")
                 return False
@@ -441,14 +307,12 @@ class DotaBotSystem:
             logger.error(f"Ошибка запуска одного бота: {e}")
             return False
 
-
 def signal_handler(signum, frame):
     """Обработчик сигналов для graceful shutdown"""
     print("\n\nПолучен сигнал завершения...")
     if 'system' in globals():
         system.stop_system()
     sys.exit(0)
-
 
 def main():
     """Основная функция"""
@@ -519,13 +383,40 @@ def main():
     # Нормальный запуск нескольких ботов
     bot_count = min(args.bots, 5)
 
-    # Настройки
-    if args.no_windows:
-        system.window_layout_config = None
-
     if system.start_system(bot_count):
         print("\nСистема запущена успешно!")
         print("\nОкна Dota 2 должны быть запущены.")
+
+        # --- Расстановка окон 3 сверху + 2 снизу ---
+        positions = [
+            (0, 0, 640, 540),  # верхний ряд
+            (640, 0, 640, 540),
+            (1280, 0, 640, 540),
+            (0, 540, 960, 540),  # нижний ряд
+            (960, 540, 960, 540)
+        ]
+
+        # Запуск каждого клиента через SandboxController
+        from core.sandbox_controller import SandboxController
+        controller = SandboxController()
+
+        for i, pos in enumerate(positions, start=1):
+            # Берем аккаунт
+            account_data = None
+            if system.accounts_data and i - 1 < len(system.accounts_data):
+                account_data = system.accounts_data[i - 1]
+
+            username = account_data.get('username', f'login{i}') if account_data else f'login{i}'
+            password = account_data.get('password', 'pass') if account_data else 'pass'
+
+            # Запуск с правильной позицией
+            controller.launch_steam(
+                sandbox_name=f"DOTA_BOT_{i}",
+                username=username,
+                password=password,
+                window_position=pos
+            )
+
         print("Для остановки нажмите Ctrl+C")
 
         # Основной цикл ожидания
@@ -554,7 +445,6 @@ def main():
         return 1
 
     return 0
-
 
 if __name__ == "__main__":
     exit_code = main()

@@ -5,7 +5,6 @@ import logging
 from pathlib import Path
 from .sandbox_controller import SandboxController
 
-
 class GameLauncher:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -148,11 +147,11 @@ class GameLauncher:
         # Расположение окон
         if team_size == 5:
             positions = [
-                (0, 0, 960, 540),
-                (960, 0, 960, 540),
-                (0, 540, 960, 540),
-                (960, 540, 960, 540),
-                (1920, 0, 960, 1080)
+                (0, 0, 640, 540),  # верхний левый
+                (640, 0, 640, 540),  # верхний центр
+                (1280, 0, 640, 540),  # верхний правый
+                (0, 540, 960, 540),  # нижний левый
+                (960, 540, 960, 540)  # нижний правый
             ]
         else:
             positions = self.calculate_window_positions(team_size)

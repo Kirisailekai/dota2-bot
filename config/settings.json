@@ -17,10 +17,7 @@
         "launch_options": [
             "-novid",
             "-console",
-            "-high",
-            "+map dota",
-            "+dota_bot_set_difficulty 1",
-            "+dota_force_gamemode 1"
+            "-high"
         ]
     },
     "ai": {

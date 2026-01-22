@@ -7,6 +7,9 @@ from pathlib import Path
 from typing import List, Dict, Optional
 import logging
 
+import win32con
+import win32gui
+
 
 class SandboxController:
     def __init__(self):
@@ -80,6 +83,42 @@ class SandboxController:
             self.logger.error(f"Ошибка запуска процесса: {e}")
             return None
 
+    def wait_for_dota_window(self, timeout=30):
+        """Ждёт появления окна Dota 2 и возвращает hwnd"""
+        end_time = time.time() + timeout
+
+        while time.time() < end_time:
+            hwnds = []
+
+            def enum_handler(hwnd, _):
+                if win32gui.IsWindowVisible(hwnd):
+                    title = win32gui.GetWindowText(hwnd)
+                    if "Dota 2" in title:
+                        hwnds.append(hwnd)
+
+            win32gui.EnumWindows(enum_handler, None)
+
+            if hwnds:
+                return hwnds[0]
+
+            time.sleep(0.5)
+
+        return None
+
+    def apply_window_position(self, hwnd, x, y, width, height):
+        """Применяет позицию, размер и РЕАЛЬНУЮ рамку Windows"""
+        style = win32gui.GetWindowLong(hwnd, win32con.GWL_STYLE)
+        style |= win32con.WS_CAPTION | win32con.WS_THICKFRAME
+
+        win32gui.SetWindowLong(hwnd, win32con.GWL_STYLE, style)
+
+        win32gui.SetWindowPos(
+            hwnd,
+            None,
+            x, y, width, height,
+            win32con.SWP_NOZORDER | win32con.SWP_FRAMECHANGED
+        )
+
     def launch_steam(self, sandbox_name: str, username: str, password: str,
                      window_position: tuple = None) -> Optional[int]:
         """Запуск Steam в песочнице"""
@@ -96,9 +135,8 @@ class SandboxController:
             "-novid",
             "-console",
             "-windowed",
-            "-w 1024",
-            "-h 768",
-            "+map dota",
+            "-w 640", # ширина под сетку 3 окна
+            "-h 540", # высота под половину экрана
             "-disablehangwatchdog"
         ]
 
@@ -112,7 +150,17 @@ class SandboxController:
             ])
 
         command = f'"{steam_path}" {" ".join(dota_args)}'
-        return self.start_process(sandbox_name, command)
+        pid = self.start_process(sandbox_name, command)
+
+        if pid and window_position:
+            hwnd = self.wait_for_dota_window()
+            if hwnd:
+                x, y, w, h = window_position
+                self.apply_window_position(hwnd, x, y, w, h)
+            else:
+                self.logger.warning("Окно Dota 2 не найдено для позиционирования")
+
+        return pid
 
     def launch_dota_direct(self, sandbox_name: str, username: str, password: str) -> Optional[int]:
         """Прямой запуск Dota 2 (альтернативный метод)"""

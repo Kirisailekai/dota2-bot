@@ -10,7 +10,6 @@ import logging
 from typing import Dict, List, Optional
 from datetime import datetime
 
-
 class ProcessMonitor:
     """Мониторинг состояния процессов ботов"""
 
