@@ -939,7 +939,7 @@ def main():
     if args.test:
         print("ТЕСТОВЫЙ РЕЖИМ")
         try:
-            from test_launch import main as test_main
+            from test_single_bot import main as test_main
             sys.exit(test_main())
         except ImportError:
             print("Тестовый модуль не найден")
