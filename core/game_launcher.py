@@ -5,6 +5,41 @@ import logging
 from pathlib import Path
 from .sandbox_controller import SandboxController
 
+
+def calculate_window_positions(num_windows: int) -> List[tuple]:
+    """Расчет позиций окон"""
+    import math
+
+    screen_width = 1920
+    screen_height = 1080
+
+    # Определяем сетку
+    cols = math.ceil(math.sqrt(num_windows))
+    rows = math.ceil(num_windows / cols)
+
+    window_width = screen_width // cols
+    window_height = screen_height // rows
+
+    positions = []
+    for i in range(num_windows):
+        row = i // cols
+        col = i % cols
+
+        x = col * window_width
+        y = row * window_height
+
+        # Отступы
+        padding = 5
+        positions.append((
+            x + padding,
+            y + padding,
+            window_width - padding * 2,
+            window_height - padding * 2
+        ))
+
+    return positions
+
+
 class GameLauncher:
     def __init__(self):
         self.logger = logging.getLogger(__name__)
@@ -154,7 +189,7 @@ class GameLauncher:
                 (960, 540, 960, 540)  # нижний правый
             ]
         else:
-            positions = self.calculate_window_positions(team_size)
+            positions = calculate_window_positions(team_size)
 
         results = []
         for i in range(team_size):
@@ -224,39 +259,6 @@ class GameLauncher:
             "successful": success_count,
             "results": results
         }
-
-    def calculate_window_positions(self, num_windows: int) -> List[tuple]:
-        """Расчет позиций окон"""
-        import math
-
-        screen_width = 1920
-        screen_height = 1080
-
-        # Определяем сетку
-        cols = math.ceil(math.sqrt(num_windows))
-        rows = math.ceil(num_windows / cols)
-
-        window_width = screen_width // cols
-        window_height = screen_height // rows
-
-        positions = []
-        for i in range(num_windows):
-            row = i // cols
-            col = i % cols
-
-            x = col * window_width
-            y = row * window_height
-
-            # Отступы
-            padding = 5
-            positions.append((
-                x + padding,
-                y + padding,
-                window_width - padding * 2,
-                window_height - padding * 2
-            ))
-
-        return positions
 
     def get_status(self):
         """Получение статуса"""
