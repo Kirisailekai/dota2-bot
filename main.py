@@ -11,7 +11,7 @@ import win32gui
 import win32process
 import win32api
 
-REMOTE_IP = "176.123.242.7"
+REMOTE_IP = "192.168.1.3"
 REMOTE_PORT = 50505
 REMOTE_TOKEN = "qwertyuiopasdfghjklzxcvbnm"
 
